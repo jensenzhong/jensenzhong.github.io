@@ -19,7 +19,7 @@ const navItems = [
 const socialLinks = [
     {
         name: "GitHub",
-        href: "https://github.com/zhengshen6",
+        href: "https://github.com/jensenzhong",
         Icon: Github,
     },
     {
