@@ -58,6 +58,7 @@ dev.err.log
 
 # large video files (use external hosting)
 *.mp4
+!public/intrinsic-fire-protection/*.mp4
 
 # spec workflow
 .spec-workflow/
