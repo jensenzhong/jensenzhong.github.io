@@ -1,0 +1,1422 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能建造技术在建筑消防领域中的应用研究 | Portfolio</title>
+  <style>
+    :root {
+      --ink: #080706;
+      --panel: #0b0f1f;
+      --panel-2: #101833;
+      --paper: #f4ecdc;
+      --muted: #b9c6ec;
+      --quiet: #7380ad;
+      --line: rgba(244, 236, 220, .16);
+      --line-strong: rgba(244, 236, 220, .34);
+      --accent: #002fa7;
+      --accent-2: #4f7dff;
+      --green: #8fbf9f;
+      --blue: #8fb3c7;
+      --shadow: rgba(0, 0, 0, .42);
+      --serif: "Noto Serif SC", "Songti SC", "SimSun", "STSong", Georgia, serif;
+      --sans: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+      --mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      color: var(--paper);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(0, 47, 167, .28), transparent 30vw),
+        radial-gradient(circle at 72% 36%, rgba(79, 125, 255, .12), transparent 28vw),
+        linear-gradient(180deg, #05070f 0%, #070b18 42%, #0a0d17 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image:
+        linear-gradient(rgba(244, 236, 220, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 236, 220, .026) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.16));
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(circle 320px at var(--mx, 50%) var(--my, 30%), rgba(79, 125, 255, .12), transparent 72%);
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    canvas#field {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: .56;
+    }
+
+    .progress {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 3px;
+      width: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .site-nav {
+      position: fixed;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 40;
+      display: grid;
+      gap: 12px;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      transition: .2s ease;
+    }
+
+    .nav-dot.active {
+      height: 34px;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .topbar {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1180px, calc(100vw - 44px));
+      z-index: 45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(244, 236, 220, .78);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .topbar span {
+      opacity: .78;
+    }
+
+    main {
+      position: relative;
+      z-index: 5;
+    }
+
+    section {
+      min-height: 92svh;
+      padding: clamp(54px, 6.4vh, 72px) max(5vw, 34px);
+      display: grid;
+      align-content: center;
+    }
+
+    #cover {
+      min-height: 100svh;
+    }
+
+    .frame {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      color: var(--accent-2);
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .hero-title {
+      max-width: 560px;
+      font-size: clamp(34px, 3.72vw, 56px);
+      line-height: 1.08;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(430px, 1.08fr);
+      gap: min(4.8vw, 70px);
+      align-items: center;
+    }
+
+    .hero-title .line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-title .accent {
+      color: var(--accent-2);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-title .underlined {
+      position: relative;
+      display: inline-block;
+      padding-bottom: .08em;
+    }
+
+    .hero-title .underlined::after {
+      content: "";
+      position: absolute;
+      left: .04em;
+      right: .04em;
+      bottom: -.08em;
+      height: .08em;
+      background: linear-gradient(90deg, var(--accent-2), rgba(244, 236, 220, .78));
+      box-shadow: 0 0 18px rgba(79, 125, 255, .46);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 28px 0 0;
+      color: rgba(244, 236, 220, .78);
+      font-size: clamp(16px, 1.22vw, 19px);
+      line-height: 1.74;
+    }
+
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 42px;
+    }
+
+    .meta-pill {
+      border: 1px solid var(--line);
+      background: rgba(244, 236, 220, .045);
+      padding: 10px 13px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-cover {
+      position: relative;
+      border: 1px solid rgba(79, 125, 255, .52);
+      background: rgba(4, 8, 24, .78);
+      padding: 12px;
+      transform: none;
+      justify-self: end;
+      width: min(100%, 635px);
+    }
+
+    .hero-cover::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border: 1px solid rgba(0, 47, 167, .5);
+      z-index: -1;
+    }
+
+    .hero-cover img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .hero-cover figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font: 12px var(--mono);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    #cover .lead {
+      max-width: 570px;
+    }
+
+    #cover .meta-strip {
+      margin-top: 26px;
+      max-width: 520px;
+    }
+
+    #cover {
+      padding-top: clamp(48px, 6vh, 66px);
+    }
+
+    .strong {
+      color: var(--paper);
+      font-weight: 700;
+      padding: 2px 6px 3px;
+      margin: 0 2px;
+      background: linear-gradient(180deg, rgba(79, 125, 255, .12), rgba(0, 47, 167, .62));
+      box-shadow: inset 0 -2px 0 var(--accent-2);
+    }
+
+    .tech-term {
+      color: var(--paper);
+      font-weight: 800;
+      font-style: italic;
+      padding: 1px 5px 2px;
+      margin: 0 1px;
+      border: 1px solid rgba(79, 125, 255, .38);
+      background: rgba(79, 125, 255, .13);
+      box-shadow: inset 0 -1px 0 rgba(79, 125, 255, .72);
+      white-space: nowrap;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(360px, 1.14fr);
+      gap: min(5.2vw, 62px);
+      align-items: start;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 3.45vw, 48px);
+      line-height: 1.14;
+    }
+
+    .section-copy {
+      color: rgba(244, 236, 220, .76);
+      font-size: 16px;
+      line-height: 1.82;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .archive-card {
+      min-height: 138px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(244, 236, 220, .045);
+      display: grid;
+      align-content: space-between;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .archive-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(79, 125, 255, .78);
+      background: rgba(244, 236, 220, .07);
+    }
+
+    .archive-card b {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .archive-card span {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .workflow {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      margin-top: 0;
+      padding: 12px 0;
+      counter-reset: step;
+    }
+
+    .workflow::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 42px;
+      bottom: 42px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(79, 125, 255, .95), transparent);
+      opacity: .7;
+    }
+
+    .flow-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: stretch;
+      padding: 10px 12px 10px 0;
+      animation: flowIn .7s ease both;
+      transition: transform .22s ease, background .22s ease;
+    }
+
+    .flow-step:nth-child(2) { animation-delay: .08s; }
+    .flow-step:nth-child(3) { animation-delay: .16s; }
+    .flow-step:nth-child(4) { animation-delay: .24s; }
+
+    .flow-step:hover {
+      transform: translateX(8px);
+      background: linear-gradient(90deg, rgba(0, 47, 167, .16), transparent);
+    }
+
+    .flow-index {
+      position: relative;
+      z-index: 2;
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(79, 125, 255, .64);
+      background: #07102a;
+      color: var(--accent-2);
+      font: 700 13px var(--mono);
+    }
+
+    .flow-index::after {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border: 1px solid rgba(79, 125, 255, .34);
+      animation: pulseBox 2.4s ease-in-out infinite;
+    }
+
+    .flow-body {
+      border: 1px solid rgba(79, 125, 255, .18);
+      background:
+        linear-gradient(90deg, rgba(0, 47, 167, .18), rgba(244, 236, 220, .032)),
+        rgba(6, 11, 28, .72);
+      padding: 14px 16px;
+    }
+
+    .flow-body b {
+      display: block;
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: var(--paper);
+    }
+
+    .flow-body p {
+      margin: 0;
+      color: rgba(244, 236, 220, .76);
+      line-height: 1.68;
+      font-size: 14px;
+    }
+
+    .flow-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .flow-tags span {
+      border: 1px solid rgba(79, 125, 255, .26);
+      color: var(--muted);
+      padding: 5px 8px;
+      font: 11px var(--mono);
+    }
+
+    .section-copy.compact {
+      font-size: 16px;
+      max-width: 480px;
+    }
+
+    @keyframes flowIn {
+      from {
+        opacity: .24;
+        transform: translateX(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulseBox {
+      0%, 100% {
+        opacity: .18;
+        transform: scale(.94);
+      }
+      50% {
+        opacity: .62;
+        transform: scale(1.08);
+      }
+    }
+
+    .feature-band {
+      min-height: auto;
+      padding-top: clamp(68px, 8vh, 88px);
+      padding-bottom: clamp(68px, 8vh, 88px);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(0, 47, 167, .22), transparent 34vw),
+        linear-gradient(90deg, rgba(0, 47, 167, .14), transparent 58%);
+    }
+
+    .feature-text {
+      display: grid;
+      grid-template-columns: .5fr 1.5fr;
+      gap: min(5.2vw, 60px);
+      align-items: end;
+    }
+
+    .big-number {
+      font-family: var(--serif);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(244, 236, 220, .62);
+      font-size: clamp(54px, 7.6vw, 108px);
+      line-height: .82;
+    }
+
+    .viz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .viz-card {
+      position: relative;
+      min-height: 372px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(244, 236, 220, .06), rgba(244, 236, 220, .02)),
+        var(--panel);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 162px 1fr;
+      align-content: space-between;
+      cursor: pointer;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .viz-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(244,236,220,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244,236,220,.045) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: .42;
+      pointer-events: none;
+    }
+
+    .viz-card::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: 30px;
+      top: 74px;
+      border: 1px solid rgba(79, 125, 255, .46);
+      transform: rotate(45deg);
+      opacity: .55;
+      transition: .25s ease;
+    }
+
+    .viz-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(79, 125, 255, .86);
+    }
+
+    .viz-card:hover::after {
+      transform: rotate(45deg) scale(1.14);
+      border-color: var(--accent-2);
+    }
+
+    .viz-preview {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(79, 125, 255, .12);
+      background: #06090d;
+    }
+
+    .viz-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left top;
+      display: block;
+      filter: saturate(.92) contrast(1.04);
+      opacity: .9;
+      transition: transform .35s ease, opacity .35s ease;
+    }
+
+    .viz-card:hover .viz-preview img {
+      transform: scale(1.045);
+      opacity: 1;
+    }
+
+    .viz-body {
+      position: relative;
+      z-index: 3;
+      padding: 16px;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+    }
+
+    .viz-foot {
+      position: relative;
+      z-index: 2;
+    }
+
+    .viz-index {
+      font-family: var(--mono);
+      color: var(--accent-2);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .viz-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.15vw, 30px);
+      line-height: 1.12;
+      max-width: 420px;
+    }
+
+    .viz-desc {
+      max-width: 500px;
+      color: rgba(244, 236, 220, .72);
+      line-height: 1.64;
+      margin: 12px 0 0;
+      font-size: 14px;
+    }
+
+    .open-btn {
+      width: fit-content;
+      border: 1px solid rgba(79, 125, 255, .82);
+      color: var(--paper);
+      background: rgba(0, 47, 167, .28);
+      padding: 9px 13px;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .insight {
+      min-height: 220px;
+      border: 1px solid rgba(79, 125, 255, .14);
+      background: rgba(244, 236, 220, .032);
+      padding: 16px;
+      display: grid;
+      align-content: start;
+    }
+
+    .insight b {
+      display: block;
+      color: var(--accent-2);
+      font-family: var(--mono);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .insight p {
+      margin: 0;
+      color: rgba(244, 236, 220, .76);
+      line-height: 1.68;
+      font-size: 14px;
+    }
+
+    .closing {
+      text-align: center;
+    }
+
+    .deck-preview {
+      min-height: auto;
+      padding-top: clamp(66px, 8vh, 88px);
+      padding-bottom: clamp(66px, 8vh, 88px);
+      background:
+        radial-gradient(circle at 70% 18%, rgba(0, 47, 167, .16), transparent 30vw),
+        rgba(244, 236, 220, .025);
+    }
+
+    .deck-showcase {
+      position: relative;
+      margin-top: 34px;
+    }
+
+    .deck-main {
+      position: relative;
+      border: 1px solid var(--line-strong);
+      background: rgba(5, 5, 5, .82);
+      overflow: hidden;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .32);
+    }
+
+    .deck-main img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #050505;
+    }
+
+    .deck-control {
+      position: absolute;
+      top: 50%;
+      z-index: 3;
+      width: clamp(42px, 4.5vw, 58px);
+      height: clamp(42px, 4.5vw, 58px);
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(244, 236, 220, .42);
+      background: rgba(5, 8, 18, .72);
+      color: var(--paper);
+      font-size: clamp(25px, 3vw, 36px);
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: border-color .18s ease, background .18s ease, color .18s ease;
+    }
+
+    .deck-control:hover {
+      border-color: rgba(79, 125, 255, .9);
+      background: rgba(0, 47, 167, .58);
+      color: #fff;
+    }
+
+    .deck-control.prev {
+      left: 16px;
+    }
+
+    .deck-control.next {
+      right: 16px;
+    }
+
+    .deck-status {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .deck-status span:last-child {
+      color: rgba(244, 236, 220, .72);
+    }
+
+    .closing .section-title {
+      margin: 0 auto;
+      max-width: 980px;
+    }
+
+    .closing .lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .motion-ready [data-reveal] {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    [data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      background: rgba(4, 3, 2, .92);
+      padding: 22px;
+    }
+
+    .modal.open {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+    }
+
+    .modal-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: rgba(17, 16, 13, .96);
+      padding: 12px 14px;
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .modal-actions a,
+    .modal-actions button {
+      color: var(--paper);
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      padding: 10px 12px;
+      font: 12px var(--mono);
+      cursor: pointer;
+    }
+
+    .modal-actions button:hover,
+    .modal-actions a:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+    }
+
+    .modal iframe {
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--line);
+      background: #050505;
+    }
+
+    .modal-frame-wrap {
+      position: relative;
+      min-height: 0;
+    }
+
+    .modal-loading {
+      position: absolute;
+      inset: 1px;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      background: #050505;
+      color: var(--muted);
+      font: 12px var(--mono);
+      letter-spacing: .04em;
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+
+    .modal-frame-wrap.loaded .modal-loading {
+      opacity: 0;
+    }
+
+    @media (max-width: 900px) {
+      .site-nav {
+        display: none;
+      }
+
+      .topbar {
+        font-size: 10px;
+      }
+
+      section {
+        min-height: auto;
+        padding: 92px 22px;
+      }
+
+      .split,
+      .feature-text,
+      .hero-grid,
+      .viz-grid,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cover {
+        transform: none;
+      }
+
+      .archive-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .deck-showcase {
+        margin-top: 28px;
+      }
+
+      .deck-control.prev {
+        left: 8px;
+      }
+
+      .deck-control.next {
+        right: 8px;
+      }
+
+      .deck-status {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .method-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .workflow::before {
+        display: none;
+      }
+
+      .flow-step {
+        grid-template-columns: 1fr;
+        padding-right: 0;
+      }
+
+      .viz-card {
+        min-height: 390px;
+        grid-template-rows: 160px 1fr;
+      }
+
+      .hero-title .line {
+        white-space: normal;
+      }
+
+      .insight {
+        min-height: auto;
+      }
+
+      .modal {
+        padding: 8px;
+      }
+
+      .modal-bar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .modal-actions {
+        width: 100%;
+      }
+
+      .modal-actions a,
+      .modal-actions button {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="progress" id="progress"></div>
+  <div class="topbar">
+    <span>PORTFOLIO PROJECT / FIRE SAFETY RESEARCH</span>
+    <span>YANG YUTING TEAM / 2026.03</span>
+  </div>
+
+  <nav class="site-nav" aria-label="章节导航">
+    <a class="nav-dot active" href="#cover" aria-label="封面"></a>
+    <a class="nav-dot" href="#context" aria-label="背景"></a>
+    <a class="nav-dot" href="#method" aria-label="方法"></a>
+    <a class="nav-dot" href="#visualization" aria-label="交互图谱"></a>
+    <a class="nav-dot" href="#insights" aria-label="结论"></a>
+    <a class="nav-dot" href="#deck" aria-label="原始展示"></a>
+  </nav>
+
+  <main>
+    <section id="cover">
+      <div class="frame hero-grid">
+        <div>
+          <div class="kicker" data-reveal>Research Portfolio / Intelligent Construction x Fire Safety</div>
+          <h1 class="hero-title" data-reveal>
+            <span class="line">智能建造技术</span>
+            <span class="line">在建筑<span class="accent">消防</span>领域</span>
+            <span class="line">中的应用</span>
+            <span class="line"><span class="underlined">文献分析</span></span>
+          </h1>
+          <p class="lead" data-reveal>
+            我使用 <span class="tech-term">Claude Code</span> 工具创新设计了一种可交互的文献分析图，能够清晰地查看文献之间的关系，深受老师和同学们的赞扬。以下是我的项目介绍。
+          </p>
+          <div class="meta-strip" data-reveal>
+            <span class="meta-pill">BIM / IoT / Digital Twin / AI</span>
+            <span class="meta-pill">CNKI Literature Mapping</span>
+            <span class="meta-pill">Claude Code / HTML / D3</span>
+          </div>
+        </div>
+        <figure class="hero-cover" data-reveal>
+          <img src="assets/deck/slide-01.png" alt="智能建造技术在建筑消防领域中的应用研究封面">
+          <figcaption><span>Original Research Cover</span><span>2026.03</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="context">
+      <div class="frame split">
+        <div>
+          <div class="kicker" data-reveal>01 / Project Context</div>
+          <h2 class="section-title" data-reveal>这不是单纯做展示，而是先把文献逻辑梳理清楚。</h2>
+        </div>
+        <div>
+          <p class="section-copy" data-reveal>
+            课程任务要求我梳理 <span class="tech-term">智能建造</span> 技术如何进入建筑消防领域。前期我先确定研究范围，再围绕 <span class="tech-term">BIM</span>、<span class="tech-term">物联网</span>、<span class="tech-term">数字孪生</span>、<span class="tech-term">AI</span>、消防预警、风险评估等关键词检索文献，重点不是堆材料，而是看清不同研究之间的连接方式。
+          </p>
+          <div class="archive-grid" data-reveal>
+            <div class="archive-card">
+              <b>课程问题</b>
+              <span>智能建造技术在消防设计、施工、运维和应急管理中分别解决什么问题。</span>
+            </div>
+            <div class="archive-card">
+              <b>文献线索</b>
+              <span>BIM、AIoT、数字孪生、图像识别和传感网络在文献中反复出现。</span>
+            </div>
+            <div class="archive-card">
+              <b>分析重点</b>
+              <span>我更关心技术与应用场景之间的关系，而不是只统计关键词出现次数。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="frame split">
+        <div>
+          <div class="kicker" data-reveal>02 / My Workflow</div>
+          <h2 class="section-title" data-reveal>传统文献分析图不够直观，我开始尝试用 HTML 重做。</h2>
+          <p class="section-copy compact" data-reveal>
+            我试过常见的文献分析方法，比如 <span class="tech-term">CiteSpace</span> 一类工具，但生成的图更适合分析过程，不太适合清晰展示。于是我改用 <span class="tech-term">HTML</span> 做交互图谱，边调结构、边改视觉、边检查逻辑。
+          </p>
+        </div>
+        <div>
+          <div class="workflow" data-reveal>
+            <article class="flow-step">
+              <div class="flow-index">01</div>
+              <div class="flow-body">
+                <b>检索文献</b>
+                <p>围绕 <span class="tech-term">智能建造</span>、<span class="tech-term">BIM</span>、<span class="tech-term">物联网</span>、<span class="tech-term">人工智能</span>、<span class="tech-term">数字孪生</span>、建筑火灾和风险预警等关键词，在 <span class="tech-term">CNKI</span> 中筛选课程任务相关文献。</p>
+                <div class="flow-tags"><span>CNKI</span><span>关键词组合</span><span>文献筛选</span></div>
+              </div>
+            </article>
+
+            <article class="flow-step">
+              <div class="flow-index">02</div>
+              <div class="flow-body">
+                <b>整理逻辑</b>
+                <p>把文献拆成引用关系、应用场景和技术演化三类问题，判断哪些研究互相连接，哪些方向正在聚集。</p>
+                <div class="flow-tags"><span>引用关系</span><span>应用场景</span><span>演化脉络</span></div>
+              </div>
+            </article>
+
+            <article class="flow-step">
+              <div class="flow-index">03</div>
+              <div class="flow-body">
+                <b>尝试 HTML 图谱</b>
+                <p>用 <span class="tech-term">Claude Code</span> 辅助编写 <span class="tech-term">HTML</span>、<span class="tech-term">JavaScript</span> 和 <span class="tech-term">D3</span> 逻辑，把文献节点、关键词、年份和关联强度转成可拖拽、可缩放的页面。</p>
+                <div class="flow-tags"><span>Claude Code</span><span>HTML</span><span>JavaScript</span><span>D3</span></div>
+              </div>
+            </article>
+
+            <article class="flow-step">
+              <div class="flow-index">04</div>
+              <div class="flow-body">
+                <b>反复调整</b>
+                <p>不断修改节点密度、配色、标签层级和交互方式，最后形成四个能用于课程展示的交互图谱。</p>
+                <div class="flow-tags"><span>4 个交互页面</span><span>试错调整</span><span>课程展示</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-band" id="visualization">
+      <div class="frame">
+        <div class="feature-text">
+          <div class="big-number" data-reveal>04</div>
+          <div>
+            <div class="kicker" data-reveal>03 / Core Highlight</div>
+            <h2 class="section-title" data-reveal>最后我把文献关系做成了可以操作的知识界面。</h2>
+            <p class="section-copy" data-reveal>
+              这部分是我在项目中投入最多的尝试。我没有停留在词云、柱状图或静态截图，而是用 <span class="tech-term">Claude Code</span> 辅助，把文献关系做成可搜索、可筛选、可拖拽、可缩放的交互式 <span class="tech-term">HTML</span>。这样展示时不只是给出结论，也能直接进入图谱观察文献之间的联系。
+            </p>
+          </div>
+        </div>
+
+        <div class="viz-grid">
+          <article class="viz-card" data-src="interactive-viz/CNKI文献互引网络图.html" data-title="CNKI 文献互引网络图" data-reveal>
+            <div class="viz-preview">
+              <img src="assets/viz/viz-01-citation.png" alt="CNKI 文献互引网络图预览">
+            </div>
+            <div class="viz-body">
+              <div class="viz-head">
+                <div class="viz-index">VISUAL 01 / CITATION NETWORK</div>
+                <div class="viz-title">CNKI 文献互引网络图</div>
+                <p class="viz-desc">用节点与连线呈现文献之间的引用关系，帮助识别核心文献、知识源头与研究分支。</p>
+              </div>
+              <div class="viz-foot"><div class="open-btn">OPEN INTERACTIVE PREVIEW</div></div>
+            </div>
+          </article>
+
+          <article class="viz-card" data-src="interactive-viz/CNKI应用场景聚类网络图.html" data-title="CNKI 应用场景聚类网络图" data-reveal>
+            <div class="viz-preview">
+              <img src="assets/viz/viz-02-cluster.png" alt="CNKI 应用场景聚类网络图预览">
+            </div>
+            <div class="viz-body">
+              <div class="viz-head">
+                <div class="viz-index">VISUAL 02 / SCENE CLUSTERS</div>
+                <div class="viz-title">CNKI 应用场景聚类网络图</div>
+                <p class="viz-desc">把消防研究拆解为疏散与路径规划、风险评估、监测预警、审查验收、灭火救援、消防管理等场景。</p>
+              </div>
+              <div class="viz-foot"><div class="open-btn">OPEN INTERACTIVE PREVIEW</div></div>
+            </div>
+          </article>
+
+          <article class="viz-card" data-src="interactive-viz/CNKI应用场景演化图.html" data-title="CNKI 应用场景演化图" data-reveal>
+            <div class="viz-preview">
+              <img src="assets/viz/viz-03-scene-evolution.png" alt="CNKI 应用场景演化图预览">
+            </div>
+            <div class="viz-body">
+              <div class="viz-head">
+                <div class="viz-index">VISUAL 03 / SCENE EVOLUTION</div>
+                <div class="viz-title">CNKI 应用场景演化图</div>
+                <p class="viz-desc">按照时间线观察国内研究场景如何从单点应用扩展到全流程消防防控。</p>
+              </div>
+              <div class="viz-foot"><div class="open-btn">OPEN INTERACTIVE PREVIEW</div></div>
+            </div>
+          </article>
+
+          <article class="viz-card" data-src="interactive-viz/CNKI国内技术演化.html" data-title="CNKI 国内技术演化图" data-reveal>
+            <div class="viz-preview">
+              <img src="assets/viz/viz-04-tech-evolution.png" alt="CNKI 国内技术演化图预览">
+            </div>
+            <div class="viz-body">
+              <div class="viz-head">
+                <div class="viz-index">VISUAL 04 / TECHNOLOGY EVOLUTION</div>
+                <div class="viz-title">CNKI 国内技术演化图</div>
+                <p class="viz-desc">展示 <span class="tech-term">BIM</span>、无人机/机器人、<span class="tech-term">物联网</span>、<span class="tech-term">数字孪生</span>、<span class="tech-term">人工智能</span> 等技术主题的出现、交汇与演进。</p>
+              </div>
+              <div class="viz-foot"><div class="open-btn">OPEN INTERACTIVE PREVIEW</div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <div class="frame">
+        <div class="kicker" data-reveal>04 / What I Found</div>
+        <h2 class="section-title" data-reveal>交互图谱帮助我把文献结论讲得更清楚。</h2>
+        <div class="insight-grid" data-reveal>
+          <div class="insight">
+            <b>01 / BIM BASE</b>
+            <p>BIM 仍然是建筑消防智能化的重要底座，常与空间建模、疏散模拟和运维管理连接。</p>
+          </div>
+          <div class="insight">
+            <b>02 / REAL-TIME SENSE</b>
+            <p>物联网、传感器和图像识别更多指向实时感知与早期预警。</p>
+          </div>
+          <div class="insight">
+            <b>03 / DIGITAL TWIN</b>
+            <p>数字孪生把模型、现场数据和预测算法连接起来，是一个明显的整合方向。</p>
+          </div>
+          <div class="insight">
+            <b>04 / CLOSED LOOP</b>
+            <p>整体趋势从单点技术应用，逐渐走向设计、施工、运维和应急处置的闭环管理。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="frame">
+        <div class="kicker" data-reveal>Final / Design Value</div>
+        <h2 class="section-title" data-reveal>这套 <span class="tech-term">HTML</span> 图谱，是一次课程任务里的方法尝试。</h2>
+        <p class="lead" data-reveal>
+          它把复杂文献关系从静态截图变成可以探索的页面。这个过程也让我意识到，文献综述不一定只能停留在文字和表格里；当关系足够复杂时，交互式网页可以成为一种更清晰的表达方式。
+        </p>
+      </div>
+    </section>
+
+    <section class="deck-preview" id="deck">
+      <div class="frame">
+        <div class="kicker" data-reveal>Appendix / Full Presentation Gallery</div>
+        <h2 class="section-title" data-reveal>完整的汇报PPT</h2>
+
+        <div class="deck-showcase" data-reveal>
+          <figure class="deck-main">
+            <button class="deck-control prev" type="button" id="deckPrev" aria-label="上一张">‹</button>
+            <img id="deckImage" src="assets/deck/full-ppt/slide-01.jpg" alt="完整的汇报PPT第 1 张">
+            <button class="deck-control next" type="button" id="deckNext" aria-label="下一张">›</button>
+          </figure>
+          <div class="deck-status" aria-live="polite">
+            <span id="deckCounter">01 / 33</span>
+            <span>Use arrows or click the buttons</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-bar">
+      <div class="modal-title" id="modalTitle">Interactive Preview</div>
+      <div class="modal-actions">
+        <a id="newTab" href="#" target="_blank" rel="noopener">NEW TAB</a>
+        <button type="button" id="closeModal">CLOSE</button>
+      </div>
+    </div>
+    <div class="modal-frame-wrap" id="frameWrap">
+      <div class="modal-loading">LOADING INTERACTIVE MAP...</div>
+      <iframe id="previewFrame" title="交互图谱预览"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const progress = document.getElementById("progress");
+    document.body.classList.add("motion-ready");
+    const navDots = [...document.querySelectorAll(".nav-dot")];
+    const sections = navDots.map(dot => document.querySelector(dot.getAttribute("href")));
+    const revealItems = [...document.querySelectorAll("[data-reveal]")];
+    const modal = document.getElementById("modal");
+    const frame = document.getElementById("previewFrame");
+    const frameWrap = document.getElementById("frameWrap");
+    const modalTitle = document.getElementById("modalTitle");
+    const newTab = document.getElementById("newTab");
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${max ? (scrollTop / max) * 100 : 0}%`;
+    }
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const index = sections.indexOf(entry.target);
+        navDots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
+      });
+    }, { threshold: .48 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .16 });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    function revealVisibleItems() {
+      revealItems.forEach(item => {
+        if (item.classList.contains("visible")) return;
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 1.08 && rect.bottom > -window.innerHeight * .08) {
+          item.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("load", revealVisibleItems);
+    window.addEventListener("hashchange", () => setTimeout(revealVisibleItems, 80));
+    window.addEventListener("scroll", revealVisibleItems, { passive: true });
+    setTimeout(revealVisibleItems, 250);
+
+    document.addEventListener("mousemove", event => {
+      document.body.style.setProperty("--mx", `${event.clientX}px`);
+      document.body.style.setProperty("--my", `${event.clientY}px`);
+    });
+
+    const vizCards = [...document.querySelectorAll(".viz-card")];
+
+    function openPreview(card) {
+        const src = card.dataset.src;
+        const title = card.dataset.title;
+        frameWrap.classList.remove("loaded");
+        frame.src = src;
+        newTab.href = src;
+        modalTitle.textContent = title;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    vizCards.forEach(card => {
+      card.addEventListener("click", () => openPreview(card));
+    });
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      frame.src = "about:blank";
+      frameWrap.classList.remove("loaded");
+      document.body.style.overflow = "";
+    }
+
+    frame.addEventListener("load", () => {
+      if (frame.src !== "about:blank") frameWrap.classList.add("loaded");
+    });
+
+    document.getElementById("closeModal").addEventListener("click", closeModal);
+    modal.addEventListener("click", event => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+
+    const previewIndex = new URLSearchParams(window.location.search).get("preview");
+    if (previewIndex !== null && vizCards[Number(previewIndex)]) {
+      window.addEventListener("load", () => openPreview(vizCards[Number(previewIndex)]));
+    }
+
+    const directSection = new URLSearchParams(window.location.search).get("section");
+    if (directSection) {
+      const jumpToSection = () => {
+        const target = document.getElementById(directSection);
+        if (target) {
+          target.scrollIntoView({ block: "start", behavior: "auto" });
+          revealVisibleItems();
+        }
+      };
+      jumpToSection();
+      requestAnimationFrame(jumpToSection);
+      window.addEventListener("load", () => setTimeout(jumpToSection, 120));
+    }
+
+    const deckImage = document.getElementById("deckImage");
+    const deckCounter = document.getElementById("deckCounter");
+    const deckSlides = Array.from({ length: 33 }, (_, index) => {
+      const number = String(index + 1).padStart(2, "0");
+      return {
+        src: `assets/deck/full-ppt/slide-${number}.jpg`,
+        alt: `完整的汇报PPT第 ${index + 1} 张`
+      };
+    });
+    let deckIndex = 0;
+
+    function showDeckSlide(nextIndex) {
+      deckIndex = (nextIndex + deckSlides.length) % deckSlides.length;
+      const slide = deckSlides[deckIndex];
+      deckImage.src = slide.src;
+      deckImage.alt = slide.alt;
+      deckCounter.textContent = `${String(deckIndex + 1).padStart(2, "0")} / ${deckSlides.length}`;
+    }
+
+    document.getElementById("deckPrev").addEventListener("click", () => showDeckSlide(deckIndex - 1));
+    document.getElementById("deckNext").addEventListener("click", () => showDeckSlide(deckIndex + 1));
+    document.addEventListener("keydown", event => {
+      if (modal.classList.contains("open")) return;
+      if (event.key === "ArrowLeft") showDeckSlide(deckIndex - 1);
+      if (event.key === "ArrowRight") showDeckSlide(deckIndex + 1);
+    });
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+
+    const canvas = document.getElementById("field");
+    const ctx = canvas.getContext("2d");
+    let w = 0;
+    let h = 0;
+    let points = [];
+
+    function resizeCanvas() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 1.6);
+      w = canvas.width = Math.floor(window.innerWidth * ratio);
+      h = canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      points = Array.from({ length: Math.min(90, Math.floor(window.innerWidth / 16)) }, (_, i) => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: 1 + Math.random() * 1.8,
+        vx: -.18 + Math.random() * .36,
+        vy: -.12 + Math.random() * .24,
+        phase: i * .17
+      }));
+    }
+
+    function drawField(time) {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "rgba(244,236,220,.52)";
+      ctx.strokeStyle = "rgba(79,125,255,.14)";
+      points.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+        const pulse = Math.sin(time * .001 + p.phase) * .45 + .7;
+        ctx.globalAlpha = .18 * pulse;
+        ctx.beginPath();
+        ctx.rect(p.x, p.y, p.r, p.r);
+        ctx.fill();
+        for (let j = i + 1; j < points.length; j += 1) {
+          const q = points[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 135) {
+            ctx.globalAlpha = (1 - d / 135) * .16;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(drawField);
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    requestAnimationFrame(drawField);
+  </script>
+</body>
+</html>

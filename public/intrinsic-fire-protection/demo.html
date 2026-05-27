@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本质安全智能施工防火系统 - 三层管控体系</title>
+  <link rel="icon" href="data:,">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coral: '#FF6F61',
+            'coral-dark': '#E85A4F',
+            'coral-light': '#FF8A85',
+          },
+          fontFamily: {
+            display: ['Rajdhani', 'sans-serif'],
+            body: ['Noto Sans SC', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen font-body">
+
+  <!-- ==================== Header ==================== -->
+  <header class="header-shimmer text-white py-5 px-8 shadow-xl relative overflow-hidden">
+    <div class="absolute inset-0 dot-pattern opacity-5"></div>
+    <div class="max-w-7xl mx-auto flex items-center justify-between relative z-10">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-coral to-coral-dark flex items-center justify-center shadow-lg shadow-coral/30">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-display text-2xl font-bold tracking-wide">本质安全智能施工防火系统</h1>
+          <p class="text-slate-300 text-sm flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
+            先预防 → 再控制 → 后感知 — 从"被动响应"到"主动预防"
+          </p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <div class="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700">
+          <span class="text-xs text-slate-400 font-medium">三层防火管控</span>
+          <span class="px-2 py-0.5 bg-coral/20 text-coral text-xs font-bold rounded-full">v1.0</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-full border border-emerald-500/30">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span class="text-emerald-400 text-xs font-medium">系统在线</span>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-coral/50 to-transparent"></div>
+  </header>
+
+  <!-- ==================== Tab Navigation ==================== -->
+  <div class="max-w-7xl mx-auto px-6 pt-8">
+    <div class="flex gap-3 flex-wrap">
+      <button class="tab-btn active px-6 py-3 rounded-xl font-semibold text-slate-700 border border-slate-200 bg-white shadow-sm" data-tab="layer1" onclick="CommonUtils.switchTab('layer1')">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          第一层：风险隔离
+        </span>
+      </button>
+      <button class="tab-btn px-6 py-3 rounded-xl font-semibold text-slate-700 border border-slate-200 bg-white shadow-sm" data-tab="layer2" onclick="CommonUtils.switchTab('layer2')">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+          第二层：过程控制
+        </span>
+      </button>
+      <button class="tab-btn px-6 py-3 rounded-xl font-semibold text-slate-700 border border-slate-200 bg-white shadow-sm" data-tab="layer3" onclick="CommonUtils.switchTab('layer3')">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+          第三层：感知预警
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== Main Content ==================== -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+    <!-- ==================== Layer 1: Risk Isolation ==================== -->
+    <div id="tab-layer1" class="tab-content active">
+      <div class="grid lg:grid-cols-5 gap-6">
+        <!-- Left Panel -->
+        <div class="lg:col-span-2 space-y-5">
+          <!-- Philosophy -->
+          <div class="philosophy-text animate-in">
+            <h3 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+              <svg class="w-5 h-5 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              本质安全理念
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              <strong class="text-coral">火源 — 可燃物 — 人员</strong> 三者空间分离，从源头消除火灾发生的必要条件。
+              AI 实时识别区域重叠，确保施工现场安全布局。
+            </p>
+          </div>
+
+          <!-- Zone List -->
+          <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+            <h4 class="font-semibold text-slate-900 mb-3 text-sm flex items-center gap-2">
+              <svg class="w-4 h-4 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+              AI 识别区域
+            </h4>
+            <div id="zoneList" class="space-y-2">
+              <div class="flex items-center gap-2 text-sm" style="animation-delay: 0.2s">
+                <span class="w-3 h-3 rounded-sm bg-red-500 flex-shrink-0"></span>
+                <span class="text-slate-700 font-medium">动火作业区</span>
+                <span class="ml-auto text-xs text-slate-400">已识别</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm" style="animation-delay: 0.4s">
+                <span class="w-3 h-3 rounded-sm bg-orange-500 flex-shrink-0"></span>
+                <span class="text-slate-700 font-medium">可燃材料堆放区</span>
+                <span class="ml-auto text-xs text-slate-400">已识别</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm" style="animation-delay: 0.6s">
+                <span class="w-3 h-3 rounded-sm bg-blue-500 flex-shrink-0"></span>
+                <span class="text-slate-700 font-medium">人员通行区</span>
+                <span class="ml-auto text-xs text-slate-400">已识别</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm" style="animation-delay: 0.8s">
+                <span class="w-3 h-3 rounded-sm bg-green-500 flex-shrink-0"></span>
+                <span class="text-slate-700 font-medium">疏散通道</span>
+                <span class="ml-auto text-xs text-slate-400">已识别</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm" style="animation-delay: 1.0s">
+                <span class="w-3 h-3 rounded-sm bg-gray-400 flex-shrink-0"></span>
+                <span class="text-slate-700 font-medium">一般施工区</span>
+                <span class="ml-auto text-xs text-slate-400">已识别</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm" style="animation-delay: 1.2s">
+                <span class="w-3 h-3 rounded-sm bg-purple-500 flex-shrink-0"></span>
+                <span class="text-slate-700 font-medium">临时办公/休息区</span>
+                <span class="ml-auto text-xs text-slate-400">已识别</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conflict Detection -->
+          <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+            <h4 class="font-semibold text-slate-900 mb-3 text-sm flex items-center gap-2">
+              <svg class="w-4 h-4 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+              冲突检测结果
+            </h4>
+            <div id="conflictResults" class="space-y-2">
+              <p class="text-sm text-slate-400 text-center py-3">点击"开始演示扫描"启动检测</p>
+            </div>
+          </div>
+
+          <!-- Three-level feedback indicators -->
+          <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+            <h4 class="font-semibold text-slate-900 mb-3 text-sm">三级冲突反馈</h4>
+            <div class="space-y-2">
+              <div id="feedbackYellow" class="conflict-indicator level-yellow">
+                <span class="conflict-light yellow"></span>
+                <span>轻度冲突（黄灯提示）</span>
+              </div>
+              <div id="feedbackOrange" class="conflict-indicator level-orange">
+                <span class="conflict-light orange"></span>
+                <span>中度冲突（橙色告警）</span>
+              </div>
+              <div id="feedbackRed" class="conflict-indicator level-red">
+                <span class="conflict-light red"></span>
+                <span>严重冲突（红灯锁定）</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Monitor View -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-slate-50">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <span class="font-semibold text-slate-700 text-sm">实时视频监控 — 风险隔离检测</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-500">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                <span id="monitorTime1">监控中</span>
+              </div>
+            </div>
+
+            <div class="monitor-container scan-overlay" style="min-height: 400px;">
+              <video id="layer1Video" src="layer1-risk-video.mp4" autoplay loop muted playsinline style="min-height: 400px;"></video>
+
+              <!-- Bottom info bar -->
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-5 py-3">
+                <div class="flex items-center justify-between text-white text-sm">
+                  <div class="flex items-center gap-4">
+                    <span>施工区域 A — 火源识别检测</span>
+                    <span class="text-slate-400">|</span>
+                    <span id="videoTime1"></span>
+                  </div>
+                  <div id="layer1Status" class="px-2 py-1 bg-green-500/20 border border-green-500/50 rounded text-green-400 text-xs">
+                    就绪
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-3 border-t border-slate-100 flex items-center gap-3 flex-wrap">
+              <button id="startLayer1Btn" class="px-4 py-2 bg-coral text-white rounded-lg font-medium flex items-center gap-2 hover:bg-coral-dark transition-colors text-sm" onclick="Layer1Risk.startDemo()">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                开始演示扫描
+              </button>
+              <button class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium hover:bg-slate-200 transition-colors text-sm" onclick="Layer1Risk.reset()">
+                重置
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Layer 2: Process Control ==================== -->
+    <div id="tab-layer2" class="tab-content">
+      <div class="grid lg:grid-cols-5 gap-6">
+        <!-- Left Panel: Permit + Checklist -->
+        <div class="lg:col-span-2 space-y-5">
+          <!-- Work Permit Card -->
+          <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm animate-in">
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+              <div class="w-10 h-10 rounded-lg bg-coral/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">动火审批信息</h3>
+                <p class="text-xs text-slate-500">宏福苑城市更新项目</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-sm">
+              <div class="bg-slate-50 rounded-lg p-3">
+                <span class="text-slate-500 text-xs">作业位置</span>
+                <p class="font-medium text-slate-800 mt-0.5">A区外墙 6F</p>
+              </div>
+              <div class="bg-slate-50 rounded-lg p-3">
+                <span class="text-slate-500 text-xs">作业类型</span>
+                <p class="font-medium text-slate-800 mt-0.5">电焊作业</p>
+              </div>
+              <div class="bg-slate-50 rounded-lg p-3">
+                <span class="text-slate-500 text-xs">作业人员</span>
+                <p class="font-medium text-slate-800 mt-0.5">张伟 (焊工证 #2024-0892)</p>
+              </div>
+              <div class="bg-slate-50 rounded-lg p-3">
+                <span class="text-slate-500 text-xs">监护人员</span>
+                <p class="font-medium text-slate-800 mt-0.5">王强 (安全员)</p>
+              </div>
+              <div class="bg-slate-50 rounded-lg p-3">
+                <span class="text-slate-500 text-xs">作业时间</span>
+                <p class="font-medium text-slate-800 mt-0.5">10:00 — 16:00</p>
+              </div>
+              <div class="bg-slate-50 rounded-lg p-3">
+                <span class="text-slate-500 text-xs">灭火器配置</span>
+                <p class="font-medium text-slate-800 mt-0.5">ABC干粉 x2</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Safety Checklist -->
+          <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+              开工前安全检查
+            </h3>
+
+            <div id="checklist" class="checklist-carousel">
+              <div class="checklist-item" data-index="0" onclick="Layer2Process.toggleCheck(this)">
+                <div class="checklist-checkbox"><span class="check-icon">&#10003;</span></div>
+                <span class="text-sm text-slate-700">周边可燃物是否清除</span>
+              </div>
+              <div class="checklist-item" data-index="1" onclick="Layer2Process.toggleCheck(this)">
+                <div class="checklist-checkbox"><span class="check-icon">&#10003;</span></div>
+                <span class="text-sm text-slate-700">灭火器是否到位</span>
+              </div>
+              <div class="checklist-item" data-index="2" onclick="Layer2Process.toggleCheck(this)">
+                <div class="checklist-checkbox"><span class="check-icon">&#10003;</span></div>
+                <span class="text-sm text-slate-700">监护人是否在岗</span>
+              </div>
+              <div class="checklist-item" data-index="3" onclick="Layer2Process.toggleCheck(this)">
+                <div class="checklist-checkbox"><span class="check-icon">&#10003;</span></div>
+                <span class="text-sm text-slate-700">疏散通道是否畅通</span>
+              </div>
+              <div class="checklist-item" data-index="4" onclick="Layer2Process.toggleCheck(this)">
+                <div class="checklist-checkbox"><span class="check-icon">&#10003;</span></div>
+                <span class="text-sm text-slate-700">作业区域是否已隔离</span>
+              </div>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="mt-5">
+              <div class="flex items-center justify-between text-sm mb-2">
+                <span class="text-slate-500">检查进度</span>
+                <span id="progressText" class="font-medium text-slate-700">0/5 已完成</span>
+              </div>
+              <div class="progress-bar-track">
+                <div id="progressBar" class="progress-bar-fill" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Activate button -->
+            <div class="mt-5 text-center space-y-3">
+              <button id="activateBtn" class="btn-activate start" onclick="Layer2Process.onBtnClick()">
+                开始检测
+              </button>
+              <div>
+                <button class="text-sm text-slate-400 hover:text-slate-600 transition-colors underline" onclick="Layer2Process.reset()">重置检查</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Monitor View -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-slate-50">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span class="font-semibold text-slate-700 text-sm">动火作业监控 — 过程控制</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-500">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                监控中
+              </div>
+            </div>
+
+            <div class="monitor-container" style="min-height: 420px;">
+              <img src="images/layer2-complete.png" alt="处理完毕监控画面" style="min-height: 420px;">
+
+              <!-- Check overlay items -->
+              <div class="absolute top-4 right-4 space-y-2" id="checkOverlay">
+                <div class="check-overlay-item opacity-0 transition-all duration-500 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg" data-check="0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  可燃物已撤离
+                </div>
+                <div class="check-overlay-item opacity-0 transition-all duration-500 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg" data-check="1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  灭火器已到位
+                </div>
+                <div class="check-overlay-item opacity-0 transition-all duration-500 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg" data-check="2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  监护人已就位
+                </div>
+                <div class="check-overlay-item opacity-0 transition-all duration-500 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg" data-check="3">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  疏散通道畅通
+                </div>
+                <div class="check-overlay-item opacity-0 transition-all duration-500 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg" data-check="4">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  作业区域已隔离
+                </div>
+              </div>
+
+              <!-- Bottom status bar -->
+              <div class="absolute bottom-0 left-0 right-0 px-5 py-3">
+                  <div id="layer2StatusBar" class="status-bar safe" style="padding: 19px 20px; font-size: 16px;">
+                  等待安全检查完成...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Layer 3: Perception & Warning ==================== -->
+    <div id="tab-layer3" class="tab-content">
+      <div class="grid lg:grid-cols-5 gap-6">
+        <!-- Left Panel: Sensors + Warning Levels -->
+        <div class="lg:col-span-2 space-y-5">
+          <!-- Sensor Cards -->
+          <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+              多传感器融合监测
+              <button onclick="CommonUtils.showModal('images/fire-warning-roadmap.png', '火灾预警系统路线图')" class="ml-auto text-xs font-medium text-white bg-coral hover:bg-coral/90 px-3 py-1 rounded-full transition-colors">火灾预警系统路线图</button>
+            </h3>
+
+            <div class="space-y-3">
+              <!-- Temperature Sensor -->
+              <div class="sensor-card" onclick="CommonUtils.showModal('images/temperature-sensor.png', '配电箱温度传感器 — ΔT/Δt 差分温升算法')">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9V3m0 0L9 6m3-3l3 3m-3 12v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2m14 0v-2a4 4 0 014-4h1a4 4 0 014 4v2"></path></svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <span class="font-medium text-slate-900 text-sm">配电箱温度传感器</span>
+                      <span id="sensorTempStatus" class="sensor-indicator normal"></span>
+                    </div>
+                    <div class="flex items-center justify-between mt-1">
+                      <span id="sensorTempValue" class="text-xs text-slate-500">当前: 42.3°C</span>
+                      <span class="text-xs text-coral font-medium">点击查看详情 ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VFDS Sensor -->
+              <div class="sensor-card" onclick="CommonUtils.showModal('images/vfds-sensor.png', 'VFDS 视觉型多光谱极早期烟火侦测系统')">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <span class="font-medium text-slate-900 text-sm">烟火检测传感器 VFDS</span>
+                      <span id="sensorVfdsStatus" class="sensor-indicator normal"></span>
+                    </div>
+                    <div class="flex items-center justify-between mt-1">
+                      <span id="sensorVfdsValue" class="text-xs text-slate-500">多光谱分析: 正常</span>
+                      <span class="text-xs text-coral font-medium">点击查看详情 ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ASD Sensor -->
+              <div class="sensor-card" onclick="CommonUtils.showModal('images/asd-sensor.png', 'ASD 吸气式极早期烟雾探测系统 (Xtralis Flair)')">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <span class="font-medium text-slate-900 text-sm">进吸式烟雾探测系统 ASD</span>
+                      <span id="sensorAsdStatus" class="sensor-indicator normal"></span>
+                    </div>
+                    <div class="flex items-center justify-between mt-1">
+                      <span id="sensorAsdValue" class="text-xs text-slate-500">激光散射: 0.02%/m</span>
+                      <span class="text-xs text-coral font-medium">点击查看详情 ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warning Levels -->
+          <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              LSTM 预警分级
+            </h3>
+            <p class="text-xs text-slate-500 mb-3">基于 LSTM 火灾风险预测模型</p>
+            <div class="space-y-2">
+              <div id="warningLevel1" class="warning-level-item level-warning">
+                <span class="w-3 h-3 rounded-full bg-orange-400 flex-shrink-0"></span>
+                <div>
+                  <span class="font-medium">预警 (Warning)</span>
+                  <span class="text-xs ml-2 opacity-70">单传感器异常 / LSTM > 30%</span>
+                </div>
+                <span id="warningLstm1" class="ml-auto text-xs font-mono opacity-50">--</span>
+              </div>
+              <div id="warningLevel2" class="warning-level-item level-alarm">
+                <span class="w-3 h-3 rounded-full bg-yellow-400 flex-shrink-0"></span>
+                <div>
+                  <span class="font-medium">警告 (Alarm)</span>
+                  <span class="text-xs ml-2 opacity-70">多传感器交叉异常 / LSTM > 70%</span>
+                </div>
+                <span id="warningLstm2" class="ml-auto text-xs font-mono opacity-50">--</span>
+              </div>
+              <div id="warningLevel3" class="warning-level-item level-emergency">
+                <span class="w-3 h-3 rounded-full bg-red-500 flex-shrink-0"></span>
+                <div>
+                  <span class="font-medium">紧急 (Emergency)</span>
+                  <span class="text-xs ml-2 opacity-70">确认火灾 / LSTM > 90%</span>
+                </div>
+                <span id="warningLstm3" class="ml-auto text-xs font-mono opacity-50">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Monitor -->
+        <div class="lg:col-span-3">
+          <!-- Monitor -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-slate-50">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                <span class="font-semibold text-slate-700 text-sm">实时传感器监测 — 隐患预警</span>
+              </div>
+              <div id="layer3Status" class="px-2 py-1 bg-green-500/20 border border-green-500/50 rounded text-green-600 text-xs font-medium">
+                正常
+              </div>
+            </div>
+
+            <div class="monitor-container" style="min-height: 350px;">
+              <img id="layer3Image" src="images/fire-zone-plan.png" alt="实时监控画面" style="min-height: 350px;">
+
+              <!-- Sensor data overlay -->
+              <div id="sensorOverlay" class="absolute top-4 left-4 space-y-2" style="display: none;">
+                <div class="bg-black/70 text-white px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-2">
+                  <span class="sensor-indicator normal" id="overlayTempLight"></span>
+                  <span id="overlayTempVal">TEMP: 42.3°C</span>
+                </div>
+                <div class="bg-black/70 text-white px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-2">
+                  <span class="sensor-indicator normal" id="overlaySmokeLight"></span>
+                  <span id="overlaySmokeVal">SMOKE: 0.02%/m</span>
+                </div>
+                <div class="bg-black/70 text-white px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-2">
+                  <span class="sensor-indicator normal" id="overlayThermalLight"></span>
+                  <span id="overlayThermalVal">THERMAL: Normal</span>
+                </div>
+              </div>
+
+              <!-- LSTM prediction overlay -->
+              <div id="lstmOverlay" class="absolute top-4 right-4" style="display: none;">
+                <div class="bg-black/80 text-white px-4 py-2.5 rounded-xl border border-slate-600">
+                  <div class="text-xs text-slate-400 mb-1">LSTM 风险预测</div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-20 h-2 bg-slate-700 rounded-full overflow-hidden">
+                      <div id="lstmBar" class="h-full bg-green-500 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                    </div>
+                    <span id="lstmValue" class="text-sm font-bold font-mono text-green-400">0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thermal imaging button overlay -->
+              <div id="thermalBtn" class="absolute bottom-16 left-1/2 -translate-x-1/2 z-10" style="display: none;">
+                <button class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg font-semibold text-sm shadow-xl hover:from-amber-600 hover:to-orange-700 transition-all animate-pulse flex items-center gap-2 border-2 border-amber-300/50" onclick="Layer3Perception.showThermalImage()">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                  前去查看热成像照片
+                </button>
+              </div>
+
+              <!-- Thermal close/confirm button overlay -->
+              <div id="thermalCloseBtn" class="absolute bottom-16 left-1/2 -translate-x-1/2 z-10" style="display: none;">
+                <button class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg font-semibold text-sm shadow-xl hover:from-blue-600 hover:to-indigo-700 transition-all flex items-center gap-2 border-2 border-blue-300/50" onclick="Layer3Perception.resolveDisaster()">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  确认热成像结果
+                </button>
+              </div>
+            </div>
+
+            <!-- Disaster control footer -->
+            <div class="px-5 py-3 border-t border-slate-100 flex items-center gap-3 flex-wrap">
+              <button id="startDisasterBtn" class="px-4 py-2 bg-coral text-white rounded-lg font-medium flex items-center gap-2 hover:bg-coral-dark transition-colors text-sm" onclick="Layer3Perception.triggerDisaster()">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                灾情发生
+              </button>
+              <button class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium hover:bg-slate-200 transition-colors text-sm" onclick="Layer3Perception.resetDisaster()">
+                重置
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closed-loop Timeline (full width) -->
+      <div class="mt-5">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <h3 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+              <svg class="w-5 h-5 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              动火结束闭环流程
+            </h3>
+            <p class="text-xs text-slate-500 mb-4">作业结束后的完整处置闭环</p>
+
+            <div class="timeline-container">
+              <div class="timeline-line">
+                <div id="timelineFill" class="timeline-line-fill"></div>
+              </div>
+
+              <div class="grid grid-cols-6 gap-2" id="timelineNodes">
+                <div class="timeline-node" data-step="0">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs text-slate-500 mt-2 text-center">作业结束确认</span>
+                </div>
+                <div class="timeline-node" data-step="1">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs text-slate-500 mt-2 text-center">余火检查</span>
+                </div>
+                <div class="timeline-node" data-step="2">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs text-slate-500 mt-2 text-center">高温复检</span>
+                </div>
+                <div class="timeline-node" data-step="3">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs text-slate-500 mt-2 text-center">
+                    30min后复检
+                    <div id="countdownContainer" class="hidden mt-1">
+                      <div class="countdown-circle mx-auto" style="width: 50px; height: 50px;">
+                        <svg width="50" height="50" viewBox="0 0 100 100">
+                          <circle class="ring-bg" cx="50" cy="50" r="45"/>
+                          <circle class="ring-fill" id="countdownRing" cx="50" cy="50" r="45"/>
+                        </svg>
+                        <div class="countdown-text" id="countdownText" style="font-size: 11px;">30:00</div>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+                <div class="timeline-node" data-step="4">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs text-slate-500 mt-2 text-center">二次巡查</span>
+                </div>
+                <div class="timeline-node" data-step="5">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs text-slate-500 mt-2 text-center">复查照片上传</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 space-y-3">
+              <div id="timelineStatusBar" class="status-bar safe" style="padding: 19px 20px; font-size: 16px;">
+                等待闭环演示启动...
+              </div>
+              <div class="flex items-center justify-between gap-3">
+                <div class="text-xs text-slate-400">闭环流程会在同一屏内完成展示</div>
+                <div class="flex items-center gap-3 shrink-0">
+                  <button id="startTimelineBtn" class="px-4 py-2 bg-coral text-white rounded-lg font-medium text-sm hover:bg-coral-dark transition-colors" onclick="Layer3Perception.startTimeline()">
+                    启动闭环演示
+                  </button>
+                  <button class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium text-sm hover:bg-slate-200 transition-colors" onclick="Layer3Perception.resetTimeline()">
+                    重置
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== Layer 1 Conflict Modal ==================== -->
+  <div id="conflictModal" class="modal-overlay" onclick="if(event.target===this)Layer1Risk.closeConflictModal()">
+    <div class="modal-content bg-white rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <div class="px-6 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center animate-pulse">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">识别到严重冲突</h3>
+            <p class="text-sm text-red-100">AI 区域重叠检测 · 风险等级：严重</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+          <h4 class="font-semibold text-red-800 mb-2 text-sm flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            冲突原因分析
+          </h4>
+          <ul class="text-sm text-red-700 space-y-2 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-0.5 flex-shrink-0">1.</span>
+              <span>动火作业区与可燃材料堆放区<strong>严重重叠</strong>，实际间距仅 2.3m，低于安全要求 5m</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-0.5 flex-shrink-0">2.</span>
+              <span>人员通行区域与动火缓冲区存在<strong>空间交叉</strong>，非作业人员有暴露风险</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-0.5 flex-shrink-0">3.</span>
+              <span>疏散通道一侧堆放可燃物，<strong>影响紧急疏散能力</strong></span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <h4 class="font-semibold text-amber-800 mb-2 text-sm flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+            系统处置措施
+          </h4>
+          <ul class="text-sm text-amber-700 space-y-1">
+            <li>已自动锁定该区域动火审批，禁止开工</li>
+            <li>已通知现场管理人员到场处置</li>
+            <li>要求重新调整区域布局并拍照确认</li>
+          </ul>
+        </div>
+      </div>
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-3">
+        <button onclick="Layer1Risk.closeConflictModal()" class="px-5 py-2.5 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition-colors text-sm">
+          确认并关闭
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Sensor Modal ==================== -->
+  <div id="sensorModal" class="modal-overlay" onclick="CommonUtils.closeModal(event)">
+    <div class="modal-content relative">
+      <button onclick="document.getElementById('sensorModal').classList.remove('active')" class="modal-close-btn absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <img id="modalImage" src="" alt="传感器详情" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+      <div id="modalCaption" class="text-center text-white mt-4 text-lg font-semibold"></div>
+    </div>
+  </div>
+
+  <!-- ==================== Dispatch Staff Modal ==================== -->
+  <div id="dispatchModal" class="modal-overlay" style="z-index: 1001;">
+    <div class="modal-content bg-white rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <div class="px-6 py-5 bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+            <svg class="w-7 h-7 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">紧急调度中</h3>
+            <p class="text-sm text-blue-100">正在搜索并联系周围工作人员</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 space-y-4">
+        <!-- Location info -->
+        <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+          <h4 class="font-semibold text-red-800 mb-2 text-sm flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            异常位置
+          </h4>
+          <p class="text-sm text-red-700 leading-relaxed">
+            <strong>A 座二楼平台外侧</strong>临时钢构支架区域，附近临时木材摆放处检测到<strong>异常浓烟和高温</strong>，需立即前去检查。
+          </p>
+        </div>
+
+        <!-- Staff contact progress -->
+        <div class="space-y-3">
+          <div id="dispatchStaff1" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 bg-slate-50 transition-all duration-500" style="opacity: 0.3;">
+            <div id="dispatchAvatar1" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-medium text-slate-800 text-sm">安全负责人A</div>
+              <div class="text-xs text-slate-500">138****0001</div>
+            </div>
+            <div id="dispatchStatus1" class="flex items-center gap-1.5 text-xs text-slate-400">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              等待联系
+            </div>
+          </div>
+
+          <div id="dispatchStaff2" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 bg-slate-50 transition-all duration-500" style="opacity: 0.3;">
+            <div id="dispatchAvatar2" class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-medium text-slate-800 text-sm">安全负责人B</div>
+              <div class="text-xs text-slate-500">138****0002</div>
+            </div>
+            <div id="dispatchStatus2" class="flex items-center gap-1.5 text-xs text-slate-400">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              等待联系
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-3">
+        <button id="dispatchCloseBtn" class="px-5 py-2.5 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors text-sm opacity-30 pointer-events-none" onclick="Layer3Perception.closeDispatchModal()">
+          确认已联系
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Disaster Handled Modal ==================== -->
+  <div id="disasterHandledModal" class="modal-overlay" onclick="if(event.target===this)Layer3Perception.closeDisasterHandledModal()">
+    <div class="modal-content bg-white rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <div class="px-6 py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">灾情已处理完毕</h3>
+            <p class="text-sm text-emerald-100">隐患处置闭环完成 · 系统已恢复正常</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+          <h4 class="font-semibold text-emerald-800 mb-2 text-sm flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+            处置结果
+          </h4>
+          <ul class="text-sm text-emerald-700 space-y-1.5">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              LSTM 风险预测已降至安全阈值以下
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              现场隐患已完全排除
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              多传感器数据恢复正常
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-3">
+        <button onclick="Layer3Perception.closeDisasterHandledModal()" class="px-5 py-2.5 bg-emerald-500 text-white rounded-lg font-medium hover:bg-emerald-600 transition-colors text-sm">
+          确认
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AI Generation Notice ==================== -->
+  <div class="max-w-7xl mx-auto px-6 mt-8">
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+      <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <div class="text-sm text-amber-800">
+        <p><strong>AI 生成内容声明：</strong>本演示系统中的监控图片由 <strong>GPT-Image 2.0</strong> 生成，演示视频由 <strong>豆包（Doubao）</strong> 生成，均为 AI 辅助创作的模拟素材，仅供参考演示。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="mt-8 bg-slate-900 text-white py-8 px-8 relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-coral/50 to-transparent"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-coral/15 border border-coral/30 flex items-center justify-center">
+            <svg class="w-6 h-6 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="font-display font-bold text-lg">本质安全智能施工防火系统</p>
+            <p class="text-xs text-slate-400 mt-1">先预防 → 再控制 → 后感知</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-sm">
+          <div class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700/50">
+            <span class="text-slate-300 font-medium"><strong>NFPA 72</strong> 合规</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700/50">
+            <span class="text-slate-300 font-medium"><strong>GB 50116</strong> 对标</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/common.js"></script>
+  <script src="js/layer1-risk.js"></script>
+  <script src="js/layer2-process.js"></script>
+  <script src="js/layer3-perception.js"></script>
+
+  <script>
+    // Update timestamps
+    function updateTime() {
+      const now = new Date()
+      const timeStr = CommonUtils.formatTime(now)
+      const el1 = document.getElementById('videoTime1')
+      if (el1) el1.textContent = timeStr
+    }
+    updateTime()
+    setInterval(updateTime, 1000)
+  </script>
+</body>
+</html>

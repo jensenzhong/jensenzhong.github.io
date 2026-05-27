@@ -1,43 +1,55 @@
-"use client";
+﻿"use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
-  motion,
   AnimatePresence,
+  motion,
   useInView,
+  type Variants,
 } from "framer-motion";
 import {
-  Play,
-  X,
-  Heart,
-  Users,
-  Cloud,
-  TrendingUp,
+  ArrowUpRight,
   BookOpen,
+  Building2,
+  Code2,
   ExternalLink,
+  Eye,
+  FileText,
+  Github,
+  GitFork,
+  GraduationCap,
+  Heart,
+  Home,
+  Info,
+  Leaf,
+  MessageCircle,
+  Network,
+  Play,
+  ShieldCheck,
+  Sparkles,
+  X,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Meteors } from "@/components/ui/meteors";
-import { FederatedLearning } from "@/components/federated-learning";
+import { cn } from "@/lib/utils";
 
-/* ─────────────────────────────────────────────
-   Screenshot Data
-   ───────────────────────────────────────────── */
+type DetailItem = {
+  title: string;
+  category: string;
+  description: string;
+  tags: string[];
+  status?: string;
+};
 
-/** iPhone 内自动轮播截图（全部 7 张） */
-const PHONE_SCREENSHOTS = [
-  { src: "/images/miniapp/home.png", label: "小程序首页" },
-  { src: "/images/miniapp/teacher.png", label: "AI 小红老师" },
-  { src: "/images/miniapp/assessment-entry.png", label: "活力评估入口" },
-  { src: "/images/miniapp/cohesion.png", label: "凝聚力分析" },
-  { src: "/images/miniapp/guidance.png", label: "引导力分析" },
-  { src: "/images/miniapp/pioneer.png", label: "模范性分析" },
-  { src: "/images/miniapp/connection.png", label: "联系度分析" },
-];
+type ProjectItem = DetailItem & {
+  accent: string;
+  visual: "network" | "fire" | "dorm" | "risk" | "eco" | "literature";
+  featured?: boolean;
+  icon: typeof Network;
+  detailHref?: string;
+};
 
-/** Hover 扇形展开 5 张截图 */
-const FAN_SCREENSHOTS = [
+const miniAppScreenshots = [
   { src: "/images/miniapp/connection.png", label: "联系度分析" },
   { src: "/images/miniapp/assessment-entry.png", label: "活力评估" },
   { src: "/images/miniapp/home.png", label: "首页总览" },
@@ -45,225 +57,412 @@ const FAN_SCREENSHOTS = [
   { src: "/images/miniapp/pioneer.png", label: "模范性分析" },
 ];
 
-/* ─────────────────────────────────────────────
-   CountUp Hook
-   ───────────────────────────────────────────── */
-function useCountUp(end: number, duration = 2000, start = false) {
+const miniAppFeatures = [
+  {
+    title: "小红老师交互",
+    desc: "以可爱的 AI 党建助手完成对话学习、数据记录与个性化引导。",
+    icon: MessageCircle,
+  },
+  {
+    title: "个性化资源推荐",
+    desc: "根据用户数字画像推荐理论、时政、党史、党规等学习资源。",
+    icon: Sparkles,
+  },
+  {
+    title: "AI 试卷批改",
+    desc: "支持多格式材料，逐题批改并给出依据、易错点和知识拓展。",
+    icon: BookOpen,
+  },
+  {
+    title: "活力指数评估",
+    desc: "四维度并行分析，自动生成评分、图表、亮点和风险建议。",
+    icon: Network,
+  },
+];
+
+const socialMetrics = [
+  { label: "笔记数", value: 8, suffix: "", icon: BookOpen },
+  { label: "获赞数", value: 592, suffix: "", icon: Heart },
+  { label: "观看量", value: 2163, suffix: "", icon: Eye },
+];
+
+const openSourceSkills = [
+  {
+    name: "礼物抽奖界面设计 Skill",
+    description: "面向活动抽奖页面的 Codex Skill，沉淀可复用的前端生成流程。",
+    meta: "UI Skill",
+    href: "https://github.com/jensenzhong/gift-draw-page-skills",
+  },
+  {
+    name: "文献分析可视化 Skill",
+    description: "把文献阅读、结构提炼和可视化表达整理成可执行工作流。",
+    meta: "Research Skill",
+  },
+];
+
+const projects: ProjectItem[] = [
+  {
+    title: "基于多智能体协同的联邦学习造价研究",
+    category: "毕业设计 · Federated Learning",
+    description:
+      "以多智能体协同和联邦学习为核心，探索工程造价数据在隐私保护约束下的协同建模与智能预测。",
+    tags: ["毕业设计", "多智能体", "联邦学习", "工程造价"],
+    status: "详情页建设中",
+    accent: "#7C3AED",
+    visual: "network",
+    featured: true,
+    icon: GraduationCap,
+  },
+  {
+    title: "可交互的文献分析图",
+    category: "智能建造课程作品 · Literature Visualization",
+    description:
+      "围绕智能建造技术在建筑消防领域中的应用研究，将 CNKI 文献互引、应用场景聚类和技术演化整理成可点击、可放大的交互式图谱作品。",
+    tags: ["文献分析", "交互图谱", "CNKI", "建筑消防"],
+    status: "点击打开详情页",
+    accent: "#8B5CF6",
+    visual: "literature",
+    icon: FileText,
+    detailHref: "/literature-fire-portfolio/index.html",
+  },
+  {
+    title: "基于本质安全理念的建筑施工火灾智能预警方案",
+    category: "智能建造 · 建筑施工防火",
+    description:
+      "面向香港城市更新施工场景，围绕本质安全理念展示风险感知、智能预警和施工防火管理流程。",
+    tags: ["消防安全", "智能建造", "本质安全"],
+    status: "点击打开详情页",
+    accent: "#EF4444",
+    visual: "fire",
+    icon: ShieldCheck,
+    detailHref: "/intrinsic-fire-protection/index.html",
+  },
+  {
+    title: "宿舍设施管理优化方案 Demo",
+    category: "设施管理 · Campus Operations",
+    description:
+      "围绕宿舍设施报修、资源调度和运维优化设计的系统 Demo，强调校园场景下的流程效率。",
+    tags: ["设施管理", "流程优化", "校园场景"],
+    status: "详情页建设中",
+    accent: "#0EA5E9",
+    visual: "dorm",
+    icon: Home,
+  },
+  {
+    title: "工程运维施工事故安全风险软件",
+    category: "创新创业计划 · Safety Risk",
+    description:
+      "校级创新创业计划项目，聚焦工程运维和施工事故风险识别、分级和辅助决策。",
+    tags: ["校创", "安全风险", "工程运维"],
+    status: "详情页建设中",
+    accent: "#F97316",
+    visual: "risk",
+    icon: Building2,
+  },
+  {
+    title: "重大工程生态风险识别与预测算法",
+    category: "国家级创新训练计划 · Eco Risk",
+    description:
+      "国家级创新训练计划项目，研究重大工程生态风险的特征识别、预测建模和可视化表达。",
+    tags: ["国创", "生态风险", "预测算法"],
+    status: "详情页建设中",
+    accent: "#10B981",
+    visual: "eco",
+    featured: true,
+    icon: Leaf,
+  },
+];
+
+const demoVideoUrl =
+  "https://www.bilibili.com/video/BV11XeFz2EXW/?share_source=copy_web&vd_source=a1d078e9508719259cc9e8c9a8c69072";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 36 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: "easeOut",
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring", stiffness: 260, damping: 26 },
+  },
+};
+
+function useCountUp(end: number, duration = 1800, start = false) {
   const [count, setCount] = useState(0);
   const frameRef = useRef<number>(0);
 
   useEffect(() => {
     if (!start) return;
     let startTime: number | null = null;
+
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setCount(Math.floor(eased * end));
+
       if (progress < 1) {
         frameRef.current = requestAnimationFrame(animate);
       }
     };
+
     frameRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frameRef.current);
-  }, [end, duration, start]);
+  }, [duration, end, start]);
 
   return count;
 }
 
-/* ─────────────────────────────────────────────
-   iPhone Mockup (CSS-only)
-   ───────────────────────────────────────────── */
+function formatMetric(value: number, suffix: string) {
+  if (suffix === "K") return `${(value / 1000).toFixed(1)}K`;
+  return value.toString();
+}
+
 function IPhoneMockup({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative mx-auto w-[200px] h-[400px] md:w-[240px] md:h-[480px]">
-      <div className="absolute inset-0 rounded-[40px] bg-gradient-to-b from-[#2d2d2d] to-[#1a1a1a] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] p-[3px]">
-        <div className="relative w-full h-full rounded-[37px] bg-white overflow-hidden">
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[80px] h-[24px] bg-black rounded-full z-20" />
-          <div className="absolute inset-0 overflow-hidden">
-            {children}
-          </div>
+    <div className="relative mx-auto h-[360px] w-[190px] md:h-[430px] md:w-[226px]">
+      <div className="absolute inset-0 rounded-[38px] bg-gradient-to-b from-[#303030] to-[#171717] p-[3px] shadow-[0_24px_70px_-14px_rgba(0,0,0,0.35)]">
+        <div className="relative h-full w-full overflow-hidden rounded-[35px] bg-white">
+          <div className="absolute left-1/2 top-3 z-20 h-[22px] w-[76px] -translate-x-1/2 rounded-full bg-black" />
+          <div className="absolute inset-0 overflow-hidden">{children}</div>
         </div>
       </div>
-      <div className="absolute -right-[2px] top-[120px] w-[3px] h-[48px] bg-[#3a3a3a] rounded-r-sm" />
-      <div className="absolute -left-[2px] top-[96px] w-[3px] h-[28px] bg-[#3a3a3a] rounded-l-sm" />
-      <div className="absolute -left-[2px] top-[138px] w-[3px] h-[48px] bg-[#3a3a3a] rounded-l-sm" />
-      <div className="absolute -left-[2px] top-[194px] w-[3px] h-[48px] bg-[#3a3a3a] rounded-l-sm" />
+      <div className="absolute -right-[2px] top-[108px] h-[44px] w-[3px] rounded-r-sm bg-[#3a3a3a]" />
+      <div className="absolute -left-[2px] top-[86px] h-[26px] w-[3px] rounded-l-sm bg-[#3a3a3a]" />
+      <div className="absolute -left-[2px] top-[124px] h-[44px] w-[3px] rounded-l-sm bg-[#3a3a3a]" />
+      <div className="absolute -left-[2px] top-[175px] h-[44px] w-[3px] rounded-l-sm bg-[#3a3a3a]" />
     </div>
   );
 }
 
-/* ─────────────────────────────────────────────
-   Phone Carousel
-   ───────────────────────────────────────────── */
-function PhoneCarousel() {
-  const [current, setCurrent] = useState(0);
+function PhonePreview() {
+  return (
+    <Image
+      src="/images/miniapp/home.png"
+      alt="AI 智慧党建小程序首页"
+      fill
+      className="object-cover object-top"
+      sizes="226px"
+      priority
+    />
+  );
+}
+
+function MiniAppShowcaseCard({
+  expanded,
+  onToggle,
+}: {
+  expanded: boolean;
+  onToggle: () => void;
+}) {
+  const [isCompact, setIsCompact] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % PHONE_SCREENSHOTS.length);
-    }, 3000);
-    return () => clearInterval(timer);
+    const updateCompactState = () => {
+      setIsCompact(window.innerWidth < 768);
+    };
+
+    updateCompactState();
+    window.addEventListener("resize", updateCompactState);
+    return () => window.removeEventListener("resize", updateCompactState);
   }, []);
 
-  return (
-    <div className="relative w-full h-full">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.96 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={PHONE_SCREENSHOTS[current].src}
-            alt={PHONE_SCREENSHOTS[current].label}
-            fill
-            className="object-cover object-top"
-            sizes="240px"
-            priority={current === 0}
-          />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* 底部指示点 */}
-      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 z-10">
-        {PHONE_SCREENSHOTS.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={cn(
-              "w-1.5 h-1.5 rounded-full transition-all duration-300",
-              i === current
-                ? "bg-[#6D28D9] w-3.5"
-                : "bg-black/20 hover:bg-black/40"
-            )}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   Card 1: AI App Showcase (Main) — 5 张扇形
-   ───────────────────────────────────────────── */
-function AppShowcaseCard({ onExpand }: { onExpand: () => void }) {
-  /** 5 张扇形展开配置 */
-  const fanConfigs = [
-    { rotate: -24, x: -150, y: 24 },
-    { rotate: -12, x: -75, y: 8 },
-    { rotate: 0, x: 0, y: -5 },
-    { rotate: 12, x: 75, y: 8 },
-    { rotate: 24, x: 150, y: 24 },
+  const collapsedFan = [
+    { rotate: -8, x: -34, y: 14, scale: 0.8, opacity: 0.5 },
+    { rotate: -4, x: -18, y: 9, scale: 0.82, opacity: 0.58 },
+    { rotate: 0, x: 0, y: 0, scale: 0.86, opacity: 0 },
+    { rotate: 4, x: 18, y: 9, scale: 0.82, opacity: 0.58 },
+    { rotate: 8, x: 34, y: 14, scale: 0.8, opacity: 0.5 },
   ];
+  const expandedFan = [
+    { rotate: -23, x: -250, y: 34, scale: 0.72, opacity: 1 },
+    { rotate: -12, x: -132, y: 10, scale: 0.78, opacity: 1 },
+    { rotate: 0, x: 0, y: -4, scale: 0.86, opacity: 0 },
+    { rotate: 12, x: 118, y: 10, scale: 0.78, opacity: 1 },
+    { rotate: 23, x: 220, y: 34, scale: 0.72, opacity: 1 },
+  ];
+  const compactExpandedFan = [
+    { rotate: -18, x: -92, y: 24, scale: 0.72, opacity: 1 },
+    { rotate: -8, x: -46, y: 8, scale: 0.78, opacity: 1 },
+    { rotate: 0, x: 0, y: -4, scale: 0.86, opacity: 0 },
+    { rotate: 8, x: 46, y: 8, scale: 0.78, opacity: 1 },
+    { rotate: 18, x: 92, y: 24, scale: 0.72, opacity: 1 },
+  ];
+  const fanState = expanded
+    ? isCompact
+      ? compactExpandedFan
+      : expandedFan
+    : collapsedFan;
 
   return (
     <motion.div
-      layoutId="showcase-card"
-      className="group relative h-full rounded-3xl bg-white/70 backdrop-blur-xl border border-white/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] overflow-hidden"
+      variants={cardVariants}
+      layout
+      className="group relative min-h-[560px] overflow-hidden rounded-3xl border border-white/80 bg-white/70 shadow-[0_18px_60px_-28px_rgba(76,29,149,0.55)] backdrop-blur-xl"
     >
-      {/* 背景装饰 */}
-      <div className="absolute -top-20 -right-20 w-48 h-48 bg-purple-100/30 rounded-full blur-3xl" />
-      <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-orange-100/20 rounded-full blur-3xl" />
+      <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-purple-200/35 blur-3xl" />
+      <div className="absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-orange-100/35 blur-3xl" />
+      <div className="absolute left-8 top-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/85 shadow-sm ring-1 ring-purple-100">
+        <Sparkles className="h-6 w-6 text-[#6D28D9]" />
+      </div>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center p-8">
-        {/* 标题 */}
-        <div className="mb-6 text-center">
-          <h3 className="text-lg font-bold text-slate-800 mb-1">
-            AI 智慧党建小程序
-          </h3>
-          <p className="text-xs text-slate-400">
-            LLM-powered WeChat Mini Program
-          </p>
-        </div>
+      <div className="relative z-10 grid h-full gap-6 p-6 md:p-8 lg:grid-cols-[0.9fr_1.25fr]">
+        <div className="relative z-10 flex flex-col justify-between gap-5">
+          <div className="pt-16 md:pt-12">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-500 to-orange-400 px-3 py-1 text-xs font-black text-white shadow-sm shadow-red-200">
+              数字媒体创新作品大赛 · 国家级二等奖
+            </div>
+            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[#6D28D9]">
+              小红AI云引擎 · 智慧党建创新平台
+            </p>
+            <h3 className="text-2xl font-black tracking-tight text-slate-900 md:text-[34px]">
+              智慧党建小程序
+            </h3>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-500">
+              利用 Coze 平台设计智能体工作流，独立开发支部党建小程序，已上线微信小程序平台，目前准备进行全代码化的重构。
+            </p>
+          </div>
 
-        {/* iPhone + 5 张扇形 */}
-        <div className="relative flex items-center justify-center flex-1 w-full">
-          {FAN_SCREENSHOTS.map((shot, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-[200px] h-[400px] md:w-[240px] md:h-[480px] rounded-2xl overflow-hidden shadow-lg"
-              style={{ zIndex: i === 2 ? 2 : i === 1 || i === 3 ? 1 : 0, originY: 1 }}
-              initial={{
-                rotate: 0,
-                x: 0,
-                y: 0,
-                opacity: 0,
-                scale: 0.9,
-              }}
-              animate={{
-                rotate: fanConfigs[i].rotate,
-                x: fanConfigs[i].x,
-                y: fanConfigs[i].y,
-                opacity: 1,
-                scale: 0.82,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
-                delay: i * 0.04,
-              }}
-            >
-              <Image
-                src={shot.src}
-                alt={shot.label}
-                fill
-                className="object-cover object-top"
-                sizes="240px"
-              />
-              {/* 底部标签 */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-2 py-1.5">
-                <span className="text-[9px] text-white/90 font-medium">
-                  {shot.label}
-                </span>
+          <div className="grid grid-cols-2 gap-3">
+            {miniAppFeatures.map((item) => {
+              const Icon = item.icon;
+              return (
+              <div
+                key={item.title}
+                className="rounded-2xl bg-white/78 px-3 py-3 shadow-sm ring-1 ring-slate-200/70"
+              >
+                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl bg-purple-50 text-[#6D28D9]">
+                  <Icon className="h-4 w-4" />
+                </div>
+                <p className="text-sm font-black leading-tight text-slate-800">{item.title}</p>
+                <p className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-500">{item.desc}</p>
               </div>
-            </motion.div>
-          ))}
+              );
+            })}
+          </div>
 
-          {/* iPhone 主体 */}
-          <div className="relative z-10">
-            <IPhoneMockup>
-              <PhoneCarousel />
-            </IPhoneMockup>
+          <div className="flex flex-wrap gap-3">
+            <motion.button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                window.open(demoVideoUrl, "_blank", "noopener,noreferrer");
+              }}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#7c3aed] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-purple-200/60"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Play className="h-4 w-4" fill="white" />
+              观看演示
+            </motion.button>
+            <motion.a
+              href="/xiaohong-ai/xiaohong-ai.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="inline-flex items-center gap-2 rounded-full bg-white/80 px-5 py-3 text-sm font-bold text-slate-700 shadow-sm ring-1 ring-slate-200/80"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Info className="h-4 w-4 text-[#6D28D9]" />
+              了解项目详情
+            </motion.a>
           </div>
         </div>
 
-        {/* Play 按钮 */}
-        <motion.button
-          onClick={(e) => {
-            e.stopPropagation();
-            onExpand();
-          }}
-          className="mt-6 flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#7c3aed] text-white text-base font-semibold shadow-lg shadow-purple-200/50 hover:shadow-purple-300/60 transition-shadow"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
+        <button
+          type="button"
+          onClick={onToggle}
+          className="relative z-20 flex min-h-[440px] items-center justify-center overflow-visible rounded-[28px] bg-gradient-to-b from-white/20 to-purple-50/20 outline-none"
+          aria-pressed={expanded}
+          aria-label="展开或收拢小程序截图"
         >
-          <Play className="w-5 h-5" fill="white" />
-          观看演示
-        </motion.button>
+          <div className="absolute bottom-6 left-1/2 h-16 w-[78%] -translate-x-1/2 rounded-full bg-slate-900/15 blur-2xl" />
+
+          {miniAppScreenshots.map((shot, index) => {
+            const position = fanState[index];
+            const isCenter = index === 2;
+
+            return (
+              <motion.div
+                key={shot.src}
+                className={cn(
+                  "absolute h-[360px] w-[190px] overflow-hidden rounded-[28px] shadow-xl ring-1 ring-black/5 md:h-[430px] md:w-[226px]",
+                  isCenter ? "z-20" : "z-10"
+                )}
+                initial={false}
+                animate={{
+                  x: position.x,
+                  y: position.y,
+                  rotate: position.rotate,
+                  scale: position.scale,
+                  opacity: position.opacity,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 230,
+                  damping: 24,
+                  delay: index * 0.03,
+                }}
+                style={{
+                  transformOrigin: "50% 96%",
+                }}
+              >
+                <Image
+                  src={shot.src}
+                  alt={shot.label}
+                  fill
+                  className="object-cover object-top"
+                  sizes="226px"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-3 py-2 text-left">
+                  <span className="text-[10px] font-semibold text-white/90">
+                    {shot.label}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
+
+          <motion.div
+            className="relative z-30"
+            initial={false}
+            animate={{ y: expanded ? -4 : 4, scale: expanded ? 1.02 : 1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 24 }}
+          >
+            <IPhoneMockup>
+              <PhonePreview />
+            </IPhoneMockup>
+          </motion.div>
+
+          <div className="absolute right-5 top-5 rounded-full bg-white/80 px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200/80">
+            {expanded ? "点击收拢" : "点击展开"}
+          </div>
+        </button>
       </div>
     </motion.div>
   );
 }
 
-/* ─────────────────────────────────────────────
-   Sparkline — 小红书增长趋势线
-   ───────────────────────────────────────────── */
 function Sparkline({ isInView }: { isInView: boolean }) {
   const linePath =
-    "M 0 26 C 8 24, 14 27, 22 20 C 30 13, 38 17, 46 12 C 54 8, 62 11, 70 6 C 78 3, 84 5, 90 2";
-  const areaPath = linePath + " L 90 30 L 0 30 Z";
+    "M 0 28 C 12 25, 19 27, 30 20 C 42 12, 50 18, 62 12 C 74 5, 84 9, 96 3";
+  const areaPath = `${linePath} L 96 34 L 0 34 Z`;
 
   return (
-    <svg
-      viewBox="0 0 90 30"
-      className="w-full h-10"
-      preserveAspectRatio="none"
-    >
+    <svg viewBox="0 0 96 34" className="h-11 w-full" preserveAspectRatio="none">
       <defs>
         <linearGradient id="xhs-sparkArea" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#FF2442" stopOpacity="0.25" />
@@ -277,170 +476,112 @@ function Sparkline({ isInView }: { isInView: boolean }) {
           </feMerge>
         </filter>
       </defs>
-
-      {/* 面积填充 */}
       <motion.path
         d={areaPath}
         fill="url(#xhs-sparkArea)"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 1.5, delay: 0.6 }}
+        transition={{ duration: 1.2, delay: 0.4 }}
       />
-      {/* 发光底线 */}
       <motion.path
         d={linePath}
         fill="none"
         stroke="#FF2442"
-        strokeWidth="2.5"
         strokeLinecap="round"
+        strokeWidth="2"
         filter="url(#xhs-glow)"
         initial={{ pathLength: 0, opacity: 0 }}
-        animate={isInView ? { pathLength: 1, opacity: 0.35 } : {}}
-        transition={{ duration: 1.8, ease: "easeOut" }}
-      />
-      {/* 主线 */}
-      <motion.path
-        d={linePath}
-        fill="none"
-        stroke="#FF2442"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        initial={{ pathLength: 0, opacity: 0 }}
         animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-        transition={{ duration: 1.8, ease: "easeOut" }}
+        transition={{ duration: 1.7, ease: "easeOut" }}
       />
-      {/* 末端亮点 */}
       <motion.circle
-        cx="90"
-        cy="2"
-        r="2.5"
+        cx="96"
+        cy="3"
+        r="3"
         fill="#FF2442"
         initial={{ opacity: 0, scale: 0 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.3, delay: 1.8 }}
+        transition={{ duration: 0.3, delay: 1.5 }}
       />
     </svg>
   );
 }
 
-/* ─────────────────────────────────────────────
-   Card 2: 小红书 — 暗色暖调重设计
-   ───────────────────────────────────────────── */
-function SocialInsightCard() {
+function SocialStatsCard() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  const followers = useCountUp(12800, 2200, isInView);
-  const likes = useCountUp(58600, 2500, isInView);
-  const notes = useCountUp(186, 1800, isInView);
+  const noteCount = useCountUp(8, 1500, isInView);
+  const likeCount = useCountUp(592, 2100, isInView);
+  const viewCount = useCountUp(2163, 2100, isInView);
+  const counts = [noteCount, likeCount, viewCount];
 
   return (
     <motion.div
       ref={ref}
-      className="relative h-full rounded-3xl overflow-hidden"
+      variants={cardVariants}
+      className="relative min-h-[258px] overflow-hidden rounded-3xl border border-white/10 bg-[#1c1418] shadow-[0_18px_55px_-24px_rgba(255,36,66,0.55)]"
       style={{
         background:
-          "linear-gradient(145deg, #1c1418 0%, #2a1c22 45%, #1e1519 100%)",
+          "linear-gradient(145deg, #1c1418 0%, #2a1c22 48%, #171013 100%)",
       }}
-      whileHover={{
-        scale: 1.02,
-        boxShadow: "0 8px 40px -8px rgba(255,36,66,0.2)",
-      }}
-      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      whileHover={{ y: -4, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 380, damping: 30 }}
     >
-      {/* 暖色光晕 */}
-      <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#FF2442]/8 rounded-full blur-2xl" />
-      <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-[#FF2442]/5 rounded-full blur-2xl" />
-
-      {/* 流星效果 */}
-      <Meteors number={12} className="opacity-30" />
-
-      <div className="relative z-10 p-5 h-full flex flex-col">
-        {/* Header + 跳转按钮 */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#FF2442]/30 ring-offset-1 ring-offset-[#1c1418]">
+      <Meteors number={10} className="opacity-30" />
+      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#FF2442]/10 blur-2xl" />
+      <div className="relative z-10 flex h-full flex-col p-5">
+        <div className="mb-5 flex items-center gap-3">
+          <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-[#FF2442]/35 ring-offset-2 ring-offset-[#1c1418]">
             <Image
               src="/images/social_photo.jpg"
-              alt="Profile"
+              alt="小红书头像"
               fill
               className="object-cover"
-              sizes="36px"
+              sizes="40px"
             />
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-1.5">
-              <p className="text-sm font-semibold text-white/90">小红书</p>
-              <span className="flex-shrink-0 px-1.5 py-0.5 rounded text-[8px] font-medium bg-[#FF2442]/15 text-[#FF2442] leading-none">
-                Creator
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2">
+              <h3 className="text-sm font-bold text-white">Jensen</h3>
+              <span className="rounded bg-[#FF2442]/15 px-1.5 py-0.5 text-[9px] font-semibold leading-none text-[#FF2442]">
+                小红书 Creator
               </span>
             </div>
-            <p className="text-[10px] text-white/30 mt-0.5">
-              AI Content · RedNote
-            </p>
+            <p className="mt-0.5 text-[11px] text-white/35">AI Content · RedNote</p>
           </div>
           <a
             href="https://www.xiaohongshu.com/user/profile/5d37140a0000000012038e9f"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 w-7 h-7 rounded-full bg-white/10 hover:bg-[#FF2442]/20 flex items-center justify-center transition-colors duration-200"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-[#FF2442]/20"
             aria-label="访问小红书主页"
           >
-            <ExternalLink className="w-3 h-3 text-white/60 hover:text-[#FF2442]" />
+            <ExternalLink className="h-3.5 w-3.5 text-white/60" />
           </a>
         </div>
 
-        {/* Stats 三列 */}
-        <div className="grid grid-cols-3 gap-2 mb-3">
-          <div>
-            <p className="text-lg font-black text-white tabular-nums tracking-tight leading-none">
-              {(followers / 1000).toFixed(1)}
-              <span className="text-[10px] font-medium text-white/40 ml-0.5">
-                K
-              </span>
-            </p>
-            <div className="flex items-center gap-1 mt-1">
-              <Users className="w-2.5 h-2.5 text-white/25" />
-              <span className="text-[9px] text-white/30">粉丝</span>
-            </div>
-          </div>
-          <div>
-            <p className="text-lg font-black text-white tabular-nums tracking-tight leading-none">
-              {(likes / 1000).toFixed(1)}
-              <span className="text-[10px] font-medium text-white/40 ml-0.5">
-                K
-              </span>
-            </p>
-            <div className="flex items-center gap-1 mt-1">
-              <Heart className="w-2.5 h-2.5 text-white/25" />
-              <span className="text-[9px] text-white/30">获赞</span>
-            </div>
-          </div>
-          <div>
-            <p className="text-lg font-black text-white tabular-nums tracking-tight leading-none">
-              {notes}
-            </p>
-            <div className="flex items-center gap-1 mt-1">
-              <BookOpen className="w-2.5 h-2.5 text-white/25" />
-              <span className="text-[9px] text-white/30">笔记</span>
-            </div>
-          </div>
+        <div className="grid grid-cols-3 gap-2">
+          {socialMetrics.map((metric, index) => {
+            const Icon = metric.icon;
+            return (
+              <div key={metric.label} className="rounded-2xl bg-white/[0.04] p-3 ring-1 ring-white/5">
+                <p className="text-lg font-black leading-none tracking-tight text-white">
+                  {formatMetric(counts[index], metric.suffix)}
+                </p>
+                <div className="mt-2 flex items-center gap-1 text-[10px] text-white/35">
+                  <Icon className="h-3 w-3" />
+                  <span>{metric.label}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Sparkline */}
-        <div className="flex-1 flex flex-col justify-end">
+        <div className="mt-auto pt-4">
           <Sparkline isInView={isInView} />
-          <div className="flex items-center justify-between mt-1.5">
-            <div className="flex items-center gap-1">
-              <TrendingUp className="w-3 h-3 text-[#FF2442]" />
-              <span className="text-[10px] font-semibold text-[#FF2442]">
-                +23.5%
-              </span>
-              <span className="text-[9px] text-white/25">本月增长</span>
-            </div>
-            <div className="h-4 w-px bg-white/10" />
-            <span className="text-[9px] text-white/20">
-              持续创作中
-            </span>
+          <div className="mt-1 flex items-center justify-between text-[10px]">
+            <span className="font-bold text-[#FF2442]">+23.5% 本月增长</span>
+            <span className="text-white/25">持续创作中</span>
           </div>
         </div>
       </div>
@@ -448,130 +589,466 @@ function SocialInsightCard() {
   );
 }
 
-/* ─────────────────────────────────────────────
-   Card 3: Research Visualization (Right Bottom)
-   ───────────────────────────────────────────── */
-function ResearchCard() {
+function OpenSourceSkillsCard() {
   return (
     <motion.div
-      className="relative h-full rounded-3xl bg-white/70 backdrop-blur-xl border border-white/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] overflow-hidden p-6 flex flex-col"
-      whileHover={{
-        scale: 1.02,
-        boxShadow: "0 8px 40px -8px rgba(109,40,217,0.15)",
-      }}
-      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      variants={cardVariants}
+      className="relative min-h-[258px] overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-5 shadow-[0_18px_55px_-28px_rgba(76,29,149,0.55)] backdrop-blur-xl"
+      whileHover={{ y: -4, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 380, damping: 30 }}
     >
-      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-100/30 rounded-full blur-2xl" />
-
-      <div className="relative z-10 mb-3">
-        <div className="flex items-center gap-2 mb-1">
-          <Cloud className="w-4 h-4 text-[#6D28D9]" />
-          <h3 className="text-sm font-bold text-slate-800">
-            Federated Learning
-          </h3>
+      <div className="absolute -bottom-12 -right-12 h-36 w-36 rounded-full bg-purple-100/60 blur-3xl" />
+      <div className="relative z-10">
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-2.5 py-1 text-[10px] font-bold text-white">
+              <Github className="h-3 w-3" />
+              Open Source
+            </div>
+            <h3 className="text-base font-black text-slate-900">GitHub Skills</h3>
+          </div>
+          <GitFork className="h-5 w-5 text-[#6D28D9]" />
         </div>
-        <p className="text-[11px] text-slate-400">
-          Privacy-preserving distributed ML
-        </p>
-      </div>
 
-      <div className="relative z-10 flex-1 min-h-0">
-        <FederatedLearning />
+        <div className="space-y-3">
+          {openSourceSkills.map((skill) => {
+            const content = (
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-[#6D28D9]">
+                  <Code2 className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="line-clamp-1 text-sm font-bold text-slate-800">
+                    {skill.name}
+                  </p>
+                  <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-slate-500">
+                    {skill.description}
+                  </p>
+                  <span className="mt-2 inline-block rounded-full bg-slate-100 px-2 py-0.5 text-[9px] font-bold text-slate-500">
+                    {skill.meta}
+                  </span>
+                </div>
+              </div>
+            );
+
+            if (skill.href) {
+              return (
+                <motion.a
+                  key={skill.name}
+                  href={skill.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-2xl bg-white/75 p-3 shadow-sm ring-1 ring-slate-200/70"
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 28 }}
+                >
+                  {content}
+                </motion.a>
+              );
+            }
+
+            return (
+              <motion.div
+                key={skill.name}
+                className="group rounded-2xl bg-white/75 p-3 shadow-sm ring-1 ring-slate-200/70"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 420, damping: 28 }}
+              >
+                {content}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </motion.div>
   );
 }
 
-/* ─────────────────────────────────────────────
-   Modal: Demo Video (竖屏全屏弹窗)
-   ───────────────────────────────────────────── */
-function DemoModal({ onClose }: { onClose: () => void }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+function ProjectVisual({
+  visual,
+  accent,
+  featured,
+}: {
+  visual: ProjectItem["visual"];
+  accent: string;
+  featured?: boolean;
+}) {
+  if (visual === "network") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white/45 ring-1 ring-white/70">
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{ backgroundColor: accent, boxShadow: `0 0 50px ${accent}66` }}
+          animate={{ scale: [1, 1.08, 1] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {[0, 1, 2, 3, 4, 5].map((item) => (
+          <motion.div
+            key={item}
+            className="absolute h-4 w-4 rounded-full bg-white shadow-md ring-4"
+            style={{
+              left: `${18 + (item % 3) * 32}%`,
+              top: `${18 + Math.floor(item / 3) * 46}%`,
+              color: accent,
+              borderColor: accent,
+            }}
+            animate={{ y: [0, item % 2 ? -8 : 8, 0] }}
+            transition={{ duration: 3.5 + item * 0.2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+        <svg className="absolute inset-0 h-full w-full opacity-40">
+          <path d="M90 70 L190 145 L315 70 M190 145 L120 250 M190 145 L300 250" stroke={accent} strokeWidth="2" fill="none" />
+        </svg>
+        {featured && (
+          <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/75 px-4 py-2.5 text-xs font-bold text-slate-600 backdrop-blur">
+            Multi-Agent Federated Cost Modeling
+          </div>
+        )}
+      </div>
+    );
+  }
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    },
-    [onClose]
+  if (visual === "fire") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
+        <Image
+          src="/images/projects/fire-protection-preview.png"
+          alt="建筑施工火灾智能预警方案详情页预览"
+          fill
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
+      </div>
+    );
+  }
+
+  if (visual === "dorm") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-sky-50 ring-1 ring-white/70">
+        <div className="absolute bottom-8 left-8 right-8 grid h-36 grid-cols-4 gap-2">
+          {Array.from({ length: 12 }).map((_, item) => (
+            <motion.div
+              key={item}
+              className="rounded-lg bg-white shadow-sm ring-1 ring-sky-100"
+              animate={{ opacity: [0.55, 1, 0.55] }}
+              transition={{ duration: 2.4, repeat: Infinity, delay: item * 0.06 }}
+            />
+          ))}
+        </div>
+        <Home className="absolute left-5 top-5 h-10 w-10 text-sky-500" />
+      </div>
+    );
+  }
+
+  if (visual === "risk") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-orange-50 ring-1 ring-white/70">
+        <div className="absolute inset-5 grid grid-cols-5 gap-1.5">
+          {Array.from({ length: 20 }).map((_, item) => (
+            <motion.div
+              key={item}
+              className="rounded-md"
+              style={{
+                backgroundColor:
+                  item % 5 === 0 ? "#EF4444" : item % 3 === 0 ? "#F97316" : "#FDBA74",
+              }}
+              animate={{ scale: [1, item % 4 === 0 ? 1.08 : 0.96, 1] }}
+              transition={{ duration: 2.2, repeat: Infinity, delay: item * 0.03 }}
+            />
+          ))}
+        </div>
+        <Building2 className="absolute right-5 top-5 h-10 w-10 text-orange-500" />
+      </div>
+    );
+  }
+
+  if (visual === "literature") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
+        <Image
+          src="/images/projects/literature-analysis-preview.png"
+          alt="可交互的文献分析图预览"
+          fill
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/45 via-transparent to-transparent" />
+      </div>
+    );
+  }
+  return (
+    <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-emerald-50 ring-1 ring-white/70">
+      {[0, 1, 2, 3, 4].map((item) => (
+        <motion.div
+          key={item}
+          className="absolute rounded-full border-2 border-emerald-300/70"
+          style={{
+            height: `${44 + item * 30}px`,
+            width: `${44 + item * 30}px`,
+            left: `${12 + item * 12}%`,
+            top: `${42 - item * 5}%`,
+          }}
+          animate={{ rotate: [0, 8, 0], scale: [1, 1.03, 1] }}
+          transition={{ duration: 4 + item * 0.25, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ))}
+      <Leaf className="absolute left-5 top-5 h-10 w-10 text-emerald-500" />
+    </div>
   );
+}
 
+function ProjectCard({
+  project,
+  onOpen,
+  compact = false,
+  className,
+}: {
+  project: ProjectItem;
+  onOpen: (item: DetailItem) => void;
+  compact?: boolean;
+  className?: string;
+}) {
+  const Icon = project.icon;
+  const openProject = () => {
+    if (project.detailHref) {
+      window.open(project.detailHref, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    onOpen(project);
+  };
+
+  return (
+    <motion.button
+      type="button"
+      variants={cardVariants}
+      onClick={openProject}
+      className={cn(
+        "group relative flex flex-col overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-4 text-left shadow-[0_18px_55px_-30px_rgba(15,23,42,0.35)] backdrop-blur-xl outline-none",
+        project.featured ? "min-h-[390px]" : "min-h-[310px]",
+        compact && "min-h-[285px]",
+        className
+      )}
+      whileHover={{
+        y: -6,
+        scale: 1.01,
+        boxShadow: `0 24px 70px -34px ${project.accent}AA`,
+      }}
+      transition={{ type: "spring", stiffness: 360, damping: 30 }}
+    >
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
+      <div
+        className="absolute -right-14 -top-14 h-40 w-40 rounded-full blur-3xl"
+        style={{ backgroundColor: `${project.accent}33` }}
+      />
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col gap-3">
+        <div className="rounded-[22px] bg-white/88 p-4 shadow-sm ring-1 ring-white/80 backdrop-blur">
+          <div className="mb-3 flex items-start justify-between gap-4">
+            <div
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/70"
+              style={{ color: project.accent }}
+            >
+              <Icon className="h-5 w-5" />
+            </div>
+            <ArrowUpRight
+              className="h-5 w-5 shrink-0 text-slate-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              style={{ color: project.accent }}
+            />
+          </div>
+
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-wide text-slate-400">
+            {project.category}
+          </p>
+          <h3
+            className={cn(
+              "break-words font-black leading-tight tracking-tight text-slate-900",
+              project.featured ? "text-2xl md:text-[28px]" : compact ? "text-[16px]" : "text-[17px]"
+            )}
+          >
+            {project.title}
+          </h3>
+
+          <div className="mt-3 flex flex-wrap gap-2">
+            {project.tags.slice(0, project.featured ? 4 : compact ? 2 : 3).map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-slate-50 px-2.5 py-1 text-[10px] font-bold text-slate-500 ring-1 ring-slate-200/80"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={cn("min-h-[150px] flex-1", project.featured && "min-h-[170px]", compact && "min-h-[135px]")}>
+          <ProjectVisual
+            visual={project.visual}
+            accent={project.accent}
+            featured={project.featured}
+          />
+        </div>
+      </div>
+    </motion.button>
+  );
+}
+
+function ProjectMatrix({ onOpen }: { onOpen: (item: DetailItem) => void }) {
+  const featuredProjects = projects.filter((project) => project.featured);
+  const supportingProjects = projects.filter((project) => !project.featured);
+
+  return (
+    <motion.div variants={containerVariants} className="mt-5 space-y-5">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+        {featuredProjects.map((project, index) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+            onOpen={onOpen}
+            className={cn(
+              "lg:min-h-[420px]",
+              index === 1 && "lg:translate-y-5"
+            )}
+          />
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {supportingProjects.map((project, index) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+            onOpen={onOpen}
+            compact
+            className={cn(
+              index % 2 === 0 ? "xl:-translate-y-2" : "xl:translate-y-5",
+              index === 1 && "xl:translate-y-1",
+              index === 3 && "xl:translate-y-3"
+            )}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+function ProjectDetailModal({
+  item,
+  onClose,
+}: {
+  item: DetailItem;
+  onClose: () => void;
+}) {
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [handleKeyDown]);
+  }, [onClose]);
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center"
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="absolute inset-0 bg-black/60 backdrop-blur-md"
+        className="absolute inset-0 bg-slate-950/55 backdrop-blur-md"
         onClick={onClose}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
       />
-
       <motion.div
-        layoutId="showcase-card"
-        className="relative z-10 w-[90vw] max-w-lg rounded-3xl bg-black shadow-2xl overflow-hidden"
-        style={{ aspectRatio: "9/16", maxHeight: "85vh" }}
+        className="relative z-10 w-full max-w-xl overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 shadow-2xl backdrop-blur-xl"
+        initial={{ opacity: 0, y: 24, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 18, scale: 0.96 }}
+        transition={{ type: "spring", stiffness: 300, damping: 28 }}
       >
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
+          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200"
+          aria-label="关闭详情弹窗"
         >
-          <X className="w-4 h-4 text-white" />
+          <X className="h-4 w-4" />
         </button>
-
-        <video
-          ref={videoRef}
-          src="/images/miniapp/demo.mp4"
-          className="w-full h-full object-contain"
-          controls
-          autoPlay
-          playsInline
-          preload="metadata"
-        />
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-purple-50 px-3 py-1 text-xs font-bold text-[#6D28D9]">
+          <FileText className="h-3.5 w-3.5" />
+          {item.status ?? "详情页建设中"}
+        </div>
+        <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+          {item.category}
+        </p>
+        <h3 className="mt-2 pr-8 text-2xl font-black tracking-tight text-slate-900">
+          {item.title}
+        </h3>
+        <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {item.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="mt-6 rounded-2xl bg-slate-950 px-4 py-3 text-sm font-bold text-white">
+          后续可以在这里接入真实详情页、GitHub 链接或完整项目报告。
+        </div>
       </motion.div>
     </motion.div>
   );
 }
 
-/* ─────────────────────────────────────────────
-   Main Export: AI Bento Grid
-   ───────────────────────────────────────────── */
 export function AIBentoGrid() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [selectedDetail, setSelectedDetail] = useState<DetailItem | null>(null);
 
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="grid grid-cols-1 lg:grid-cols-3 gap-5 auto-rows-[minmax(220px,auto)]"
+        className="space-y-5"
       >
-        <div className="lg:col-span-2 min-h-[560px]">
-          <AppShowcaseCard onExpand={() => setModalOpen(true)} />
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr]">
+          <MiniAppShowcaseCard
+            expanded={expanded}
+            onToggle={() => setExpanded((value) => !value)}
+          />
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-1">
+            <SocialStatsCard />
+            <OpenSourceSkillsCard />
+          </div>
         </div>
 
-        <div className="lg:col-span-1 grid grid-rows-2 gap-5 min-h-[560px]">
-          <SocialInsightCard />
-          <ResearchCard />
-        </div>
+        <ProjectMatrix onOpen={setSelectedDetail} />
       </motion.div>
 
       <AnimatePresence>
-        {modalOpen && <DemoModal onClose={() => setModalOpen(false)} />}
+        {selectedDetail && (
+          <ProjectDetailModal
+            item={selectedDetail}
+            onClose={() => setSelectedDetail(null)}
+          />
+        )}
       </AnimatePresence>
     </>
   );

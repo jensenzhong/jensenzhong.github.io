@@ -24,8 +24,8 @@ export const techSkills: TechSkill[] = [
 ];
 
 export const aiDescription = {
-  title: "AI Capabilities",
-  subtitle: "Exploring the frontiers of Artificial Intelligence, from LLMs to Computer Vision.",
+  title: "AI & Project Lab",
+  subtitle: "从 AI 小程序、开源工具到工程管理与智能建造研究，我把想法做成可交互的系统。",
   highlight: "I focus on building intelligent systems that solve real-world problems.",
   statement: "I combine technical skills with management principles to deliver efficient and scalable solutions.",
 };

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Ma_Shan_Zheng } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { ErrorBoundary } from "@/components/error-boundary";
+import { LanguageProvider } from "@/components/language-provider";
+import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,13 +23,12 @@ const maShanZheng = Ma_Shan_Zheng({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "JensenZhong - Digital Nomad & Developer",
-    template: "%s | JensenZhong",
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Personal website of JensenZhong - Influencer (>581K followers), Chromium Developer, Web Developer, and Digital Nomad. Exploring AI, coding, gaming, and life.",
+  description: siteConfig.description,
   keywords: [
     "JensenZhong",
     "Digital Nomad",
@@ -41,15 +42,14 @@ export const metadata: Metadata = {
     "Game Developer",
   ],
   authors: [{ name: "JensenZhong" }],
-  creator: "JensenZhong",
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://jensonzhong.com",
-    title: "JensenZhong - Digital Nomad & Developer",
-    description:
-      "Personal website of JensenZhong - Influencer (>581K followers), Chromium Developer, Web Developer, and Digital Nomad.",
-    siteName: "JensenZhong",
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     images: [
       {
         url: "/images/social_photo.jpg",
@@ -61,11 +61,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JensenZhong - Digital Nomad & Developer",
-    description:
-      "Personal website of JensenZhong - Influencer (>581K followers), Chromium Developer, Web Developer, and Digital Nomad.",
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: ["/images/social_photo.jpg"],
-    creator: "@jensonzhong",
+    creator: siteConfig.twitterCreator,
   },
   robots: {
     index: true,
@@ -97,10 +96,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${maShanZheng.variable} antialiased bg-background text-foreground`}
       >
         <ErrorBoundary>
-          <Navbar />
-          <div className="pt-[72px]">
-            {children}
-          </div>
+          <LanguageProvider>
+            <Navbar />
+            <div className="pt-[72px]">
+              {children}
+            </div>
+          </LanguageProvider>
         </ErrorBoundary>
       </body>
     </html>

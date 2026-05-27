@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://jensenzhong.github.io";
+  const baseUrl = siteConfig.url;
 
   return {
     rules: {

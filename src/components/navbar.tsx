@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { Dock, DockIcon } from "@/components/ui/dock";
+import { LanguageToggle } from "@/components/language-provider";
 
 // ── 导航项 ──
 const navItems = [
@@ -150,7 +151,8 @@ export function Navbar() {
                         </Dock>
 
                         {/* 右侧：社交图标 */}
-                        <div className="flex items-center justify-end gap-0.5" role="list" aria-label="Social media links">
+                        <div className="flex items-center justify-end gap-1.5" role="list" aria-label="Social media links">
+                            <LanguageToggle />
                             {socialLinks.map((link) => (
                                 <a
                                     key={link.name}

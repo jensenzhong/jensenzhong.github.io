@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://jensenzhong.github.io";
+  const baseUrl = siteConfig.url;
 
   return [
     {
@@ -19,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#portfolio`,
+      url: `${baseUrl}/#management`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

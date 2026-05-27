@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小红AI云引擎 — 智慧党建创新平台</title>
+<style>
+/* ===== Reset ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--mouse-x:50%;--mouse-y:50%}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#1a1a2e;background:
+linear-gradient(135deg,#fff5f5 0%,#ffe8e8 30%,#fff 70%);line-height:1.7;overflow-x:hidden;position:relative}
+body::before{
+content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(320px circle at var(--mouse-x) var(--mouse-y),rgba(230,57,70,.14),transparent 55%);
+transition:background .08s linear;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+section{padding:80px 0}
+
+/* ===== Utility ===== */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.container,nav,footer,.lightbox{position:relative;z-index:1}
+.section-title{text-align:center;font-size:2rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#e63946,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-subtitle{text-align:center;color:#666;font-size:1.05rem;margin-bottom:48px}
+.badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:600;background:linear-gradient(135deg,#e63946,#ff6b6b);color:#fff;margin-bottom:16px}
+
+/* ===== Nav ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-size:1.15rem;font-weight:800;color:#e63946;display:flex;align-items:center;gap:8px}
+.nav-logo img{width:32px;height:32px;border-radius:8px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:#444;transition:color .2s;position:relative}
+.nav-links a:hover{color:#e63946}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#e63946;transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#333;transition:color .2s}
+.nav-menu-btn:hover{color:#e63946}
+.nav-links.show{position:fixed;inset:64px 0 auto 0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);flex-direction:column;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.06);box-shadow:0 8px 24px rgba(0,0,0,.08);display:flex;animation:menuSlide .25s ease}
+.nav-links.show a{padding:14px 0;width:100%;text-align:center;font-size:1rem}
+.nav-links.show a::after{display:none}
+@keyframes menuSlide{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== Hero ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff5f5 0%,#ffe8e8 30%,#fff 70%);padding-top:64px}
+.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:900px;height:900px;background:radial-gradient(circle,rgba(230,57,70,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-text h1{font-size:3rem;font-weight:900;line-height:1.25;margin-bottom:20px;background:linear-gradient(135deg,#c1121f,#e63946,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-text .full-name{display:block;font-size:1rem;font-weight:500;color:#888;margin-bottom:8px;-webkit-text-fill-color:#888}
+.hero-text p{font-size:1.1rem;color:#555;margin-bottom:28px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{padding:14px 32px;border-radius:12px;font-weight:700;font-size:.95rem;background:linear-gradient(135deg,#e63946,#ff6b6b);color:#fff;box-shadow:0 4px 20px rgba(230,57,70,.3);transition:transform .2s,box-shadow .2s;cursor:pointer;border:none}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(230,57,70,.4)}
+.btn-secondary{padding:14px 32px;border-radius:12px;font-weight:700;font-size:.95rem;background:#fff;color:#e63946;border:2px solid #e63946;transition:all .2s;cursor:pointer}
+.btn-secondary:hover{background:#fff5f5}
+.hero-image{position:relative;display:flex;justify-content:center}
+.hero-image .hero-phone{max-height:520px;border-radius:28px;box-shadow:0 24px 64px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.04);will-change:transform}
+
+/* 小红老师漂浮 — 抠图、无框、大尺寸 */
+.hero-mascot{position:absolute;bottom:-30px;left:-60px;width:200px;border-radius:0;box-shadow:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.12));cursor:pointer;transition:transform .3s;animation:mascotFloat 3s ease-in-out infinite}
+.hero-mascot:hover{transform:scale(1.08)}
+@keyframes mascotFloat{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-10px) rotate(1deg)}75%{transform:translateY(-14px) rotate(-1deg)}}
+
+/* 视频播放按钮（Hero 区内） */
+.hero-video-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:rgba(230,57,70,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(230,57,70,.4);transition:transform .3s,box-shadow .3s;z-index:2}
+.hero-video-btn:hover{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 8px 32px rgba(230,57,70,.5)}
+.hero-video-btn::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.hero-video-btn .pulse{position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(230,57,70,.4);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.6);opacity:0}}
+
+/* ===== Awards (统一浅色背景) ===== */
+.awards{background:#fff}
+.award-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.award-card{border-radius:16px;overflow:hidden;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;cursor:pointer;background:#fff;will-change:transform}
+.award-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,0,0,.14)}
+.award-card img{width:100%;display:block}
+.award-card .award-label{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;font-weight:700;font-size:1rem}
+.award-card .award-label span{display:inline-block;padding:4px 12px;border-radius:6px;font-size:.8rem;margin-right:8px}
+.award-card:first-child .award-label span{background:linear-gradient(135deg,#ffd700,#ffaa00);color:#1a1a2e}
+.award-card:last-child .award-label span{background:linear-gradient(135deg,#4caf50,#66bb6a);color:#fff}
+
+/* ===== Pain ===== */
+.pain{background:#fff}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.pain-card{background:#fff;border-radius:16px;padding:36px 28px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;border-top:4px solid transparent;will-change:transform}
+.pain-card:nth-child(1){border-top-color:#e63946}.pain-card:nth-child(1) .pain-icon{background:linear-gradient(135deg,#fff5f5,#ffe0e0)}
+.pain-card:nth-child(2){border-top-color:#f4a261}.pain-card:nth-child(2) .pain-icon{background:linear-gradient(135deg,#fff8f0,#ffe8d6)}
+.pain-card:nth-child(3){border-top-color:#2a9d8f}.pain-card:nth-child(3) .pain-icon{background:linear-gradient(135deg,#f0f9f6,#d8f3e8)}
+.pain-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,0,0,.1)}
+.pain-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:2rem;background:linear-gradient(135deg,#fff5f5,#ffe8e8);border-radius:16px}
+.pain-card h3{font-size:1.2rem;margin-bottom:10px}
+.pain-card p{color:#666;font-size:.92rem}
+
+/* ===== Position ===== */
+.position{text-align:center;background:#fff}
+.position-box{max-width:700px;margin:0 auto;padding:48px;border-radius:24px;background:linear-gradient(135deg,#fff5f5,#ffe8e8);box-shadow:0 4px 24px rgba(230,57,70,.08)}
+.position-box h3{font-size:1.6rem;font-weight:900;color:#c1121f;margin-bottom:12px}
+.position-box p{font-size:1.05rem;color:#555}
+.position-stats{display:flex;justify-content:center;gap:48px;margin-top:32px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#e63946,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.82rem;color:#888;margin-top:4px}
+
+/* ===== Engines ===== */
+.engines-section{background:#fff}
+.engines-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.engine-card{border-radius:20px;padding:40px 36px;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;will-change:transform}
+.engine-card:hover{transform:translateY(-4px)}
+.engine-card.red{background:linear-gradient(135deg,#fff5f5,#ffe0e0)}
+.engine-card.blue{background:linear-gradient(135deg,#f0f4ff,#dce6ff)}
+.engine-card h3{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.engine-card .engine-sub{color:#888;font-size:.85rem;margin-bottom:16px}
+.engine-card p{color:#444;font-size:.95rem;margin-bottom:20px}
+.engine-card ul{list-style:none}
+.engine-card ul li{padding:6px 0;font-size:.9rem;color:#555}
+.engine-card ul li::before{content:'\2726 ';color:#e63946;font-weight:700}
+.engine-card.blue ul li::before{color:#3a6ea5}
+.engine-img{margin-top:20px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+
+/* ===== Features ===== */
+.features{background:#fff}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.feat-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;will-change:transform}
+.feat-card:hover{transform:translateY(-8px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.feat-card-img{width:100%;aspect-ratio:16/12;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f8f8f8}
+.feat-card-img img{max-height:360px;object-fit:contain;transition:transform .4s}
+.feat-card:hover .feat-card-img img{transform:scale(1.05)}
+.feat-card-body{padding:24px}
+.feat-card-body h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.feat-card-body p{color:#666;font-size:.9rem}
+
+/* ===== Highlights ===== */
+.highlights{background:#fff}
+.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.hl-card{background:#fafafa;border-radius:16px;padding:32px 24px;border:1px solid #f0f0f0;transition:all .35s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;will-change:transform}
+.hl-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,#e63946,#ff6b6b);opacity:0;transition:opacity .3s}
+.hl-card:hover{background:#fff;box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-4px)}
+.hl-card:hover::before{opacity:1}
+.hl-num{font-size:2.4rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#e63946,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hl-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.hl-card p{font-size:.88rem;color:#666}
+
+/* ===== Dimensions ===== */
+#dimensions{background:#fff}
+.dim-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.dim-card{border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;will-change:transform}
+.dim-card:hover{transform:translateY(-8px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.dim-card:nth-child(1){background:linear-gradient(180deg,#e8f4fd,#fff)}
+.dim-card:nth-child(2){background:linear-gradient(180deg,#e8fde8,#fff)}
+.dim-card:nth-child(3){background:linear-gradient(180deg,#f3e8fd,#fff)}
+.dim-card:nth-child(4){background:linear-gradient(180deg,#fdf3e8,#fff)}
+.dim-card .dim-icon{font-size:2.4rem;margin-bottom:12px}
+.dim-card h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.dim-card .dim-weight{font-size:.8rem;color:#999;margin-bottom:12px}
+.dim-card .dim-score{font-size:2rem;font-weight:900;margin-bottom:8px}
+.dim-card:nth-child(1) .dim-score{color:#2196f3}
+.dim-card:nth-child(2) .dim-score{color:#4caf50}
+.dim-card:nth-child(3) .dim-score{color:#9c27b0}
+.dim-card:nth-child(4) .dim-score{color:#ff9800}
+.dim-card p{font-size:.82rem;color:#777}
+.dim-card img{margin-top:16px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+
+/* ===== DataLoop ===== */
+.dataloop{background:#fff}
+.dataloop-flow{display:flex;align-items:stretch;justify-content:center;gap:0;flex-wrap:wrap;padding:20px 0}
+.dl-step{flex:1;min-width:180px;max-width:260px;padding:28px 20px;text-align:center;position:relative;background:#fff;border-radius:16px;margin:8px;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .3s}
+.dl-step:hover{transform:translateY(-4px)}
+.dl-step .dl-icon{font-size:2rem;margin-bottom:8px}
+.dl-step h4{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.dl-step p{font-size:.8rem;color:#777}
+.dl-arrow{display:flex;align-items:center;font-size:1.4rem;color:#e63946;font-weight:900;padding:0 4px}
+.dl-stats{display:flex;justify-content:center;gap:40px;margin-top:32px;flex-wrap:wrap}
+.dl-stat{text-align:center;padding:20px 28px;background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.dl-stat .dl-stat-num{font-size:2rem;font-weight:900;background:linear-gradient(135deg,#e63946,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.dl-stat .dl-stat-label{font-size:.8rem;color:#888;margin-top:4px}
+
+/* ===== Architecture ===== */
+.arch{background:#fff}
+.arch-flow{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding:40px 0}
+.arch-node{background:#fafafa;border-radius:14px;padding:20px 28px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.05);min-width:160px;transition:transform .3s,box-shadow .3s;will-change:transform}
+.arch-node:hover{box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.arch-node:hover{transform:translateY(-4px)}
+.arch-node h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.arch-node p{font-size:.78rem;color:#888}
+.arch-arrow{font-size:1.6rem;color:#e63946;font-weight:900}
+.arch-db-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.arch-db{background:#fafafa;border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .3s,box-shadow .3s;will-change:transform}
+.arch-db:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.arch-db img{border-radius:8px;margin-bottom:8px}
+.arch-db p{font-size:.8rem;font-weight:600;color:#555}
+
+/* ===== Prospect ===== */
+.prospect{background:#fff}
+.prospect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.prospect-card{padding:36px 28px;border-radius:16px;text-align:center;transition:all .35s cubic-bezier(.34,1.56,.64,1);border:1px solid #f0f0f0;background:#fff;will-change:transform}
+.prospect-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,0,0,.1)}
+.prospect-icon{font-size:2.4rem;margin-bottom:12px}
+.prospect-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.prospect-card p{font-size:.88rem;color:#666}
+
+/* ===== Team ===== */
+.team{background:#fff}
+.team-content{text-align:center}
+.team-content .team-info{font-size:1.1rem;color:#555;margin-bottom:24px}
+.team-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.team-tag{padding:8px 20px;border-radius:24px;font-size:.85rem;font-weight:600;background:#fff;color:#e63946;border:1px solid #fecdd3;transition:all .3s}
+.team-tag:hover{background:#e63946;color:#fff}
+.competition-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.comp-card{background:#fff;border-radius:16px;padding:28px;border:1px solid #f0f0f0;transition:all .35s cubic-bezier(.34,1.56,.64,1);will-change:transform}
+.comp-card:hover{border-color:#fecdd3;box-shadow:0 8px 24px rgba(230,57,70,.08)}
+.comp-card h4{font-size:1rem;font-weight:700;color:#c1121f;margin-bottom:8px}
+.comp-card p{font-size:.88rem;color:#666}
+
+/* ===== CTA ===== */
+.cta{background:linear-gradient(135deg,#c1121f,#e63946,#ff6b6b);color:#fff;text-align:center;padding:80px 0}
+.cta h2{font-size:2rem;font-weight:900;margin-bottom:16px;-webkit-text-fill-color:#fff}
+.cta p{font-size:1.05rem;opacity:.9;margin-bottom:40px}
+.qr-grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.qr-item{text-align:center}
+.qr-item img{width:200px;height:200px;object-fit:contain;border-radius:16px;background:#fff;padding:12px;box-shadow:0 4px 24px rgba(0,0,0,.15);transition:transform .3s}
+.qr-item img:hover{transform:scale(1.05)}
+.qr-item span{display:block;margin-top:12px;font-size:.9rem;font-weight:600}
+
+/* ===== Footer ===== */
+footer{background:#1a1a2e;color:rgba(255,255,255,.6);text-align:center;padding:32px 0;font-size:.85rem}
+
+/* ===== Scroll Reveal ===== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== Nav active state ===== */
+.nav-links a.active{color:#e63946}
+.nav-links a.active::after{width:100%}
+
+/* ===== Back to top ===== */
+.back-to-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#e63946,#ff6b6b);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(230,57,70,.35);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;z-index:999;pointer-events:none}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-top:hover{transform:translateY(-2px) scale(1.05)}
+.back-to-top svg{width:20px;height:20px}
+
+/* ===== Page loader ===== */
+.page-loader{position:fixed;inset:0;z-index:10000;background:#fff5f5;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
+.page-loader.done{opacity:0;visibility:hidden}
+.page-loader-spinner{width:40px;height:40px;border:3px solid rgba(230,57,70,.15);border-top-color:#e63946;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== Lightbox ===== */
+.lightbox{display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.85);align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(4px)}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 48px rgba(0,0,0,.5)}
+
+/* ===== Responsive ===== */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-text h1{font-size:2.2rem}
+  .hero-buttons{justify-content:center}
+  .hero-image{margin-top:32px}
+  .hero-mascot{left:auto;right:-20px;width:140px}
+  .engines-grid,.award-grid,.competition-cards{grid-template-columns:1fr}
+  .dim-grid{grid-template-columns:repeat(2,1fr)}
+  .arch-db-grid{grid-template-columns:repeat(3,1fr)}
+  .hl-grid,.prospect-grid{grid-template-columns:1fr}
+  .nav-links{display:none}.nav-menu-btn{display:block}
+}
+@media(max-width:640px){
+  .pain-grid,.feat-grid,.dim-grid{grid-template-columns:1fr}
+  .arch-db-grid{grid-template-columns:repeat(2,1fr)}
+  .arch-flow,.dataloop-flow{flex-direction:column;align-items:center}
+  .arch-arrow,.dl-arrow{transform:rotate(90deg)}
+  section{padding:56px 0}.section-title{font-size:1.6rem}
+  .hero-mascot{width:110px;bottom:-16px;right:-10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="assets/images/logo.png" alt="Logo">
+      小红AI云引擎
+    </a>
+    <ul class="nav-links">
+      <li><a href="#awards">荣誉成果</a></li>
+      <li><a href="#engines">核心引擎</a></li>
+      <li><a href="#features">功能展示</a></li>
+      <li><a href="#dimensions">四维评估</a></li>
+      <li><a href="#arch">技术架构</a></li>
+      <li><a href="#team">团队介绍</a></li>
+      <li><a href="#cta">立即体验</a></li>
+    </ul>
+    <button class="nav-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ===== Hero（含视频播放按钮） ===== -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="badge">国赛二等奖 · 省赛一等奖</span>
+      <span class="full-name">基于用户数字画像的个性化学习资源推荐与党组织活力指数动态评估系统</span>
+      <h1>小红AI云引擎</h1>
+      <p>面向高校学生党支部的智能化微信小程序，将 AI 大语言模型与党建学习管理深度融合。<br>让党建「潮」起来，让学习「活」起来，让管理「智」起来。</p>
+      <div class="hero-buttons">
+        <a href="#cta" class="btn-primary">扫码体验</a>
+        <button class="btn-secondary" onclick="openExternalVideo()">观看答辩视频</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/hero-cover.png" alt="小红AI云引擎首页展示" class="hero-phone">
+      <!-- 视频播放按钮覆盖在手机图上 -->
+      <button class="hero-video-btn" onclick="openExternalVideo()" title="播放答辩视频">
+        <span class="pulse"></span>
+      </button>
+      <img src="assets/images/xiaohong-mascot.png" alt="小红老师" class="hero-mascot" title="我是小红老师~">
+    </div>
+  </div>
+</section>
+
+<!-- ===== 荣誉成果（统一浅色背景） ===== -->
+<section class="awards" id="awards">
+  <div class="container">
+    <h2 class="section-title reveal">荣誉成果</h2>
+    <p class="section-subtitle reveal">2025 第十三届全国大学生数字媒体科技作品及创意竞赛</p>
+    <div class="award-grid">
+      <div class="award-card reveal zoomable">
+        <img src="assets/images/award-national.jpg" alt="国赛二等奖" loading="lazy">
+        <div class="award-label"><span>全国总决赛</span>二等奖</div>
+      </div>
+      <div class="award-card reveal zoomable">
+        <img src="assets/images/award-provincial.jpg" alt="省赛一等奖" loading="lazy">
+        <div class="award-label"><span>广东赛区</span>一等奖</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 痛点 ===== -->
+<section class="pain" id="pain">
+  <div class="container">
+    <h2 class="section-title reveal">现实痛点洞察</h2>
+    <p class="section-subtitle reveal">我们在真实的党支部工作中发现了三个核心问题</p>
+    <div class="pain-grid">
+      <div class="pain-card reveal"><div class="pain-icon">😴</div><h3>学习「枯燥感」</h3><p>传统党建理论学习多为单向灌输，形式固化无新意，难以契合"Z世代"青年党员的信息接收习惯，学习参与度与知识转化率双低。</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">📋</div><h3>管理「繁琐感」</h3><p>活动记录、学习轨迹、群众反馈等数据依赖人工登记，耗力耗时易出错，数据碎片化严重，难以整合利用。</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">🌫️</div><h3>成效「模糊感」</h3><p>工作结果无系统评估标准，多凭主观判成效，无法用数据衡量学习成果与活动影响，难以精准呈现与针对性优化。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 产品定位 ===== -->
+<section class="position" id="position">
+  <div class="container">
+    <h2 class="section-title reveal">产品定位</h2>
+    <p class="section-subtitle reveal">零代码开发，让每个高校支部都能即刻拥有专属数字化工具</p>
+    <div class="position-box reveal">
+      <h3>小红AI云引擎</h3>
+      <p>一款面向高校学生党支部的智能化微信小程序，基于 Coze 平台零代码构建，全面开源，任何支部都能零成本复制、定制化部署，一键发布上线。</p>
+      <div class="position-stats">
+        <div class="stat-item"><div class="stat-num" data-count="95">0</div><div class="stat-label">% 自动化水平</div></div>
+        <div class="stat-item"><div class="stat-num" data-count="98">0</div><div class="stat-label">% 工作效率提升</div></div>
+        <div class="stat-item"><div class="stat-num" data-count="75">0</div><div class="stat-label">% 用户好评率</div></div>
+        <div class="stat-item"><div class="stat-num" data-count="35">0</div><div class="stat-label">% 管理效率提升</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 两大引擎 ===== -->
+<section class="engines-section" id="engines">
+  <div class="container">
+    <h2 class="section-title reveal">两大核心创新引擎</h2>
+    <p class="section-subtitle reveal">双核架构，以技术创新破解党建工作的现实痛点</p>
+    <div class="engines-grid">
+      <div class="engine-card red reveal">
+        <span class="badge">引擎一 · AI 交互核心</span>
+        <h3>「小红老师」趣味化学习交互引擎</h3>
+        <div class="engine-sub">首创 AI 党建助手 · 个性化学习 · 智能批改 · 数据记录</div>
+        <p>俏皮可爱、专业可靠的虚拟智能助手"小红老师"，以人性化智能对话为党员构建精准数字画像，集成三大功能工作流。</p>
+        <ul>
+          <li>四大领域个性化学习资源推荐（理论精髓、时政要闻、党史征程、党规党纪）</li>
+          <li>四种资源形式自由选择（文字、视频、书籍、电影）</li>
+          <li>多格式试卷智能批改 — 逐题解析，结合权威史料</li>
+          <li>对话式数据记录 — AI 自动提取、结构化存入数据库</li>
+        </ul>
+        <img src="assets/images/page-xiaohong.png" alt="小红老师对话界面" class="engine-img zoomable" style="max-height:360px;object-fit:contain;" loading="lazy">
+      </div>
+      <div class="engine-card blue reveal">
+        <span class="badge" style="background:linear-gradient(135deg,#2a6fc9,#5b9cf5);">引擎二 · 数据评估核心</span>
+        <h3>「活力指数」数据化评估引擎</h3>
+        <div class="engine-sub">四维评估模型 · 多工作流并行 · 可视化报告</div>
+        <p>独创四大维度的"党支部活力指数动态评估模型"，四条工作流并行启动，整合大模型汇总评分，生成全面的可视化报告。</p>
+        <ul>
+          <li>组织凝聚力 · 先锋模范性 · 思想引领力 · 群众联系度</li>
+          <li>自动生成评分、图表、亮点与风险建议</li>
+          <li>群众评价情感分析与关键词提炼预警</li>
+          <li>科学设计的评分标准，经多位支部老师反复打磨</li>
+        </ul>
+        <img src="assets/images/page-eval-report.png" alt="活力评估报告" class="engine-img zoomable" style="max-height:360px;object-fit:contain;" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 功能展示 ===== -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title reveal">核心功能展示</h2>
+    <p class="section-subtitle reveal">集成五大核心工作流，覆盖党建学习全场景</p>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><div class="feat-card-img"><img src="assets/images/page-home.png" alt="小程序首页" class="zoomable" loading="lazy"></div><div class="feat-card-body"><h3>智能首页 · 支部信息宣传</h3><p>展示支部党员人数、最新公众号推文，点击直接跳转阅读。快捷按钮一键进入资源推荐和活力评估功能。</p></div></div>
+      <div class="feat-card reveal"><div class="feat-card-img"><img src="assets/images/page-review.png" alt="试卷批改" class="zoomable" loading="lazy"></div><div class="feat-card-body"><h3>AI 试卷批改服务</h3><p>适用各类文件格式，逐题批改，精细讲解。结合权威史料说明答案依据，给出常见认知误区、易错点与知识拓展。</p></div></div>
+      <div class="feat-card reveal"><div class="feat-card-img"><img src="assets/images/page-eval-entry.png" alt="活力评估入口" class="zoomable" loading="lazy"></div><div class="feat-card-body"><h3>活力指数评估系统</h3><p>选择月份一键生成评估报告，包含综合活力指数总分、等级评定、四维度深度分析、亮点与风险建议。</p></div></div>
+      <div class="feat-card reveal"><div class="feat-card-img"><img src="assets/images/video-cover.jpg" alt="资源推荐" class="zoomable" loading="lazy"></div><div class="feat-card-body"><h3>个性化学习资源推荐</h3><p>三步构建用户数字画像：了解程度 → 主题选择 → 形式偏好，大模型精准匹配高质量学习资源并个性化讲解。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 技术亮点 ===== -->
+<section class="highlights" id="highlights">
+  <div class="container">
+    <h2 class="section-title reveal">技术亮点</h2>
+    <p class="section-subtitle reveal">七大技术亮点，从零代码到智能闭环</p>
+    <div class="hl-grid">
+      <div class="hl-card reveal"><div class="hl-num">01</div><h3>零代码开发</h3><p>基于 Coze 平台，无需代码基础即可独立开发与个性定制化，全面开源，一键发布上线。</p></div>
+      <div class="hl-card reveal"><div class="hl-num">02</div><h3>小红老师 IP 设计</h3><p>充满活力、专业可靠的虚拟形象，俏皮但不失专业性，拉近与青年党员的距离。</p></div>
+      <div class="hl-card reveal"><div class="hl-num">03</div><h3>个性化资源推荐</h3><p>通过智能对话构建用户数字画像，从四大领域精准推荐多种形式的学习资源。</p></div>
+      <div class="hl-card reveal"><div class="hl-num">04</div><h3>智能试卷批改</h3><p>支持多种格式，自动批改并结合权威资料提供专业、详细的解析与知识拓展。</p></div>
+      <div class="hl-card reveal"><div class="hl-num">05</div><h3>数据闭环引擎</h3><p>对话信息被 AI 自动提取、结构化处理并实时存入后端数据库，确保数据零延迟、无遗漏。</p></div>
+      <div class="hl-card reveal"><div class="hl-num">06</div><h3>多工作流并行评估</h3><p>四条独立工作流并行启动，各自调用数据、深度分析，整合大模型汇总评分生成报告。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 四维评估 ===== -->
+<section id="dimensions">
+  <div class="container">
+    <h2 class="section-title reveal">四维活力评估模型</h2>
+    <p class="section-subtitle reveal">团队采访多位支部老师，经反复打磨设计的评估体系</p>
+    <div class="dim-grid">
+      <div class="dim-card reveal zoomable"><div class="dim-icon">🤝</div><h3>组织凝聚力</h3><div class="dim-weight">权重 30%</div><div class="dim-score" data-count="93">0</div><p>活动频率、类型多样性、成员参与广度</p><img src="assets/images/dim-cohesion.png" alt="组织凝聚力" loading="lazy"></div>
+      <div class="dim-card reveal zoomable"><div class="dim-icon">⭐</div><h3>先锋模范性</h3><div class="dim-weight">权重 30%</div><div class="dim-score" data-count="96">0</div><p>荣誉级别与数量、志愿时长、社会服务贡献</p><img src="assets/images/dim-pioneer.png" alt="先锋模范性" loading="lazy"></div>
+      <div class="dim-card reveal zoomable"><div class="dim-icon">💡</div><h3>思想引领力</h3><div class="dim-weight">权重 20%</div><div class="dim-score" data-count="85">0</div><p>学习强国进步分数、学习活跃度、标兵比例</p><img src="assets/images/dim-thought.png" alt="思想引领力" loading="lazy"></div>
+      <div class="dim-card reveal zoomable"><div class="dim-icon">💬</div><h3>群众联系度</h3><div class="dim-weight">权重 20%</div><div class="dim-score" data-count="82">0</div><p>群众评价率、情感分析、关键词提炼与预警</p><img src="assets/images/dim-public.png" alt="群众联系度" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 数据闭环 ===== -->
+<section class="dataloop" id="dataloop">
+  <div class="container">
+    <h2 class="section-title reveal">数据闭环的智能引擎</h2>
+    <p class="section-subtitle reveal">告别创建、分发、催收、统计表格的繁琐流程</p>
+    <div class="dataloop-flow">
+      <div class="dl-step reveal"><div class="dl-icon">💬</div><h4>小红老师对话</h4><p>轻松聊天式录入数据</p></div>
+      <div class="dl-arrow">→</div>
+      <div class="dl-step reveal"><div class="dl-icon">🤖</div><h4>AI 自动提取</h4><p>语义识别，结构化处理</p></div>
+      <div class="dl-arrow">→</div>
+      <div class="dl-step reveal"><div class="dl-icon">🗄️</div><h4>实时入库</h4><p>零延迟存入后端数据库</p></div>
+      <div class="dl-arrow">→</div>
+      <div class="dl-step reveal"><div class="dl-icon">📊</div><h4>动态评估</h4><p>一键生成可视化报告</p></div>
+    </div>
+    <div class="dl-stats">
+      <div class="dl-stat reveal"><div class="dl-stat-num" data-count="95">0</div><div class="dl-stat-label">% 自动化水平</div></div>
+      <div class="dl-stat reveal"><div class="dl-stat-num" data-count="98">0</div><div class="dl-stat-label">% 工作效率提升</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 技术架构 ===== -->
+<section class="arch" id="arch">
+  <div class="container">
+    <h2 class="section-title reveal">技术架构</h2>
+    <p class="section-subtitle reveal">基于 Coze 平台构建，5 条核心工作流 + 5 个数据库 + LLM 智能分析</p>
+    <div class="arch-flow">
+      <div class="arch-node reveal"><h4>用户输入</h4><p>微信小程序交互</p></div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node reveal" style="border:2px solid #e63946"><h4>Coze 工作流引擎</h4><p>5条核心工作流并行处理</p></div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node reveal"><h4>LLM 大模型</h4><p>统计 · 情感分析 · 文本生成</p></div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node reveal"><h4>可视化输出</h4><p>评估报告 · 资源推荐 · 批改解析</p></div>
+    </div>
+    <h3 style="text-align:center;margin-top:48px;margin-bottom:24px;font-size:1.1rem;color:#888" class="reveal">五大后台数据库支撑</h3>
+    <div class="arch-db-grid">
+      <div class="arch-db reveal"><img src="assets/images/db-activity.png" alt="活动举办数据库" loading="lazy"><p>活动举办</p></div>
+      <div class="arch-db reveal"><img src="assets/images/db-award.png" alt="获奖记录数据库" loading="lazy"><p>获奖记录</p></div>
+      <div class="arch-db reveal"><img src="assets/images/db-progress.png" alt="进步分数数据库" loading="lazy"><p>进步分数</p></div>
+      <div class="arch-db reveal"><img src="assets/images/db-feedback.png" alt="群众评价数据库" loading="lazy"><p>群众评价</p></div>
+      <div class="arch-db reveal"><img src="assets/images/db-volunteer.png" alt="志愿时长数据库" loading="lazy"><p>志愿时长</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 应用前景 ===== -->
+<section class="prospect" id="prospect">
+  <div class="container">
+    <h2 class="section-title reveal">应用前景与推广价值</h2>
+    <p class="section-subtitle reveal">从高校到基层，智慧党建的无限可能</p>
+    <div class="prospect-grid">
+      <div class="prospect-card reveal"><div class="prospect-icon">🎓</div><h3>高校普及</h3><p>可定制化 AI 引擎灵活适配各高校需求，能快速部署融入教学党建，操作门槛低，利于大规模普及。</p></div>
+      <div class="prospect-card reveal"><div class="prospect-icon">🔗</div><h3>横向拓展</h3><p>AI 技术结合党建，可为社区、企业、机关提供多样服务，提升党建效能，促进党建与业务深度融合。</p></div>
+      <div class="prospect-card reveal"><div class="prospect-icon">🏛️</div><h3>战略价值</h3><p>推广智慧党建普及成全国网络，提升党建水平，助力国家治理现代化，强化组织保障与辅助政府决策。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 团队 ===== -->
+<section class="team" id="team">
+  <div class="container">
+    <h2 class="section-title reveal">团队介绍</h2>
+    <p class="section-subtitle reveal">学业与实践双优，技术与党建双场景认知</p>
+    <div class="team-content">
+      <p class="team-info reveal">团队名称：<strong>红芯智绘队</strong> · 广州大学管理学院</p>
+      <p class="team-info reveal" style="font-size:.95rem;color:#888;margin-top:-12px">指导老师：兰洁、张元新 · 团队成员：钟政燊、谭淇泽、李想、王静、梁懋林</p>
+      <div class="team-tags reveal">
+        <span class="team-tag">学生党员团队</span><span class="team-tag">Coze 平台开发</span><span class="team-tag">AI 大语言模型</span><span class="team-tag">微信小程序</span><span class="team-tag">智慧党建</span><span class="team-tag">全面开源</span><span class="team-tag">零代码</span>
+      </div>
+      <div class="competition-cards">
+        <div class="comp-card reveal"><h4>第十三届全国大学生数字媒体科技作品及创意竞赛</h4><p>全国总决赛二等奖 · 广东赛区一等奖<br>作品编号 214630 · 微信小程序应用赛道</p></div>
+        <div class="comp-card reveal"><h4>「庆园杯」人工智能创新应用大赛</h4><p>校级人工智能创新应用赛事，展示 AI 技术在党建领域的创新应用。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="cta">
+  <div class="container">
+    <h2 class="reveal">立即体验小红AI云引擎</h2>
+    <p class="reveal">微信搜索「小红AI云引擎」或扫描下方二维码，即刻开启智慧党建之旅</p>
+    <div class="qr-grid">
+      <div class="qr-item reveal"><img src="assets/images/qr-1.jpg" alt="小程序二维码" loading="lazy"><span>微信扫码体验</span></div>
+      <div class="qr-item reveal"><img src="assets/images/qr-2.jpg" alt="小程序二维码2" loading="lazy"><span>微信小程序码</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer><div class="container"><p>小红AI云引擎 &copy; 2025 广州大学管理学院 红芯智绘队 · 基于 Coze 平台构建</p></div></footer>
+
+<!-- ===== Back to top ===== -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lightbox-img" src="" alt="放大查看"></div>
+
+<!-- ===== Page loader ===== -->
+<div class="page-loader" id="pageLoader"><div class="page-loader-spinner"></div></div>
+
+<!-- ===== Scripts ===== -->
+<script>
+// Nav scroll
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+// Mouse glow
+document.addEventListener('mousemove', (e) => {
+  const x = `${(e.clientX / window.innerWidth) * 100}%`;
+  const y = `${(e.clientY / window.innerHeight) * 100}%`;
+  document.documentElement.style.setProperty('--mouse-x', x);
+  document.documentElement.style.setProperty('--mouse-y', y);
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Counter animation (requestAnimationFrame)
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const duration = 1200;
+      const start = performance.now();
+      const animate = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        el.textContent = Math.round(easeOutQuart * target);
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
+
+// Lightbox
+document.querySelectorAll('.zoomable').forEach(el => {
+  const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+  if (img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+    });
+  }
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id], .hero[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+// Back to top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => backToTop.classList.toggle('visible', window.scrollY > 600));
+
+// Page loader
+window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('done'), 400));
+
+// External video
+function openExternalVideo() {
+  window.open(
+    'https://www.bilibili.com/video/BV11XeFz2EXW/?share_source=copy_web&vd_source=a1d078e9508719259cc9e8c9a8c69072',
+    '_blank',
+    'noopener,noreferrer'
+  );
+}
+// ESC 关闭
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

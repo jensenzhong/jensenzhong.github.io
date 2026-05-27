@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="本质安全智能施工防火系统：面向香港城市更新施工场景的火灾风险预控 Demo，展示风险隔离、过程控制、感知预警三层防线。">
+  <title>本质安全智能施工防火系统 | 火灾风险预控 Demo</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <header class="site-header" aria-label="主导航">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>本质安全智能施工防火系统</span>
+    </a>
+    <nav class="nav-links" aria-label="页面导航">
+      <a href="#problem">背景</a>
+      <a href="#system">三层防线</a>
+      <a href="#demo">Demo</a>
+      <a href="#tech">开发亮点</a>
+      <a href="#materials">汇报材料</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <video class="hero-media" src="layer1-risk-video.mp4" autoplay muted loop playsinline poster="images/layer1-risk.png"></video>
+      <div class="hero-scrim"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Hong Kong Urban Renewal Fire Risk Control</p>
+        <h1 id="hero-title">
+          <span>本质安全智能</span>
+          <span>施工防火系统</span>
+        </h1>
+        <p class="hero-subtitle">面向香港城市更新施工场景的火灾风险预控 Demo</p>
+        <p class="hero-copy">
+          从宏福苑火灾暴露出的高密度施工风险出发，把消防预警从“发现火”前移到“阻止火”：
+          先识别致灾条件，再管控动火过程，最后用多源感知完成分级预警和闭环处置。
+        </p>
+
+        <div class="hero-badges" aria-label="项目标签">
+          <span>Claude Code 开发</span>
+          <span>GLM-5.1 协作</span>
+          <span>AI + IoT + LSTM</span>
+          <span>三层管控</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="demo.html">
+            <span class="btn-icon arrow-icon" aria-hidden="true"></span>
+            进入系统 Demo
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/jensenzhong/Intrinsically-Safe-Intelligent-Construction-Fire-Protection-System-Demo" target="_blank" rel="noreferrer">
+            <span class="btn-icon repo-icon" aria-hidden="true"></span>
+            查看 GitHub 开源仓库
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-console" aria-label="系统运行状态预览">
+        <div class="console-topline">
+          <span>系统 Demo 预览</span>
+          <span class="live-dot">系统在线</span>
+        </div>
+        <div class="console-preview">
+          <video src="layer2-complete-video.mp4" autoplay muted loop playsinline poster="images/layer2-complete.png"></video>
+          <div class="preview-scan" aria-hidden="true"></div>
+          <span>AI 识别 / 动火审批 / 感知预警</span>
+        </div>
+        <div class="console-metrics">
+          <div>
+            <strong data-count="86">86%</strong>
+            <span>LSTM 风险概率</span>
+          </div>
+          <div>
+            <strong>03</strong>
+            <span>管控层级</span>
+          </div>
+          <div>
+            <strong>24h</strong>
+            <span>持续监测</span>
+          </div>
+        </div>
+        <div class="console-track" aria-label="三层防线状态">
+          <span class="track-item active">风险扫描</span>
+          <span class="track-item active">作业许可</span>
+          <span class="track-item warning">感知预警</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="problem" class="section section-problem" aria-labelledby="problem-title">
+      <div class="section-inner two-column">
+        <div class="section-heading">
+          <p class="eyebrow">Why It Matters</p>
+          <h2 id="problem-title">香港城市更新施工现场，需要更早的安全关口</h2>
+          <p>
+            城市更新项目往往处在高密度社区中，施工空间紧、动火作业多、可燃材料集中，
+            一旦火势扩散，救援通道和人员疏散都会面临压力。
+          </p>
+        </div>
+        <div class="evidence-panel">
+          <div class="evidence-number">
+            <span>168</span>
+            <p>RTHK 报道，宏福苑火灾死亡人数最终升至 168 人。</p>
+          </div>
+          <p>
+            同一事件的调查仍在推进。RTHK 于 2026-03-20 报道，政府说明独立委员会仍在调查，
+            尚未得出结论。这个网页只将宏福苑作为风险背景，引出施工消防从被动响应转向主动预防的必要性。
+          </p>
+          <div class="source-links">
+            <a href="https://news.rthk.hk/rthk/en/component/k2/1840045-20260115.htm" target="_blank" rel="noreferrer">RTHK 伤亡报道</a>
+            <a href="https://news.rthk.hk/rthk/en/component/k2/1848183-20260320.htm" target="_blank" rel="noreferrer">RTHK 调查进展报道</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shift-section" aria-labelledby="shift-title">
+      <div class="section-inner">
+        <div class="section-heading centered">
+          <p class="eyebrow">Core Shift</p>
+          <h2 id="shift-title">从发现火到阻止火</h2>
+          <p>传统预警多数识别烟、热、火焰等结果性信号；本质安全更关注火灾发生前的致灾条件。</p>
+        </div>
+
+        <div class="shift-grid">
+          <article class="mode-card passive">
+            <h3>传统消防路径</h3>
+            <ol>
+              <li>火灾表征出现</li>
+              <li>探测器报警</li>
+              <li>人工确认和处置</li>
+              <li>事后复盘整改</li>
+            </ol>
+          </article>
+          <div class="shift-axis" aria-hidden="true">
+            <span>Fire Control</span>
+          </div>
+          <article class="mode-card active-mode">
+            <h3>本质安全路径</h3>
+            <ol>
+              <li>识别火源、可燃物、人员交汇</li>
+              <li>提前隔离风险区域</li>
+              <li>审批和监控动火作业</li>
+              <li>多传感器预测趋势并联动处置</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="system" class="section system-section" aria-labelledby="system-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">System Architecture</p>
+          <h2 id="system-title">三层防线，把火灾风险逐步前移</h2>
+          <p>这个 Demo 不是单个报警页面，而是一套从空间布置、作业流程到现场感知的防火管控逻辑。</p>
+        </div>
+
+        <div class="layer-grid">
+          <article class="layer-card">
+            <img src="images/layer1-risk.png" alt="风险隔离页面展示 AI 识别施工现场区域冲突">
+            <div>
+              <span class="layer-index">Layer 01</span>
+              <h3>风险隔离</h3>
+              <p>AI 视觉识别动火区、可燃材料堆放区、人员通道和疏散通道，发现空间冲突后触发分级反馈。</p>
+            </div>
+          </article>
+          <article class="layer-card">
+            <img src="images/layer2-complete.png" alt="过程控制页面展示动火审批和安全检查完成状态">
+            <div>
+              <span class="layer-index">Layer 02</span>
+              <h3>过程控制</h3>
+              <p>将动火审批、安全检查、作业许可和实时监控串成流程，减少仅依赖人工经验的漏检风险。</p>
+            </div>
+          </article>
+          <article class="layer-card">
+            <img src="images/layer3-hazard.png" alt="感知预警页面展示多传感器异常和 LSTM 风险预测">
+            <div>
+              <span class="layer-index">Layer 03</span>
+              <h3>感知预警</h3>
+              <p>融合温度、VFDS 视觉火焰侦测、ASD 吸气式烟感等信号，用 LSTM 判断风险演化并联动处置。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section demo-section" aria-labelledby="demo-title">
+      <div class="section-inner">
+        <div class="section-heading centered">
+          <p class="eyebrow">Interactive Demo</p>
+          <h2 id="demo-title">可交互成果：系统正在运行</h2>
+          <p>课程项目交互 Demo 使用模拟数据和 AI 辅助素材，重点展示系统设计理念、页面流程和风险联动方式。</p>
+        </div>
+
+        <div class="roadmap-showcase">
+          <figure class="roadmap-frame">
+            <img src="images/fire-warning-roadmap.png" alt="火灾预警系统技术路线图">
+          </figure>
+          <div class="roadmap-actions">
+            <a class="btn btn-primary" href="demo.html">
+              <span class="btn-icon arrow-icon" aria-hidden="true"></span>
+              进入完整体验
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section tech-section" aria-labelledby="tech-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Built With AI</p>
+          <h2 id="tech-title">开发和展示亮点</h2>
+          <p>这个网页会把“我用 AI 工具做出了系统 Demo”讲清楚，同时把技术能力翻译成外行能理解的安全价值。</p>
+        </div>
+
+        <div class="tech-grid">
+          <article>
+            <h3>Claude Code + GLM-5.1</h3>
+            <p>完成系统 Demo 搭建、交互逻辑组织和前端页面实现，让方案从 PPT 走到可体验原型。</p>
+          </article>
+          <article>
+            <h3>ChatGPT Image 2.0</h3>
+            <p>辅助生成系统部分图片和施工现场视觉素材，提升演示的场景真实感。</p>
+          </article>
+          <article>
+            <h3>豆包 Seedance 2.0</h3>
+            <p>辅助生成系统部分视频画面，用动态方式呈现风险扫描和作业监控。</p>
+          </article>
+          <article>
+            <h3>AI + IoT + LSTM</h3>
+            <p>AI 看现场，传感器听异常，模型预测趋势，系统按风险等级自动提示、告警和调度。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="materials" class="section materials-section" aria-labelledby="materials-title">
+      <div class="section-inner">
+        <div class="section-heading centered">
+          <p class="eyebrow">Presentation Materials</p>
+          <h2 id="materials-title">汇报海报与小组合照</h2>
+          <p>把课程汇报海报和小组现场照片一起放在作品页后段，作为方案展示与团队协作记录。</p>
+        </div>
+
+        <div class="materials-grid">
+          <article class="material-card material-card-poster">
+            <div class="material-preview" role="button" tabindex="0" data-lightbox-type="pdf" data-lightbox-src="poster.pdf" aria-label="放大查看汇报海报">
+              <object data="poster.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" aria-label="汇报海报预览">
+                <a href="poster.pdf" target="_blank" rel="noreferrer">打开汇报海报 PDF</a>
+              </object>
+              <span class="material-zoom">点击放大</span>
+            </div>
+            <div class="material-caption">
+              <h3>课程汇报海报</h3>
+              <p>完整呈现本质安全智能施工防火系统的背景、技术路线和预警方案。</p>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-preview" role="button" tabindex="0" data-lightbox-type="image" data-lightbox-src="images/team-photo.jpg" aria-label="放大查看小组合照">
+              <img src="images/team-photo.jpg" alt="项目小组与老师合照">
+              <span class="material-zoom">点击放大</span>
+            </div>
+            <div class="material-caption">
+              <h3>小组与老师合照</h3>
+              <p>记录课程汇报后的团队协作成果与指导交流瞬间。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta" aria-labelledby="final-title">
+      <div class="section-inner cta-inner">
+        <div>
+          <p class="eyebrow">Open Demo</p>
+          <h2 id="final-title">把安全关口前移，让施工火灾防控从被动响应走向主动预防。</h2>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="demo.html">
+            <span class="btn-icon arrow-icon" aria-hidden="true"></span>
+            进入系统 Demo
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/jensenzhong/Intrinsically-Safe-Intelligent-Construction-Fire-Protection-System-Demo" target="_blank" rel="noreferrer">
+            <span class="btn-icon repo-icon" aria-hidden="true"></span>
+            查看 GitHub 开源仓库
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>本质安全智能施工防火系统 Demo</span>
+    <span>课程项目展示，所有运行数据为模拟数据。</span>
+  </footer>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="关闭放大预览">×</button>
+    <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="放大预览"></div>
+  </div>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>

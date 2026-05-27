@@ -7,6 +7,7 @@ export interface OrbitConfig {
   radius?: number;
   radiusX?: number;
   radiusY?: number;
+  itemSize?: number;
   duration: number; // seconds
   reverse?: boolean;
   icons: React.ReactNode[];
@@ -23,6 +24,8 @@ export function OrbitSystem({ orbits, className }: OrbitSystemProps) {
       {orbits.map((orbit, i) => {
         const rx = orbit.radiusX ?? orbit.radius ?? 100;
         const ry = orbit.radiusY ?? orbit.radius ?? rx;
+        const itemSize = orbit.itemSize ?? 40;
+        const itemOffset = itemSize / 2;
 
         return (
           <React.Fragment key={i}>
@@ -63,10 +66,10 @@ export function OrbitSystem({ orbits, className }: OrbitSystemProps) {
                       className="absolute left-1/2 top-1/2 flex items-center justify-center"
                       style={{
                         transform: `rotate(${angle}deg) translate(${rx}px) rotate(-${angle}deg)`,
-                        width: '40px',
-                        height: '40px',
-                        marginLeft: '-20px',
-                        marginTop: '-20px',
+                        width: `${itemSize}px`,
+                        height: `${itemSize}px`,
+                        marginLeft: `-${itemOffset}px`,
+                        marginTop: `-${itemOffset}px`,
                       }}
                     >
                       <div
