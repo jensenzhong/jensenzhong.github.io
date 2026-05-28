@@ -1,0 +1,269 @@
+/* ========== 智能调度页面 ========== */
+.dispatch-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: calc(100vh - 180px);
+  overflow: hidden;
+}
+
+.dispatch-map-full {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.campus-map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.dispatch-info-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dispatch-worker,
+.dispatch-suggestion {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 路线时间线 */
+.route-timeline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.suggestion-content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.route-step {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  position: relative;
+}
+
+.route-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 44px;
+  bottom: -2px;
+  width: 2px;
+  background: var(--border);
+}
+
+.route-step.completed::after {
+  background: var(--sage);
+}
+
+.route-step.current::after {
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+}
+
+.step-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+}
+
+.route-step.completed .step-marker {
+  border-color: var(--sage);
+  background: var(--sage-dim);
+  color: var(--sage);
+}
+
+.route-step.current .step-marker {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+  animation: pulse-dot 2s infinite;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content strong {
+  font-size: 0.88rem;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.step-content p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.step-time {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.step-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+
+.step-tag.ai {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* 紧急任务样式 */
+.route-step.emergency {
+  animation: emergency-flash 1s ease;
+  background: linear-gradient(90deg, rgba(192, 57, 43, 0.08), transparent);
+  border-left: 3px solid #C0392B;
+  padding-left: 12px;
+  margin-left: -12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.emergency-marker {
+  border-color: #C0392B !important;
+  background: rgba(192, 57, 43, 0.1) !important;
+  color: #C0392B !important;
+  font-weight: 900;
+  animation: marker-pulse 1.5s ease infinite;
+}
+
+.step-tag.emergency {
+  background: rgba(192, 57, 43, 0.15);
+  color: #C0392B;
+  animation: tag-blink 2s ease infinite;
+}
+
+@keyframes emergency-flash {
+  0% { opacity: 0; transform: translateX(-20px); background: rgba(192, 57, 43, 0.3); }
+  50% { background: rgba(192, 57, 43, 0.15); }
+  100% { opacity: 1; transform: translateX(0); background: linear-gradient(90deg, rgba(192, 57, 43, 0.08), transparent); }
+}
+
+@keyframes marker-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(192, 57, 43, 0); }
+}
+
+@keyframes tag-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.worker-status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.worker-status.active {
+  background: var(--sage-dim);
+  color: var(--sage);
+}
+
+/* AI 建议 */
+.ai-sparkle {
+  color: var(--accent);
+  animation: sparkle 3s ease infinite;
+}
+
+.suggestion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.suggestion-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.25s;
+}
+
+.suggestion-item:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+.suggestion-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.suggestion-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.suggestion-icon.combine {
+  background: var(--plum-dim);
+  color: var(--plum);
+}
+
+.suggestion-icon.inventory {
+  background: var(--coral-dim);
+  color: var(--coral);
+}
+
+.suggestion-icon.time {
+  background: var(--sage-dim);
+  color: var(--sage);
+}
+
+.suggestion-text strong {
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.suggestion-text p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 700;
+}

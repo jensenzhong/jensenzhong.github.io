@@ -1,0 +1,297 @@
+/* ========== AI 维修计划按钮 ========== */
+.btn-ai-plan {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(212, 113, 78, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-ai-plan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 113, 78, 0.35);
+}
+
+.btn-ai-plan svg {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* ========== AI 维修计划模态框 ========== */
+.ai-plan-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.ai-plan-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 22, 18, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.ai-plan-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 85vh;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s ease;
+}
+
+.ai-plan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-plan-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.ai-plan-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.ai-plan-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--bg-hover);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-plan-close:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.plan-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 24px 32px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.plan-stat-item {
+  text-align: center;
+}
+
+.plan-stat-num {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.plan-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.plan-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.plan-section {
+  margin-bottom: 32px;
+}
+
+.plan-section:last-child {
+  margin-bottom: 0;
+}
+
+.plan-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.plan-section-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.plan-section-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.plan-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-task-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.plan-task-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.plan-task-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.plan-task-title {
+  flex: 1;
+}
+
+.plan-task-title h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.plan-task-location {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.plan-task-priority {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.plan-task-priority.urgent {
+  background: rgba(192, 57, 43, 0.1);
+  color: #C0392B;
+}
+
+.plan-task-priority.high {
+  background: rgba(196, 130, 14, 0.1);
+  color: #C4820E;
+}
+
+.plan-task-priority.normal {
+  background: rgba(91, 138, 114, 0.1);
+  color: #5B8A72;
+}
+
+.plan-task-priority.low {
+  background: rgba(139, 110, 162, 0.1);
+  color: #8B6EA2;
+}
+
+.plan-task-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xs);
+  margin-bottom: 12px;
+}
+
+.plan-task-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.plan-task-meta-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.plan-task-meta-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.plan-task-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.plan-task-tool {
+  padding: 4px 10px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.plan-task-schedule {
+  margin-top: 12px;
+  padding: 10px;
+  background: var(--bg-hover);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-xs);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.plan-task-schedule strong {
+  color: var(--accent);
+  font-weight: 600;
+}

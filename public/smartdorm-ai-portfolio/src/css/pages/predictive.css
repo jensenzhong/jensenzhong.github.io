@@ -1,0 +1,241 @@
+/* ========== 预测性维护页面 ========== */
+.predict-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.predict-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.predict-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+
+.predict-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.predict-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.facility-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.facility-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.facility-icon.door {
+  background: var(--coral-dim);
+  color: var(--coral);
+}
+
+.facility-icon.pipe {
+  background: var(--plum-dim);
+  color: var(--plum);
+}
+
+.facility-icon.electric {
+  background: var(--sage-dim);
+  color: var(--sage);
+}
+
+.predict-card-header h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.facility-location {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.predict-risk {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.predict-risk.high {
+  background: var(--red-dim);
+  color: var(--red);
+}
+
+.predict-risk.medium {
+  background: var(--amber-dim);
+  color: var(--amber);
+}
+
+.predict-risk.low {
+  background: var(--sage-dim);
+  color: var(--sage);
+}
+
+.predict-bar-wrapper {
+  margin-bottom: 20px;
+}
+
+.predict-bar {
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.predict-bar-fill {
+  height: 100%;
+  width: var(--fill);
+  background: var(--color);
+  border-radius: 4px;
+  transition: width 1.5s ease;
+  position: relative;
+}
+
+.predict-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5));
+  animation: bar-shine 2.5s infinite;
+}
+
+@keyframes bar-shine {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.predict-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.predict-insight {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+
+.insight-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insight-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.predict-insight p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.predict-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* 四园对比 */
+.zone-compare {
+  /* 继承 card 样式 */
+}
+
+.compare-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.compare-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.compare-label {
+  width: 80px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: right;
+  font-weight: 500;
+}
+
+.compare-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.compare-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compare-bar-row .zone-label {
+  width: 36px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.compare-bar-track {
+  flex: 1;
+  height: 22px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.compare-bar-value {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: white;
+  transition: width 1.2s ease;
+}

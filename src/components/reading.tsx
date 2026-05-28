@@ -17,9 +17,9 @@ const cards = [
     text: "text-white",
     visual: "bars",
     Icon: BriefcaseBusiness,
-    summary: "用商业策略、演示叙事和数据表达完成一套挑战赛方案，把复杂命题转译成清晰可执行的路演内容。",
+    summary: "基于瑞贝卡公司开展系统性财务分析与商业策略研究，从资产质量、盈利能力与运营效率等维度构建分析框架，并结合行业趋势提出优化商业模式、拓展国内市场及供应链升级等策略，最终完成三年财务预测与可执行落地方案设计。我主要负责财务预测部分",
     meta: ["商业策略", "路演表达", "全国二等奖"],
-    href: "/xiaohong-ai/xiaohong-ai.html",
+    href: "/images/awards/business-elite-accounting-national-second-prize-2024.jpg",
   },
   {
     title: "正大杯市场调研分析大赛",
@@ -280,7 +280,7 @@ export function Reading() {
   };
 
   return (
-    <section id="books" className="relative overflow-hidden py-24">
+    <section id="awards" className="relative overflow-hidden py-24 scroll-mt-32">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 26 }}
@@ -332,7 +332,7 @@ export function Reading() {
                   delay: selectedIndex === null ? index * 0.04 : 0,
                 }}
                 style={{ transformOrigin: "50% 0%" }}
-                className="award-float absolute h-[400px] w-[270px]"
+                className={cn("award-float absolute h-[400px]", selected ? "w-[330px]" : "w-[270px]")}
                 onMouseEnter={() => pauseCard(index)}
                 onMouseLeave={() => resumeCard(index)}
                 onFocus={() => pauseCard(index)}
@@ -403,7 +403,11 @@ export function Reading() {
                             <p className={cn("font-black opacity-80", selected ? "text-[16px]" : "text-[13px]")}>
                               {card.result}
                             </p>
-                            {selected && <p className="max-w-[14rem] text-sm font-semibold leading-relaxed opacity-70">{card.summary}</p>}
+                            {selected && (
+                              <p className="max-h-[7rem] max-w-[16.5rem] overflow-y-auto pr-2 text-sm font-semibold leading-relaxed opacity-70 [scrollbar-width:thin]">
+                                {card.summary}
+                              </p>
+                            )}
                           </div>
                         </div>
                       </div>

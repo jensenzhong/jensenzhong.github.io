@@ -59,4 +59,8 @@
   .animate-float {
     animation: none !important;
   }
+
+  .lanyard-card {
+    will-change: transform;
+  }
 }

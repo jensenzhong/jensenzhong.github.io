@@ -1,0 +1,380 @@
+/* ========== 仪表盘网格 ========== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+  height: calc(100vh - 260px);
+  overflow: hidden;
+}
+
+.dashboard-grid .card-lg {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-grid .card:not(.card-lg) {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== 实时动态 ========== */
+.realtime-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.realtime-feed::-webkit-scrollbar {
+  width: 3px;
+}
+
+.realtime-feed::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.feed-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.25s;
+  animation: slideIn 0.4s ease;
+}
+
+.feed-item:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+.feed-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.feed-dot.danger { background: var(--red); }
+.feed-dot.warning { background: var(--amber); }
+.feed-dot.info { background: var(--plum); }
+.feed-dot.success { background: var(--sage); }
+
+.feed-content {
+  flex: 1;
+}
+
+.feed-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.feed-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ========== 热力图 ========== */
+.heatmap-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  flex: 1;
+}
+
+.heatmap-cell {
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  min-height: 0;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.06);
+  box-shadow: var(--shadow-md);
+}
+
+.heatmap-cell .building-name {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.heatmap-cell .health-score {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* ========== 趋势图 ========== */
+.chart-container {
+  flex: 1;
+  position: relative;
+  overflow: visible;
+  min-height: 0;
+}
+
+.chart-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 趋势图交互 */
+.trend-svg {
+  cursor: crosshair;
+}
+
+.trend-point {
+  cursor: pointer;
+}
+
+.trend-point:hover .trend-dot {
+  filter: drop-shadow(0 0 4px rgba(212, 113, 78, 0.6));
+}
+
+.trend-tooltip {
+  position: absolute;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.2s ease;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.trend-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trend-tooltip strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.trend-tooltip span {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+/* ========== 可点击统计卡片 ========== */
+.stat-card.clickable {
+  cursor: pointer;
+}
+
+.stat-card.clickable:hover {
+  border-color: var(--accent);
+}
+
+/* ========== 维修工单弹窗 ========== */
+.workorder-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.workorder-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 22, 18, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.workorder-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s ease;
+}
+
+.workorder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.workorder-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.workorder-header p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.workorder-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--bg-hover);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workorder-close:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.workorder-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.workorder-stat {
+  text-align: center;
+}
+
+.workorder-stat-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.workorder-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.workorder-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.workorder-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: all 0.2s ease;
+}
+
+.workorder-item:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.workorder-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.workorder-status.completed { background: var(--sage); }
+.workorder-status.processing { background: var(--amber); }
+.workorder-status.pending { background: var(--red); }
+
+.workorder-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.workorder-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.workorder-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 12px;
+}
+
+.workorder-tag {
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.workorder-tag.completed {
+  background: var(--sage-dim);
+  color: var(--sage);
+}
+
+.workorder-tag.processing {
+  background: var(--amber-dim);
+  color: var(--amber);
+}
+
+.workorder-tag.pending {
+  background: var(--red-dim);
+  color: var(--red);
+}

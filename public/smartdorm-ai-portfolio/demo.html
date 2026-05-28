@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartDorm AI - 智慧宿舍设施管理</title>
+<link rel="stylesheet" href="src/css/base.css">
+<link rel="stylesheet" href="src/css/components/navigation.css">
+<link rel="stylesheet" href="src/css/components/cards.css">
+<link rel="stylesheet" href="src/css/components/modals.css">
+<link rel="stylesheet" href="src/css/pages/dashboard.css">
+<link rel="stylesheet" href="src/css/pages/crowdsource.css">
+<link rel="stylesheet" href="src/css/pages/predictive.css">
+<link rel="stylesheet" href="src/css/pages/dispatch.css">
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-left">
+    <div class="logo-mark">
+      <div class="logo-icon">
+        <svg viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M8 8V5a3 3 0 013-3h10a3 3 0 013 3v3" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="18" r="4" stroke="currentColor" stroke-width="2"/></svg>
+      </div>
+      <span class="logo-text">SmartDorm<span class="logo-dot">.</span>AI</span>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <div class="nav-links">
+      <a href="#" class="nav-link active" data-section="dashboard">总览</a>
+      <a href="#" class="nav-link" data-section="predictive">预测维护</a>
+      <a href="#" class="nav-link" data-section="dispatch">智能调度</a>
+      <a href="#" class="nav-link" data-section="cv-diagnosis">众包报修</a>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="status-pill online"><span class="status-dot"></span>AI 引擎运行中</div>
+    <div class="notification-bell" id="notificationBell">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+      <span class="bell-badge">3</span>
+      <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notif-header">
+          <strong>通知</strong>
+          <span class="notif-count">3 条未读</span>
+        </div>
+        <div class="notif-list">
+          <div class="notif-item unread">
+            <div class="notif-dot danger"></div>
+            <div class="notif-content">
+              <div class="notif-title">梅4 · 502 天花板霉点需紧急处理</div>
+              <div class="notif-time">2 分钟前</div>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-dot warning"></div>
+            <div class="notif-content">
+              <div class="notif-title">兰4 · 301 窗户密封条老化预警</div>
+              <div class="notif-time">8 分钟前</div>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-dot info"></div>
+            <div class="notif-content">
+              <div class="notif-title">AI 模型更新完成，识别率提升至 96.2%</div>
+              <div class="notif-time">1.5 小时前</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-avatar">管</div>
+  </div>
+</nav>
+<main class="main-content">
+  <section id="dashboard" class="section active">
+    <div class="section-header">
+      <div><h1 class="section-title">系统总览</h1><p class="section-subtitle">实时监控 · 智能预警 · 数据驱动</p></div>
+      <div class="header-actions"><span class="live-tag"><span class="live-dot"></span>LIVE</span><span class="time-display" id="currentTime"></span></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card" style="--accent: #00e5ff">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="stat-info"><span class="stat-number" data-count="1247">0</span><span class="stat-label">今日 AI 识别</span></div>
+        <div class="stat-trend up">+12.5%</div>
+      </div>
+      <div class="stat-card" style="--accent: #ff6b35">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <div class="stat-info"><span class="stat-number" data-count="23">0</span><span class="stat-label">风险预警</span></div>
+        <div class="stat-trend up bad">+3.2%</div>
+      </div>
+      <div class="stat-card clickable" id="workOrderCard" style="--accent: #7c4dff">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="stat-info"><span class="stat-number" data-count="89">0</span><span class="stat-label">维修工单</span></div>
+        <div class="stat-trend down">-8.1%</div>
+      </div>
+      <div class="stat-card" style="--accent: #00e676">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="stat-info"><span class="stat-number" data-count="96">0</span><span class="stat-unit">%</span><span class="stat-label">设施健康度</span></div>
+        <div class="stat-trend up">+1.8%</div>
+      </div>
+      <div class="stat-card" style="--accent: #D4714E">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="stat-info"><span class="stat-number" data-count="342">0</span><span class="stat-label">众包报修</span></div>
+        <div class="stat-trend up">+28.6%</div>
+      </div>
+    </div>
+    <div class="dashboard-grid">
+      <div class="card card-lg">
+        <div class="card-header"><h3>AI 识别实时动态</h3><div class="card-badge pulse">实时</div></div>
+        <div class="realtime-feed" id="realtimeFeed"></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3>楼栋健康热力图</h3></div>
+        <div class="heatmap-container" id="buildingHeatmap"></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3>本周维修趋势</h3></div>
+        <div class="chart-container" id="trendChart"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 维修工单历史弹窗 -->
+  <div class="workorder-modal" id="workOrderModal" style="display:none">
+    <div class="workorder-overlay"></div>
+    <div class="workorder-container">
+      <div class="workorder-header">
+        <div>
+          <h2>维修工单历史</h2>
+          <p>本月工单记录 · 共 89 单</p>
+        </div>
+        <button class="workorder-close" id="closeWorkOrderBtn">✕</button>
+      </div>
+      <div class="workorder-stats">
+        <div class="workorder-stat">
+          <span class="workorder-stat-num" style="color:#5B8A72">67</span>
+          <span class="workorder-stat-label">已完成</span>
+        </div>
+        <div class="workorder-stat">
+          <span class="workorder-stat-num" style="color:#C4820E">15</span>
+          <span class="workorder-stat-label">处理中</span>
+        </div>
+        <div class="workorder-stat">
+          <span class="workorder-stat-num" style="color:#C0392B">7</span>
+          <span class="workorder-stat-label">待处理</span>
+        </div>
+      </div>
+      <div class="workorder-list" id="workOrderList"></div>
+    </div>
+  </div>
+
+  <section id="cv-diagnosis" class="section">
+    <div class="section-header">
+      <div><h1 class="section-title">众包报修 · 全员管理</h1><p class="section-subtitle">拍照报修赢积分 · AI 智能审核 · 水电费减免奖励</p></div>
+      <div class="header-actions">
+        <div class="crowd-total-saved">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 2l1.5 4.5L16 8l-4.5 1.5L10 14l-1.5-4.5L4 8l4.5-1.5L10 2z"/></svg>
+          本月节省巡检人力 <strong>320 工时</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 众包统计卡片 -->
+    <div class="crowd-stats">
+      <div class="crowd-stat-card">
+        <div class="crowd-stat-icon" style="background:var(--coral-dim);color:var(--coral)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <div class="crowd-stat-num">342</div>
+        <div class="crowd-stat-label">本月上报数</div>
+      </div>
+      <div class="crowd-stat-card">
+        <div class="crowd-stat-icon" style="background:var(--sage-dim);color:var(--sage)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="crowd-stat-num">91.2%</div>
+        <div class="crowd-stat-label">AI 审核通过率</div>
+      </div>
+      <div class="crowd-stat-card">
+        <div class="crowd-stat-icon" style="background:var(--amber-dim);color:var(--amber)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="crowd-stat-num">2,860</div>
+        <div class="crowd-stat-label">累计发放积分</div>
+      </div>
+      <div class="crowd-stat-card">
+        <div class="crowd-stat-icon" style="background:var(--plum-dim);color:var(--plum)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="crowd-stat-num">1,430</div>
+        <div class="crowd-stat-label">水电费减免(元)</div>
+      </div>
+    </div>
+
+    <div class="crowd-layout">
+      <!-- 左侧：模拟报修流程 -->
+      <div class="crowd-flow card">
+        <div class="card-header">
+          <h3>AI 报修审核演示</h3>
+          <div class="card-badge">实时模拟</div>
+        </div>
+
+        <!-- 模拟手机上传界面 -->
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="phone-header">
+                <span class="phone-title">SmartDorm 报修</span>
+                <span class="phone-points">我的积分: 85</span>
+              </div>
+              <div class="phone-upload-area" id="phoneUpload">
+                <div class="phone-upload-placeholder">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><rect x="6" y="10" width="36" height="28" rx="3"/><circle cx="18" cy="22" r="4"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+                  <span>点击拍照上报</span>
+                </div>
+              </div>
+              <!-- AI审核结果 -->
+              <div class="phone-result" id="phoneResult" style="display:none">
+                <div class="phone-image-preview">
+                  <div class="phone-scan-line"></div>
+                  <div class="phone-annotation" style="top:50%;left:20%;width:60%;height:40%">
+                    <span class="phone-anno-label">管道生锈</span>
+                  </div>
+                </div>
+                <div class="phone-ai-verdict">
+                  <div class="verdict-header">
+                    <div class="verdict-badge pass">AI 审核通过</div>
+                    <span class="verdict-confidence">置信度 92.3%</span>
+                  </div>
+                  <div class="verdict-details">
+                    <div class="verdict-row">
+                      <span class="verdict-key">问题类型</span>
+                      <span class="verdict-val">宿舍阳台区域管道生锈</span>
+                    </div>
+                    <div class="verdict-row">
+                      <span class="verdict-key">严重程度</span>
+                      <span class="verdict-val severity-mid">中度</span>
+                    </div>
+                    <div class="verdict-row">
+                      <span class="verdict-key">照片质量</span>
+                      <span class="verdict-val quality-good">优秀 (清晰/角度佳)</span>
+                    </div>
+                  </div>
+                  <div class="verdict-reward">
+                    <div class="reward-title">
+                      <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 2l1.5 4.5L16 8l-4.5 1.5L10 14l-1.5-4.5L4 8l4.5-1.5L10 2z"/></svg>
+                      AI 评定奖励
+                    </div>
+                    <div class="reward-breakdown">
+                      <div class="reward-item">
+                        <span>基础报修积分</span>
+                        <span class="reward-points">+5 分</span>
+                      </div>
+                      <div class="reward-item">
+                        <span>照片质量加成</span>
+                        <span class="reward-points">+3 分</span>
+                      </div>
+                      <div class="reward-item">
+                        <span>中度问题发现奖励</span>
+                        <span class="reward-points">+8 分</span>
+                      </div>
+                      <div class="reward-item highlight-reward">
+                        <span>公共区域额外奖励</span>
+                        <span class="reward-points">+4 分</span>
+                      </div>
+                      <div class="reward-total">
+                        <span>合计</span>
+                        <span class="reward-total-num">+20 分</span>
+                      </div>
+                      <div class="reward-convert">
+                        <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"/></svg>
+                        可兑换水电费减免 <strong>4.0 元</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：两列榜单 -->
+      <div class="crowd-sidebar-dual">
+        <div class="crowd-sidebar-col">
+          <!-- 积分排行榜 -->
+          <div class="card crowd-leaderboard">
+            <div class="card-header">
+              <h3>本月积分排行</h3>
+              <span class="leaderboard-tag">TOP 8</span>
+            </div>
+            <div class="leaderboard-list" id="leaderboardList"></div>
+          </div>
+        </div>
+
+        <div class="crowd-sidebar-col">
+          <!-- 病害识别记录 -->
+          <div class="card crowd-leaderboard">
+            <div class="card-header">
+              <h3>近期病害识别</h3>
+              <span class="leaderboard-tag">TOP 8</span>
+            </div>
+            <div class="history-list" id="historyList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI 奖励规则 - 独立一行 -->
+    <div class="crowd-rules-full card">
+      <div class="card-header">
+        <h3>AI 智能定价规则</h3>
+      </div>
+      <div class="rules-content-horizontal">
+        <div class="rules-severity-row">
+        <div class="rule-item">
+          <div class="rule-icon" style="background:var(--coral-dim);color:var(--coral)">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"/></svg>
+          </div>
+          <div class="rule-text">
+            <strong>高危问题</strong>
+            <span>渗水/漏电/结构损坏</span>
+          </div>
+          <div class="rule-reward">15~25 分<br><span class="rule-money">3~5 元</span></div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-icon" style="background:var(--amber-dim);color:var(--amber)">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/></svg>
+          </div>
+          <div class="rule-text">
+            <strong>中危问题</strong>
+            <span>管道锈蚀/门窗松动</span>
+          </div>
+          <div class="rule-reward">8~15 分<br><span class="rule-money">1.5~3 元</span></div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-icon" style="background:var(--plum-dim);color:var(--plum)">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/></svg>
+          </div>
+          <div class="rule-text">
+            <strong>低危问题</strong>
+            <span>灯泡损坏/墙面污渍</span>
+          </div>
+          <div class="rule-reward">3~8 分<br><span class="rule-money">0.5~1.5 元</span></div>
+        </div>
+        </div>
+        <div class="rules-support-stack">
+        <div class="rule-bonus-horizontal">
+          <div class="bonus-title">额外加成</div>
+          <div class="bonus-items">
+            <span class="bonus-tag">照片高清 +3</span>
+            <span class="bonus-tag">公共区域 +4</span>
+            <span class="bonus-tag">首次发现 +5</span>
+            <span class="bonus-tag">连续7天 +10</span>
+          </div>
+        </div>
+        <div class="rule-exchange-horizontal">
+          <strong>兑换比例：</strong>10 积分 = 2 元水电费减免
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="predictive" class="section">
+    <div class="section-header">
+      <div><h1 class="section-title">预测性维护</h1><p class="section-subtitle">从"坏了报修"到"算法预报" · 设施寿命智能预测</p></div>
+      <div class="header-actions">
+        <button class="btn-ai-plan" id="showAIPlanBtn">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 2l1.5 4.5L16 8l-4.5 1.5L10 14l-1.5-4.5L4 8l4.5-1.5L10 2z"/></svg>
+          AI 自动规划维修计划
+        </button>
+      </div>
+    </div>
+    <div class="predict-layout">
+      <div class="predict-cards">
+        <div class="predict-card">
+          <div class="predict-card-header">
+            <div class="facility-icon door"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><circle cx="15" cy="12" r="1"/></svg></div>
+            <div><h4>门锁系统</h4><span class="facility-location">梅园 4 栋</span></div>
+            <div class="predict-risk high">高风险</div>
+          </div>
+          <div class="predict-bar-wrapper"><div class="predict-bar"><div class="predict-bar-fill" style="--fill:78%;--color:#D4714E"></div></div><div class="predict-bar-labels"><span>已使用 78%</span><span>剩余 ~3 个月</span></div></div>
+          <div class="predict-insight"><div class="insight-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"/></svg></div><p>AI 建议：根据梅园门锁使用频次分析，预计 <strong>3 个月后</strong>故障率将显著上升。建议利用暑假期间统一批量加注润滑油，预计可延长寿命 40%。</p></div>
+          <div class="predict-actions"><button class="btn-predict schedule">安排预防维护</button><button class="btn-predict detail">查看详情</button></div>
+        </div>
+        <div class="predict-card">
+          <div class="predict-card-header">
+            <div class="facility-icon pipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 9h12M6 15h12"/></svg></div>
+            <div><h4>水管系统</h4><span class="facility-location">菊园 2 栋</span></div>
+            <div class="predict-risk medium">中风险</div>
+          </div>
+          <div class="predict-bar-wrapper"><div class="predict-bar"><div class="predict-bar-fill" style="--fill:55%;--color:#C4820E"></div></div><div class="predict-bar-labels"><span>已使用 55%</span><span>剩余 ~8 个月</span></div></div>
+          <div class="predict-insight"><div class="insight-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"/></svg></div><p>AI 分析：菊园水管腐蚀速率较低，但 2 栋因楼龄较长，接头处存在隐患。建议 <strong>寒假前</strong>安排管道检测。</p></div>
+          <div class="predict-actions"><button class="btn-predict schedule">安排预防维护</button><button class="btn-predict detail">查看详情</button></div>
+        </div>
+        <div class="predict-card">
+          <div class="predict-card-header">
+            <div class="facility-icon electric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <div><h4>电路系统</h4><span class="facility-location">兰园 1 栋</span></div>
+            <div class="predict-risk low">低风险</div>
+          </div>
+          <div class="predict-bar-wrapper"><div class="predict-bar"><div class="predict-bar-fill" style="--fill:30%;--color:#5B8A72"></div></div><div class="predict-bar-labels"><span>已使用 30%</span><span>剩余 ~18 个月</span></div></div>
+          <div class="predict-insight"><div class="insight-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"/></svg></div><p>AI 评估：兰园 1 栋电路系统状态良好，去年暑假已全面更新。当前无需干预，继续监控即可。</p></div>
+          <div class="predict-actions"><button class="btn-predict detail">查看详情</button></div>
+        </div>
+      </div>
+      <div class="zone-compare card">
+        <div class="card-header"><h3>梅兰竹菊 · 四园设施寿命差异分析</h3></div>
+        <div class="compare-chart" id="compareChart"></div>
+      </div>
+    </div>
+
+    <!-- AI 维修计划面板 -->
+    <div class="ai-plan-modal" id="aiPlanModal" style="display:none">
+      <div class="ai-plan-overlay"></div>
+      <div class="ai-plan-container">
+        <div class="ai-plan-header">
+          <div>
+            <h2>AI 智能维修计划</h2>
+            <p>基于紧急程度、位置优化、人员配置的自动规划</p>
+          </div>
+          <button class="ai-plan-close" id="closePlanBtn">✕</button>
+        </div>
+
+        <!-- 统计概览 -->
+        <div class="plan-stats">
+          <div class="plan-stat-item">
+            <div class="plan-stat-num" style="color:#C0392B">23</div>
+            <div class="plan-stat-label">待处理任务</div>
+          </div>
+          <div class="plan-stat-item">
+            <div class="plan-stat-num" style="color:#C4820E">8</div>
+            <div class="plan-stat-label">紧急任务</div>
+          </div>
+          <div class="plan-stat-item">
+            <div class="plan-stat-num" style="color:#5B8A72">5</div>
+            <div class="plan-stat-label">维修人员</div>
+          </div>
+          <div class="plan-stat-item">
+            <div class="plan-stat-num" style="color:#8B6EA2">12</div>
+            <div class="plan-stat-label">长期任务</div>
+          </div>
+        </div>
+
+        <!-- 任务清单 -->
+        <div class="plan-content">
+          <div class="plan-section">
+            <div class="plan-section-header">
+              <h3>🔴 紧急任务（今日必须完成）</h3>
+              <span class="plan-section-count">8 项</span>
+            </div>
+            <div class="plan-task-list" id="urgentTasks"></div>
+          </div>
+
+          <div class="plan-section">
+            <div class="plan-section-header">
+              <h3>🟡 常规任务（本周计划）</h3>
+              <span class="plan-section-count">15 项</span>
+            </div>
+            <div class="plan-task-list" id="normalTasks"></div>
+          </div>
+
+          <div class="plan-section">
+            <div class="plan-section-header">
+              <h3>🔵 长期任务（日常维护）</h3>
+              <span class="plan-section-count">12 项</span>
+            </div>
+            <div class="plan-task-list" id="longTermTasks"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="dispatch" class="section">
+    <div class="section-header">
+      <div><h1 class="section-title">智能资源调度</h1><p class="section-subtitle">AI 综合风险 · 位置 · 库存，规划最优维修路径</p></div>
+    </div>
+    <div class="dispatch-layout">
+      <!-- 左侧：地图区域 -->
+      <div class="dispatch-map-full card">
+        <div class="card-header"><h3>校区楼栋分布 · 维修路径规划</h3><div class="card-badge">AI 优化</div></div>
+        <div class="campus-map" id="campusMap"></div>
+      </div>
+
+      <!-- 右侧：调度信息区域 -->
+      <div class="dispatch-info-col">
+        <div class="dispatch-worker card">
+          <div class="card-header"><h3>今日调度 · 张师傅</h3><span class="worker-status active">执行中</span></div>
+          <div class="route-timeline" id="routeTimeline"></div>
+        </div>
+        <div class="dispatch-suggestion card">
+          <div class="card-header"><h3>AI 智能建议</h3><div class="ai-sparkle"><svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 2l1.5 4.5L16 8l-4.5 1.5L10 14l-1.5-4.5L4 8l4.5-1.5L10 2z"/></svg></div></div>
+          <div class="suggestion-content">
+            <div class="suggestion-item">
+              <div class="suggestion-icon combine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>
+              <div class="suggestion-text"><strong>顺路合并任务</strong><p>张师傅前往梅4修天花板时，AI 检测到梅4 三楼有 <strong>4 扇窗户</strong>密封条松动。建议携带密封条一并处理，预计节省 <span class="highlight">45 分钟</span>二次跑腿时间。</p></div>
+            </div>
+            <div class="suggestion-item">
+              <div class="suggestion-icon inventory"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+              <div class="suggestion-text"><strong>材料预装提醒</strong><p>根据今日工单，建议张师傅出发前装车：密封条 x8、插座面板 x2、润滑油 x1。当前库存充足。</p></div>
+            </div>
+            <div class="suggestion-item">
+              <div class="suggestion-icon time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="suggestion-text"><strong>最优时间窗口</strong><p>建议 14:30 处理菊2任务（该时段住户外出率最高 87%），减少入户打扰。</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="src/js/utils/helpers.js"></script>
+<script src="src/js/utils/constants.js"></script>
+<script src="src/js/modules/dashboard.js"></script>
+<script src="src/js/modules/crowdsource.js"></script>
+<script src="src/js/modules/predictive.js"></script>
+<script src="src/js/modules/dispatch.js"></script>
+<script src="src/js/main.js"></script>
+</body>
+</html>

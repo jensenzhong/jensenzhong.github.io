@@ -35,7 +35,7 @@ export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex rounded-full bg-white/70 p-0.5 shadow-sm ring-1 ring-slate-200/70 backdrop-blur">
+    <div className="flex rounded-full bg-white/70 p-0.5 shadow-sm ring-1 ring-[#ff9f43]/20 backdrop-blur">
       {(["zh", "en"] as const).map((item) => {
         const active = language === item;
         return (
@@ -45,8 +45,8 @@ export function LanguageToggle() {
             onClick={() => setLanguage(item)}
             className={`h-7 min-w-9 rounded-full px-2.5 text-xs font-semibold transition-colors ${
               active
-                ? "bg-slate-900 text-white shadow-sm"
-                : "text-slate-500 hover:text-slate-900"
+                ? "bg-[#ff9f43] text-white shadow-sm"
+                : "text-[#f2a85b] hover:text-[#c96a10]"
             }`}
             aria-pressed={active}
           >

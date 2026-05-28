@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="591.237986pt" height="990.440038pt" viewBox="0 0 591.237986 990.440038" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-05-05T13:07:35.399858</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 990.440038 
+L 591.237986 990.440038 
+L 591.237986 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.684104 33.714843 
+L 202.735398 33.714843 
+L 202.735398 20.59517 
+L 21.684104 20.59517 
+z
+" clip-path="url(#p4bcac721c4)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="29.165358" transform="rotate(-0 27.115642 29.165358)">T0  n=14</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="28.752273" transform="rotate(-0 197.303859 28.752273)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="44.251331" transform="rotate(-0 28.926155 44.251331)">land</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="49.936523" transform="rotate(-0 28.926155 49.936523)">landscape</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="55.621714" transform="rotate(-0 28.926155 55.621714)">subsidence</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="61.306906" transform="rotate(-0 28.926155 61.306906)">water</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="66.992098" transform="rotate(-0 28.926155 66.992098)">river</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="72.677289" transform="rotate(-0 28.926155 72.677289)">habitat</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="78.343692" transform="rotate(-0 28.926155 78.343692)">highway</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="84.028884" transform="rotate(-0 28.926155 84.028884)">dredging</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start" x="7.2" y="15.19375" transform="rotate(-0 7.2 15.19375)">e</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_3">
+    <path d="M 212.335398 33.714843 
+L 393.386692 33.714843 
+L 393.386692 20.59517 
+L 212.335398 20.59517 
+z
+" clip-path="url(#p4d4e0bf378)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="29.165358" transform="rotate(-0 217.766936 29.165358)">T1  n=13</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="28.752273" transform="rotate(-0 387.955153 28.752273)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="44.251331" transform="rotate(-0 219.577449 44.251331)">结核</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="49.936523" transform="rotate(-0 219.577449 49.936523)">沉积物</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="55.621714" transform="rotate(-0 219.577449 55.621714)">开采</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="61.306906" transform="rotate(-0 219.577449 61.306906)">海底</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="66.992098" transform="rotate(-0 219.577449 66.992098)">深海</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="72.677289" transform="rotate(-0 219.577449 72.677289)">金属</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="78.362481" transform="rotate(-0 219.577449 78.362481)">结壳</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="84.047673" transform="rotate(-0 219.577449 84.047673)">采矿</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_4">
+    <path d="M 402.986692 33.714843 
+L 584.037986 33.714843 
+L 584.037986 20.59517 
+L 402.986692 20.59517 
+z
+" clip-path="url(#paa56f09dde)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="29.165358" transform="rotate(-0 408.418231 29.165358)">T2  n=11</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="28.752273" transform="rotate(-0 578.606447 28.752273)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="44.251331" transform="rotate(-0 410.228744 44.251331)">road</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="49.936523" transform="rotate(-0 410.228744 49.936523)">roads</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="55.621714" transform="rotate(-0 410.228744 55.621714)">landscape</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="61.269328" transform="rotate(-0 410.228744 61.269328)">expressway</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="66.992098" transform="rotate(-0 410.228744 66.992098)">human</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="72.677289" transform="rotate(-0 410.228744 72.677289)">habitat</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="78.343692" transform="rotate(-0 410.228744 78.343692)">golden</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="84.047673" transform="rotate(-0 410.228744 84.047673)">land</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_5">
+    <path d="M 21.684104 114.601916 
+L 202.735398 114.601916 
+L 202.735398 101.482243 
+L 21.684104 101.482243 
+z
+" clip-path="url(#p3213d4e839)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="110.052431" transform="rotate(-0 27.115642 110.052431)">T3  n=11</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="109.639345" transform="rotate(-0 197.303859 109.639345)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="125.138403" transform="rotate(-0 28.926155 125.138403)">karst</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="130.823595" transform="rotate(-0 28.926155 130.823595)">railroad</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="136.508787" transform="rotate(-0 28.926155 136.508787)">water</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="142.193978" transform="rotate(-0 28.926155 142.193978)">health</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="147.87917" transform="rotate(-0 28.926155 147.87917)">soil</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="153.564362" transform="rotate(-0 28.926155 153.564362)">restoration</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="159.249553" transform="rotate(-0 28.926155 159.249553)">areas</text>
+   </g>
+   <g id="text_41">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="164.934745" transform="rotate(-0 28.926155 164.934745)">resilience</text>
+   </g>
+  </g>
+  <g id="axes_5">
+   <g id="patch_6">
+    <path d="M 212.335398 114.601916 
+L 393.386692 114.601916 
+L 393.386692 101.482243 
+L 212.335398 101.482243 
+z
+" clip-path="url(#p02d29c72e0)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_42">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="110.052431" transform="rotate(-0 217.766936 110.052431)">T4  n=10</text>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="109.639345" transform="rotate(-0 387.955153 109.639345)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="125.100825" transform="rotate(-0 219.577449 125.100825)">irrigation</text>
+   </g>
+   <g id="text_45">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="130.823595" transform="rotate(-0 219.577449 130.823595)">landscape</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="136.508787" transform="rotate(-0 219.577449 136.508787)">landslide</text>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="142.193978" transform="rotate(-0 219.577449 142.193978)">water</text>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="147.87917" transform="rotate(-0 219.577449 147.87917)">soil</text>
+   </g>
+   <g id="text_49">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="153.564362" transform="rotate(-0 219.577449 153.564362)">lake</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="159.249553" transform="rotate(-0 219.577449 159.249553)">area</text>
+   </g>
+   <g id="text_51">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="164.934745" transform="rotate(-0 219.577449 164.934745)">linear</text>
+   </g>
+  </g>
+  <g id="axes_6">
+   <g id="patch_7">
+    <path d="M 402.986692 114.601916 
+L 584.037986 114.601916 
+L 584.037986 101.482243 
+L 402.986692 101.482243 
+z
+" clip-path="url(#pa462d39e1c)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_52">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="110.052431" transform="rotate(-0 408.418231 110.052431)">T5  n=10</text>
+   </g>
+   <g id="text_53">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="109.639345" transform="rotate(-0 578.606447 109.639345)">土壤退化与重金属污染</text>
+   </g>
+   <g id="text_54">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="125.138403" transform="rotate(-0 410.228744 125.138403)">soil</text>
+   </g>
+   <g id="text_55">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="130.823595" transform="rotate(-0 410.228744 130.823595)">咽齿</text>
+   </g>
+   <g id="text_56">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="136.508787" transform="rotate(-0 410.228744 136.508787)">artificial soil</text>
+   </g>
+   <g id="text_57">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="142.193978" transform="rotate(-0 410.228744 142.193978)">极边</text>
+   </g>
+   <g id="text_58">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="147.87917" transform="rotate(-0 410.228744 147.87917)">artificial</text>
+   </g>
+   <g id="text_59">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="153.564362" transform="rotate(-0 410.228744 153.564362)">极边 咽齿</text>
+   </g>
+   <g id="text_60">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="159.249553" transform="rotate(-0 410.228744 159.249553)">slopes</text>
+   </g>
+   <g id="text_61">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="164.934745" transform="rotate(-0 410.228744 164.934745)">pahs</text>
+   </g>
+  </g>
+  <g id="axes_7">
+   <g id="patch_8">
+    <path d="M 21.684104 195.488988 
+L 202.735398 195.488988 
+L 202.735398 182.369315 
+L 21.684104 182.369315 
+z
+" clip-path="url(#p4ebd0385db)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_62">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="190.939503" transform="rotate(-0 27.115642 190.939503)">T6  n=10</text>
+   </g>
+   <g id="text_63">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="190.526417" transform="rotate(-0 197.303859 190.526417)">工程环保管理与生态评估</text>
+   </g>
+   <g id="text_64">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="205.987898" transform="rotate(-0 28.926155 205.987898)">ecosystem</text>
+   </g>
+   <g id="text_65">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="211.710667" transform="rotate(-0 28.926155 211.710667)">culvert</text>
+   </g>
+   <g id="text_66">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="217.395859" transform="rotate(-0 28.926155 217.395859)">culverts</text>
+   </g>
+   <g id="text_67">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="223.081051" transform="rotate(-0 28.926155 223.081051)">lahore</text>
+   </g>
+   <g id="text_68">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="228.766242" transform="rotate(-0 28.926155 228.766242)">traffic</text>
+   </g>
+   <g id="text_69">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="234.451434" transform="rotate(-0 28.926155 234.451434)">services</text>
+   </g>
+   <g id="text_70">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="240.099047" transform="rotate(-0 28.926155 240.099047)">ecosystem services</text>
+   </g>
+   <g id="text_71">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="245.803028" transform="rotate(-0 28.926155 245.803028)">design</text>
+   </g>
+  </g>
+  <g id="axes_8">
+   <g id="patch_9">
+    <path d="M 212.335398 195.488988 
+L 393.386692 195.488988 
+L 393.386692 182.369315 
+L 212.335398 182.369315 
+z
+" clip-path="url(#pf672d42232)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_72">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="190.939503" transform="rotate(-0 217.766936 190.939503)">T7  n=10</text>
+   </g>
+   <g id="text_73">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="190.526417" transform="rotate(-0 387.955153 190.526417)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_74">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="206.025476" transform="rotate(-0 219.577449 206.025476)">丁坝</text>
+   </g>
+   <g id="text_75">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="211.710667" transform="rotate(-0 219.577449 211.710667)">河道</text>
+   </g>
+   <g id="text_76">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="217.395859" transform="rotate(-0 219.577449 217.395859)">景观</text>
+   </g>
+   <g id="text_77">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="223.081051" transform="rotate(-0 219.577449 223.081051)">流速</text>
+   </g>
+   <g id="text_78">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="228.766242" transform="rotate(-0 219.577449 228.766242)">青藏铁路</text>
+   </g>
+   <g id="text_79">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="234.451434" transform="rotate(-0 219.577449 234.451434)">栖息地</text>
+   </g>
+   <g id="text_80">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="240.136626" transform="rotate(-0 219.577449 240.136626)">整治</text>
+   </g>
+   <g id="text_81">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="245.821817" transform="rotate(-0 219.577449 245.821817)">铁路</text>
+   </g>
+  </g>
+  <g id="axes_9">
+   <g id="patch_10">
+    <path d="M 402.986692 195.488988 
+L 584.037986 195.488988 
+L 584.037986 182.369315 
+L 402.986692 182.369315 
+z
+" clip-path="url(#pd18c2c7632)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_82">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="190.939503" transform="rotate(-0 408.418231 190.939503)">T8  n=10</text>
+   </g>
+   <g id="text_83">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="190.526417" transform="rotate(-0 578.606447 190.526417)">土壤退化与重金属污染</text>
+   </g>
+   <g id="text_84">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="206.025476" transform="rotate(-0 410.228744 206.025476)">waste</text>
+   </g>
+   <g id="text_85">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="211.710667" transform="rotate(-0 410.228744 211.710667)">potential</text>
+   </g>
+   <g id="text_86">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="217.395859" transform="rotate(-0 410.228744 217.395859)">seismic</text>
+   </g>
+   <g id="text_87">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="223.043473" transform="rotate(-0 410.228744 223.043473)">genetic</text>
+   </g>
+   <g id="text_88">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="228.766242" transform="rotate(-0 410.228744 228.766242)">wildfire</text>
+   </g>
+   <g id="text_89">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="234.451434" transform="rotate(-0 410.228744 234.451434)">forest</text>
+   </g>
+   <g id="text_90">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="240.136626" transform="rotate(-0 410.228744 240.136626)">species</text>
+   </g>
+   <g id="text_91">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="245.821817" transform="rotate(-0 410.228744 245.821817)">populations</text>
+   </g>
+  </g>
+  <g id="axes_10">
+   <g id="patch_11">
+    <path d="M 21.684104 276.37606 
+L 202.735398 276.37606 
+L 202.735398 263.256387 
+L 21.684104 263.256387 
+z
+" clip-path="url(#pbee3c06a63)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_92">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="271.826575" transform="rotate(-0 27.115642 271.826575)">T9  n=10</text>
+   </g>
+   <g id="text_93">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="271.413489" transform="rotate(-0 197.303859 271.413489)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_94">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="286.912548" transform="rotate(-0 28.926155 286.912548)">亚洲象</text>
+   </g>
+   <g id="text_95">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="292.59774" transform="rotate(-0 28.926155 292.59774)">象群</text>
+   </g>
+   <g id="text_96">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="298.282931" transform="rotate(-0 28.926155 298.282931)">活动</text>
+   </g>
+   <g id="text_97">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="303.930545" transform="rotate(-0 28.926155 303.930545)">vegetation</text>
+   </g>
+   <g id="text_98">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="309.653315" transform="rotate(-0 28.926155 309.653315)">landscape</text>
+   </g>
+   <g id="text_99">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="315.338506" transform="rotate(-0 28.926155 315.338506)">公路</text>
+   </g>
+   <g id="text_100">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="321.023698" transform="rotate(-0 28.926155 321.023698)">land</text>
+   </g>
+   <g id="text_101">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="326.70889" transform="rotate(-0 28.926155 326.70889)">road</text>
+   </g>
+  </g>
+  <g id="axes_11">
+   <g id="patch_12">
+    <path d="M 212.335398 276.37606 
+L 393.386692 276.37606 
+L 393.386692 263.256387 
+L 212.335398 263.256387 
+z
+" clip-path="url(#p5f7941493e)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_102">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="271.826575" transform="rotate(-0 217.766936 271.826575)">T10  n=9</text>
+   </g>
+   <g id="text_103">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="271.413489" transform="rotate(-0 387.955153 271.413489)">工程环保管理与生态评估</text>
+   </g>
+   <g id="text_104">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="286.912548" transform="rotate(-0 219.577449 286.912548)">环境影响</text>
+   </g>
+   <g id="text_105">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="292.59774" transform="rotate(-0 219.577449 292.59774)">建材</text>
+   </g>
+   <g id="text_106">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="298.282931" transform="rotate(-0 219.577449 298.282931)">钢筋</text>
+   </g>
+   <g id="text_107">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="303.968123" transform="rotate(-0 219.577449 303.968123)">desalination</text>
+   </g>
+   <g id="text_108">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="309.653315" transform="rotate(-0 219.577449 309.653315)">水利工程</text>
+   </g>
+   <g id="text_109">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="315.338506" transform="rotate(-0 219.577449 315.338506)">排放</text>
+   </g>
+   <g id="text_110">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="321.023698" transform="rotate(-0 219.577449 321.023698)">sarawak</text>
+   </g>
+   <g id="text_111">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="326.70889" transform="rotate(-0 219.577449 326.70889)">建造</text>
+   </g>
+  </g>
+  <g id="axes_12">
+   <g id="patch_13">
+    <path d="M 402.986692 276.37606 
+L 584.037986 276.37606 
+L 584.037986 263.256387 
+L 402.986692 263.256387 
+z
+" clip-path="url(#pdb72de38da)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_112">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="271.826575" transform="rotate(-0 408.418231 271.826575)">T11  n=9</text>
+   </g>
+   <g id="text_113">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="271.413489" transform="rotate(-0 578.606447 271.413489)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_114">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="286.912548" transform="rotate(-0 410.228744 286.912548)">river</text>
+   </g>
+   <g id="text_115">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="292.59774" transform="rotate(-0 410.228744 292.59774)">water</text>
+   </g>
+   <g id="text_116">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="298.282931" transform="rotate(-0 410.228744 298.282931)">fish</text>
+   </g>
+   <g id="text_117">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="303.968123" transform="rotate(-0 410.228744 303.968123)">dust</text>
+   </g>
+   <g id="text_118">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="309.672611" transform="rotate(-0 410.228744 309.672611)">river safety</text>
+   </g>
+   <g id="text_119">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="315.338506" transform="rotate(-0 410.228744 315.338506)">coal</text>
+   </g>
+   <g id="text_120">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="321.004909" transform="rotate(-0 410.228744 321.004909)">regulation</text>
+   </g>
+   <g id="text_121">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="326.728186" transform="rotate(-0 410.228744 326.728186)">safety</text>
+   </g>
+  </g>
+  <g id="axes_13">
+   <g id="patch_14">
+    <path d="M 21.684104 357.263133 
+L 202.735398 357.263133 
+L 202.735398 344.14346 
+L 21.684104 344.14346 
+z
+" clip-path="url(#p08a0ed04da)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_122">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="352.713648" transform="rotate(-0 27.115642 352.713648)">T12  n=8</text>
+   </g>
+   <g id="text_123">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="352.300562" transform="rotate(-0 197.303859 352.300562)">土壤退化与重金属污染</text>
+   </g>
+   <g id="text_124">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="367.79962" transform="rotate(-0 28.926155 367.79962)">road</text>
+   </g>
+   <g id="text_125">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="373.484812" transform="rotate(-0 28.926155 373.484812)">metals</text>
+   </g>
+   <g id="text_126">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="379.170004" transform="rotate(-0 28.926155 379.170004)">sediment</text>
+   </g>
+   <g id="text_127">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="384.855195" transform="rotate(-0 28.926155 384.855195)">canal</text>
+   </g>
+   <g id="text_128">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="390.521598" transform="rotate(-0 28.926155 390.521598)">geological</text>
+   </g>
+   <g id="text_129">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="396.225579" transform="rotate(-0 28.926155 396.225579)">samples</text>
+   </g>
+   <g id="text_130">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="401.91077" transform="rotate(-0 28.926155 401.91077)">water</text>
+   </g>
+   <g id="text_131">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="407.595962" transform="rotate(-0 28.926155 407.595962)">dust</text>
+   </g>
+  </g>
+  <g id="axes_14">
+   <g id="patch_15">
+    <path d="M 212.335398 357.263133 
+L 393.386692 357.263133 
+L 393.386692 344.14346 
+L 212.335398 344.14346 
+z
+" clip-path="url(#p0a97f477b4)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_132">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="352.713648" transform="rotate(-0 217.766936 352.713648)">T13  n=8</text>
+   </g>
+   <g id="text_133">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="352.300562" transform="rotate(-0 387.955153 352.300562)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_134">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="367.79962" transform="rotate(-0 219.577449 367.79962)">隧道</text>
+   </g>
+   <g id="text_135">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="373.484812" transform="rotate(-0 219.577449 373.484812)">道路</text>
+   </g>
+   <g id="text_136">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="379.170004" transform="rotate(-0 219.577449 379.170004)">物种</text>
+   </g>
+   <g id="text_137">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="384.855195" transform="rotate(-0 219.577449 384.855195)">水利工程</text>
+   </g>
+   <g id="text_138">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="390.540387" transform="rotate(-0 219.577449 390.540387)">植被</text>
+   </g>
+   <g id="text_139">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="396.225579" transform="rotate(-0 219.577449 396.225579)">噪声</text>
+   </g>
+   <g id="text_140">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="401.91077" transform="rotate(-0 219.577449 401.91077)">土壤</text>
+   </g>
+   <g id="text_141">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="407.595962" transform="rotate(-0 219.577449 407.595962)">湿地</text>
+   </g>
+  </g>
+  <g id="axes_15">
+   <g id="patch_16">
+    <path d="M 402.986692 357.263133 
+L 584.037986 357.263133 
+L 584.037986 344.14346 
+L 402.986692 344.14346 
+z
+" clip-path="url(#pe52595b0e8)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_142">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="352.713648" transform="rotate(-0 408.418231 352.713648)">T14  n=8</text>
+   </g>
+   <g id="text_143">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="352.300562" transform="rotate(-0 578.606447 352.300562)">土壤退化与重金属污染</text>
+   </g>
+   <g id="text_144">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="367.79962" transform="rotate(-0 410.228744 367.79962)">弃渣场</text>
+   </g>
+   <g id="text_145">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="373.484812" transform="rotate(-0 410.228744 373.484812)">线性</text>
+   </g>
+   <g id="text_146">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="379.170004" transform="rotate(-0 410.228744 379.170004)">road</text>
+   </g>
+   <g id="text_147">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="384.855195" transform="rotate(-0 410.228744 384.855195)">soil</text>
+   </g>
+   <g id="text_148">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="390.540387" transform="rotate(-0 410.228744 390.540387)">景观</text>
+   </g>
+   <g id="text_149">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="396.225579" transform="rotate(-0 410.228744 396.225579)">plateau</text>
+   </g>
+   <g id="text_150">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="401.91077" transform="rotate(-0 410.228744 401.91077)">erosion</text>
+   </g>
+   <g id="text_151">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="407.595962" transform="rotate(-0 410.228744 407.595962)">弃渣</text>
+   </g>
+  </g>
+  <g id="axes_16">
+   <g id="patch_17">
+    <path d="M 21.684104 438.150205 
+L 202.735398 438.150205 
+L 202.735398 425.030532 
+L 21.684104 425.030532 
+z
+" clip-path="url(#pb6fd11ecd3)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_152">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="433.60072" transform="rotate(-0 27.115642 433.60072)">T15  n=8</text>
+   </g>
+   <g id="text_153">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="433.187634" transform="rotate(-0 197.303859 433.187634)">土壤退化与重金属污染</text>
+   </g>
+   <g id="text_154">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="448.686693" transform="rotate(-0 28.926155 448.686693)">土壤</text>
+   </g>
+   <g id="text_155">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="454.371884" transform="rotate(-0 28.926155 454.371884)">重金属</text>
+   </g>
+   <g id="text_156">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="460.057076" transform="rotate(-0 28.926155 460.057076)">水土保持</text>
+   </g>
+   <g id="text_157">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="465.742268" transform="rotate(-0 28.926155 465.742268)">路域</text>
+   </g>
+   <g id="text_158">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="471.427459" transform="rotate(-0 28.926155 471.427459)">土壤 重金属</text>
+   </g>
+   <g id="text_159">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="477.112651" transform="rotate(-0 28.926155 477.112651)">污染</text>
+   </g>
+   <g id="text_160">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="482.797842" transform="rotate(-0 28.926155 482.797842)">路域 土壤</text>
+   </g>
+   <g id="text_161">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="488.483034" transform="rotate(-0 28.926155 488.483034)">环境保护</text>
+   </g>
+  </g>
+  <g id="axes_17">
+   <g id="patch_18">
+    <path d="M 212.335398 438.150205 
+L 393.386692 438.150205 
+L 393.386692 425.030532 
+L 212.335398 425.030532 
+z
+" clip-path="url(#pfbf05555a4)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_162">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="433.60072" transform="rotate(-0 217.766936 433.60072)">T19  n=7</text>
+   </g>
+   <g id="text_163">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="433.187634" transform="rotate(-0 387.955153 433.187634)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_164">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="448.686693" transform="rotate(-0 219.577449 448.686693)">canal</text>
+   </g>
+   <g id="text_165">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="454.371884" transform="rotate(-0 219.577449 454.371884)">排水</text>
+   </g>
+   <g id="text_166">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="460.057076" transform="rotate(-0 219.577449 460.057076)">water</text>
+   </g>
+   <g id="text_167">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="465.742268" transform="rotate(-0 219.577449 465.742268)">aquatic</text>
+   </g>
+   <g id="text_168">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="471.427459" transform="rotate(-0 219.577449 471.427459)">铁路</text>
+   </g>
+   <g id="text_169">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="477.112651" transform="rotate(-0 219.577449 477.112651)">mineral</text>
+   </g>
+   <g id="text_170">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="482.797842" transform="rotate(-0 219.577449 482.797842)">river</text>
+   </g>
+   <g id="text_171">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="488.483034" transform="rotate(-0 219.577449 488.483034)">metal</text>
+   </g>
+  </g>
+  <g id="axes_18">
+   <g id="patch_19">
+    <path d="M 402.986692 438.150205 
+L 584.037986 438.150205 
+L 584.037986 425.030532 
+L 402.986692 425.030532 
+z
+" clip-path="url(#pfd1af09466)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_172">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="433.60072" transform="rotate(-0 408.418231 433.60072)">T20  n=7</text>
+   </g>
+   <g id="text_173">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="433.187634" transform="rotate(-0 578.606447 433.187634)">采矿活动与地质破坏</text>
+   </g>
+   <g id="text_174">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="448.667904" transform="rotate(-0 410.228744 448.667904)">cyanide</text>
+   </g>
+   <g id="text_175">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="454.353095" transform="rotate(-0 410.228744 454.353095)">gold</text>
+   </g>
+   <g id="text_176">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="460.019498" transform="rotate(-0 410.228744 460.019498)">mining</text>
+   </g>
+   <g id="text_177">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="465.723479" transform="rotate(-0 410.228744 465.723479)">gold mining</text>
+   </g>
+   <g id="text_178">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="471.427459" transform="rotate(-0 410.228744 471.427459)">wind</text>
+   </g>
+   <g id="text_179">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="477.112651" transform="rotate(-0 410.228744 477.112651)">wind power</text>
+   </g>
+   <g id="text_180">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="482.797842" transform="rotate(-0 410.228744 482.797842)">landscape</text>
+   </g>
+   <g id="text_181">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="488.483034" transform="rotate(-0 410.228744 488.483034)">power</text>
+   </g>
+  </g>
+  <g id="axes_19">
+   <g id="patch_20">
+    <path d="M 21.684104 519.037277 
+L 202.735398 519.037277 
+L 202.735398 505.917604 
+L 21.684104 505.917604 
+z
+" clip-path="url(#pb3155509b6)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_182">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="514.487792" transform="rotate(-0 27.115642 514.487792)">T17  n=7</text>
+   </g>
+   <g id="text_183">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="514.074706" transform="rotate(-0 197.303859 514.074706)">土壤退化与重金属污染</text>
+   </g>
+   <g id="text_184">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="529.573765" transform="rotate(-0 28.926155 529.573765)">重金属</text>
+   </g>
+   <g id="text_185">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="535.258957" transform="rotate(-0 28.926155 535.258957)">土壤</text>
+   </g>
+   <g id="text_186">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="540.944148" transform="rotate(-0 28.926155 540.944148)">道路 桥梁工程</text>
+   </g>
+   <g id="text_187">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="546.62934" transform="rotate(-0 28.926155 546.62934)">保护区</text>
+   </g>
+   <g id="text_188">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="552.314532" transform="rotate(-0 28.926155 552.314532)">桥梁工程</text>
+   </g>
+   <g id="text_189">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="557.999723" transform="rotate(-0 28.926155 557.999723)">鱼类</text>
+   </g>
+   <g id="text_190">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="563.684915" transform="rotate(-0 28.926155 563.684915)">土层</text>
+   </g>
+   <g id="text_191">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="569.370106" transform="rotate(-0 28.926155 569.370106)">公路</text>
+   </g>
+  </g>
+  <g id="axes_20">
+   <g id="patch_21">
+    <path d="M 212.335398 519.037277 
+L 393.386692 519.037277 
+L 393.386692 505.917604 
+L 212.335398 505.917604 
+z
+" clip-path="url(#p23475d66c5)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_192">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="514.487792" transform="rotate(-0 217.766936 514.487792)">T18  n=7</text>
+   </g>
+   <g id="text_193">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="514.074706" transform="rotate(-0 387.955153 514.074706)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_194">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="529.573765" transform="rotate(-0 219.577449 529.573765)">道路</text>
+   </g>
+   <g id="text_195">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="535.258957" transform="rotate(-0 219.577449 535.258957)">湿地</text>
+   </g>
+   <g id="text_196">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="540.944148" transform="rotate(-0 219.577449 540.944148)">抽水</text>
+   </g>
+   <g id="text_197">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="546.62934" transform="rotate(-0 219.577449 546.62934)">景观</text>
+   </g>
+   <g id="text_198">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="552.314532" transform="rotate(-0 219.577449 552.314532)">水库</text>
+   </g>
+   <g id="text_199">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="557.999723" transform="rotate(-0 219.577449 557.999723)">蓄能</text>
+   </g>
+   <g id="text_200">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="563.684915" transform="rotate(-0 219.577449 563.684915)">抽水 蓄能</text>
+   </g>
+   <g id="text_201">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="569.370106" transform="rotate(-0 219.577449 569.370106)">湿地 景观</text>
+   </g>
+  </g>
+  <g id="axes_21">
+   <g id="patch_22">
+    <path d="M 402.986692 519.037277 
+L 584.037986 519.037277 
+L 584.037986 505.917604 
+L 402.986692 505.917604 
+z
+" clip-path="url(#pf599247872)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_202">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="514.487792" transform="rotate(-0 408.418231 514.487792)">T16  n=7</text>
+   </g>
+   <g id="text_203">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="514.074706" transform="rotate(-0 578.606447 514.074706)">工程环保管理与生态评估</text>
+   </g>
+   <g id="text_204">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="529.554976" transform="rotate(-0 410.228744 529.554976)">railway</text>
+   </g>
+   <g id="text_205">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="535.258957" transform="rotate(-0 410.228744 535.258957)">enms</text>
+   </g>
+   <g id="text_206">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="540.944148" transform="rotate(-0 410.228744 540.944148)">water</text>
+   </g>
+   <g id="text_207">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="546.648637" transform="rotate(-0 410.228744 546.648637)">life cycle</text>
+   </g>
+   <g id="text_208">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="552.295742" transform="rotate(-0 410.228744 552.295742)">cycle</text>
+   </g>
+   <g id="text_209">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="557.999723" transform="rotate(-0 410.228744 557.999723)">life</text>
+   </g>
+   <g id="text_210">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="563.684915" transform="rotate(-0 410.228744 563.684915)">network</text>
+   </g>
+   <g id="text_211">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="569.351317" transform="rotate(-0 410.228744 569.351317)">bungee</text>
+   </g>
+  </g>
+  <g id="axes_22">
+   <g id="patch_23">
+    <path d="M 21.684104 599.92435 
+L 202.735398 599.92435 
+L 202.735398 586.804676 
+L 21.684104 586.804676 
+z
+" clip-path="url(#pda9b0ce8c3)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_212">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="595.374865" transform="rotate(-0 27.115642 595.374865)">T21  n=6</text>
+   </g>
+   <g id="text_213">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="594.961779" transform="rotate(-0 197.303859 594.961779)">采矿活动与地质破坏</text>
+   </g>
+   <g id="text_214">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="610.460837" transform="rotate(-0 28.926155 610.460837)">采矿</text>
+   </g>
+   <g id="text_215">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="616.146029" transform="rotate(-0 28.926155 616.146029)">深海</text>
+   </g>
+   <g id="text_216">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="621.831221" transform="rotate(-0 28.926155 621.831221)">排放</text>
+   </g>
+   <g id="text_217">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="627.516412" transform="rotate(-0 28.926155 627.516412)">土壤</text>
+   </g>
+   <g id="text_218">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="633.201604" transform="rotate(-0 28.926155 633.201604)">硫化物</text>
+   </g>
+   <g id="text_219">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="638.886795" transform="rotate(-0 28.926155 638.886795)">交通</text>
+   </g>
+   <g id="text_220">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="644.571987" transform="rotate(-0 28.926155 644.571987)">矿山</text>
+   </g>
+   <g id="text_221">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="650.257179" transform="rotate(-0 28.926155 650.257179)">地质</text>
+   </g>
+  </g>
+  <g id="axes_23">
+   <g id="patch_24">
+    <path d="M 212.335398 599.92435 
+L 393.386692 599.92435 
+L 393.386692 586.804676 
+L 212.335398 586.804676 
+z
+" clip-path="url(#pc2df79ebcf)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_222">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="595.374865" transform="rotate(-0 217.766936 595.374865)">T22  n=6</text>
+   </g>
+   <g id="text_223">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="594.961779" transform="rotate(-0 387.955153 594.961779)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_224">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="610.460837" transform="rotate(-0 219.577449 610.460837)">植被</text>
+   </g>
+   <g id="text_225">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="616.146029" transform="rotate(-0 219.577449 616.146029)">高速公路</text>
+   </g>
+   <g id="text_226">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="621.831221" transform="rotate(-0 219.577449 621.831221)">恢复</text>
+   </g>
+   <g id="text_227">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="627.516412" transform="rotate(-0 219.577449 627.516412)">湿地</text>
+   </g>
+   <g id="text_228">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="633.201604" transform="rotate(-0 219.577449 633.201604)">river</text>
+   </g>
+   <g id="text_229">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="638.886795" transform="rotate(-0 219.577449 638.886795)">大家</text>
+   </g>
+   <g id="text_230">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="644.571987" transform="rotate(-0 219.577449 644.571987)">植被 恢复</text>
+   </g>
+   <g id="text_231">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="650.257179" transform="rotate(-0 219.577449 650.257179)">生境</text>
+   </g>
+  </g>
+  <g id="axes_24">
+   <g id="patch_25">
+    <path d="M 402.986692 599.92435 
+L 584.037986 599.92435 
+L 584.037986 586.804676 
+L 402.986692 586.804676 
+z
+" clip-path="url(#pa5808574c4)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_232">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="595.374865" transform="rotate(-0 408.418231 595.374865)">T23  n=6</text>
+   </g>
+   <g id="text_233">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="594.961779" transform="rotate(-0 578.606447 594.961779)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_234">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="610.460837" transform="rotate(-0 410.228744 610.460837)">大熊猫</text>
+   </g>
+   <g id="text_235">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="616.146029" transform="rotate(-0 410.228744 616.146029)">大熊猫 栖息地</text>
+   </g>
+   <g id="text_236">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="621.831221" transform="rotate(-0 410.228744 621.831221)">栖息地</text>
+   </g>
+   <g id="text_237">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="627.516412" transform="rotate(-0 410.228744 627.516412)">水温</text>
+   </g>
+   <g id="text_238">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="633.201604" transform="rotate(-0 410.228744 633.201604)">隧道</text>
+   </g>
+   <g id="text_239">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="638.886795" transform="rotate(-0 410.228744 638.886795)">pbdes</text>
+   </g>
+   <g id="text_240">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="644.571987" transform="rotate(-0 410.228744 644.571987)">乐西 高速公路</text>
+   </g>
+   <g id="text_241">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="650.257179" transform="rotate(-0 410.228744 650.257179)">乐西</text>
+   </g>
+  </g>
+  <g id="axes_25">
+   <g id="patch_26">
+    <path d="M 21.684104 680.811422 
+L 202.735398 680.811422 
+L 202.735398 667.691749 
+L 21.684104 667.691749 
+z
+" clip-path="url(#p5014fa0d5c)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_242">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="676.261937" transform="rotate(-0 27.115642 676.261937)">T24  n=4</text>
+   </g>
+   <g id="text_243">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="675.848851" transform="rotate(-0 197.303859 675.848851)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_244">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="691.34791" transform="rotate(-0 28.926155 691.34791)">鱼类</text>
+   </g>
+   <g id="text_245">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="697.033101" transform="rotate(-0 28.926155 697.033101)">放流</text>
+   </g>
+   <g id="text_246">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="702.718293" transform="rotate(-0 28.926155 702.718293)">栖息地</text>
+   </g>
+   <g id="text_247">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="708.403484" transform="rotate(-0 28.926155 708.403484)">航道</text>
+   </g>
+   <g id="text_248">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="714.088676" transform="rotate(-0 28.926155 714.088676)">航道 整治</text>
+   </g>
+   <g id="text_249">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="719.773868" transform="rotate(-0 28.926155 719.773868)">护岸</text>
+   </g>
+   <g id="text_250">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="725.459059" transform="rotate(-0 28.926155 725.459059)">整治</text>
+   </g>
+   <g id="text_251">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="731.144251" transform="rotate(-0 28.926155 731.144251)">鱼类 栖息地</text>
+   </g>
+  </g>
+  <g id="axes_26">
+   <g id="patch_27">
+    <path d="M 212.335398 680.811422 
+L 393.386692 680.811422 
+L 393.386692 667.691749 
+L 212.335398 667.691749 
+z
+" clip-path="url(#p7013554536)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_252">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="676.261937" transform="rotate(-0 217.766936 676.261937)">T25  n=4</text>
+   </g>
+   <g id="text_253">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="675.848851" transform="rotate(-0 387.955153 675.848851)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_254">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="691.34791" transform="rotate(-0 219.577449 691.34791)">隧道</text>
+   </g>
+   <g id="text_255">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="697.033101" transform="rotate(-0 219.577449 697.033101)">山区</text>
+   </g>
+   <g id="text_256">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="702.718293" transform="rotate(-0 219.577449 702.718293)">高速公路</text>
+   </g>
+   <g id="text_257">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="708.403484" transform="rotate(-0 219.577449 708.403484)">铁路</text>
+   </g>
+   <g id="text_258">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="714.088676" transform="rotate(-0 219.577449 714.088676)">隧道 环境影响</text>
+   </g>
+   <g id="text_259">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="719.773868" transform="rotate(-0 219.577449 719.773868)">路域</text>
+   </g>
+   <g id="text_260">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="725.459059" transform="rotate(-0 219.577449 725.459059)">环境影响</text>
+   </g>
+   <g id="text_261">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="731.144251" transform="rotate(-0 219.577449 731.144251)">破坏</text>
+   </g>
+  </g>
+  <g id="axes_27">
+   <g id="patch_28">
+    <path d="M 402.986692 680.811422 
+L 584.037986 680.811422 
+L 584.037986 667.691749 
+L 402.986692 667.691749 
+z
+" clip-path="url(#p6e5174c658)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_262">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="676.261937" transform="rotate(-0 408.418231 676.261937)">T26  n=3</text>
+   </g>
+   <g id="text_263">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="675.848851" transform="rotate(-0 578.606447 675.848851)">噪声振动与粉尘污染</text>
+   </g>
+   <g id="text_264">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="691.34791" transform="rotate(-0 410.228744 691.34791)">铁路</text>
+   </g>
+   <g id="text_265">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="697.033101" transform="rotate(-0 410.228744 697.033101)">环境污染</text>
+   </g>
+   <g id="text_266">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="702.718293" transform="rotate(-0 410.228744 702.718293)">露天</text>
+   </g>
+   <g id="text_267">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="708.403484" transform="rotate(-0 410.228744 708.403484)">加固</text>
+   </g>
+   <g id="text_268">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="714.088676" transform="rotate(-0 410.228744 714.088676)">沙漠</text>
+   </g>
+   <g id="text_269">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="719.773868" transform="rotate(-0 410.228744 719.773868)">污染</text>
+   </g>
+   <g id="text_270">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="725.459059" transform="rotate(-0 410.228744 725.459059)">绿色</text>
+   </g>
+   <g id="text_271">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="731.144251" transform="rotate(-0 410.228744 731.144251)">铁路 绿色</text>
+   </g>
+  </g>
+  <g id="axes_28">
+   <g id="patch_29">
+    <path d="M 21.684104 761.698494 
+L 202.735398 761.698494 
+L 202.735398 748.578821 
+L 21.684104 748.578821 
+z
+" clip-path="url(#p49d5b9e749)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_272">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="757.149009" transform="rotate(-0 27.115642 757.149009)">T27  n=3</text>
+   </g>
+   <g id="text_273">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="756.735923" transform="rotate(-0 197.303859 756.735923)">工程环保管理与生态评估</text>
+   </g>
+   <g id="text_274">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="772.234982" transform="rotate(-0 28.926155 772.234982)">沉井</text>
+   </g>
+   <g id="text_275">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="777.920173" transform="rotate(-0 28.926155 777.920173)">下沉</text>
+   </g>
+   <g id="text_276">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="783.605365" transform="rotate(-0 28.926155 783.605365)">沉降</text>
+   </g>
+   <g id="text_277">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="789.290557" transform="rotate(-0 28.926155 789.290557)">铁路</text>
+   </g>
+   <g id="text_278">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="794.975748" transform="rotate(-0 28.926155 794.975748)">沉井 下沉</text>
+   </g>
+   <g id="text_279">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="800.66094" transform="rotate(-0 28.926155 800.66094)">大堤</text>
+   </g>
+   <g id="text_280">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="806.346132" transform="rotate(-0 28.926155 806.346132)">地表</text>
+   </g>
+   <g id="text_281">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="812.031323" transform="rotate(-0 28.926155 812.031323)">电塔</text>
+   </g>
+  </g>
+  <g id="axes_29">
+   <g id="patch_30">
+    <path d="M 212.335398 761.698494 
+L 393.386692 761.698494 
+L 393.386692 748.578821 
+L 212.335398 748.578821 
+z
+" clip-path="url(#pdde5811395)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_282">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="757.149009" transform="rotate(-0 217.766936 757.149009)">T28  n=3</text>
+   </g>
+   <g id="text_283">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="756.735923" transform="rotate(-0 387.955153 756.735923)">噪声振动与粉尘污染</text>
+   </g>
+   <g id="text_284">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="772.234982" transform="rotate(-0 219.577449 772.234982)">桥梁</text>
+   </g>
+   <g id="text_285">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="777.920173" transform="rotate(-0 219.577449 777.920173)">环境影响</text>
+   </g>
+   <g id="text_286">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="783.605365" transform="rotate(-0 219.577449 783.605365)">加固</text>
+   </g>
+   <g id="text_287">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="789.290557" transform="rotate(-0 219.577449 789.290557)">车辆</text>
+   </g>
+   <g id="text_288">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="794.975748" transform="rotate(-0 219.577449 794.975748)">污染</text>
+   </g>
+   <g id="text_289">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="800.66094" transform="rotate(-0 219.577449 800.66094)">绿色</text>
+   </g>
+   <g id="text_290">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="806.346132" transform="rotate(-0 219.577449 806.346132)">噪声</text>
+   </g>
+   <g id="text_291">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="812.031323" transform="rotate(-0 219.577449 812.031323)">铁路桥梁</text>
+   </g>
+  </g>
+  <g id="axes_30">
+   <g id="patch_31">
+    <path d="M 402.986692 761.698494 
+L 584.037986 761.698494 
+L 584.037986 748.578821 
+L 402.986692 748.578821 
+z
+" clip-path="url(#p5e560651b3)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_292">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="757.149009" transform="rotate(-0 408.418231 757.149009)">T29  n=3</text>
+   </g>
+   <g id="text_293">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="756.735923" transform="rotate(-0 578.606447 756.735923)">景观格局与栖息地破碎化</text>
+   </g>
+   <g id="text_294">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="772.234982" transform="rotate(-0 410.228744 772.234982)">景观</text>
+   </g>
+   <g id="text_295">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="777.920173" transform="rotate(-0 410.228744 777.920173)">高速公路</text>
+   </g>
+   <g id="text_296">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="783.605365" transform="rotate(-0 410.228744 783.605365)">林地</text>
+   </g>
+   <g id="text_297">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="789.290557" transform="rotate(-0 410.228744 789.290557)">landslides</text>
+   </g>
+   <g id="text_298">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="794.975748" transform="rotate(-0 410.228744 794.975748)">斑块</text>
+   </g>
+   <g id="text_299">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="800.66094" transform="rotate(-0 410.228744 800.66094)">耕地</text>
+   </g>
+   <g id="text_300">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="806.346132" transform="rotate(-0 410.228744 806.346132)">fatal</text>
+   </g>
+   <g id="text_301">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="812.031323" transform="rotate(-0 410.228744 812.031323)">草地</text>
+   </g>
+  </g>
+  <g id="axes_31">
+   <g id="patch_32">
+    <path d="M 21.684104 842.585566 
+L 202.735398 842.585566 
+L 202.735398 829.465893 
+L 21.684104 829.465893 
+z
+" clip-path="url(#pa8fc8737a9)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_302">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="838.036081" transform="rotate(-0 27.115642 838.036081)">T30  n=3</text>
+   </g>
+   <g id="text_303">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="197.303859" y="837.622996" transform="rotate(-0 197.303859 837.622996)">水文情势与水环境扰动</text>
+   </g>
+   <g id="text_304">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="853.122054" transform="rotate(-0 28.926155 853.122054)">河流</text>
+   </g>
+   <g id="text_305">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="858.807246" transform="rotate(-0 28.926155 858.807246)">流量</text>
+   </g>
+   <g id="text_306">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="864.492437" transform="rotate(-0 28.926155 864.492437)">鱼类</text>
+   </g>
+   <g id="text_307">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="870.177629" transform="rotate(-0 28.926155 870.177629)">水文</text>
+   </g>
+   <g id="text_308">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="875.862821" transform="rotate(-0 28.926155 875.862821)">水库</text>
+   </g>
+   <g id="text_309">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="881.548012" transform="rotate(-0 28.926155 881.548012)">生态系统</text>
+   </g>
+   <g id="text_310">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="887.233204" transform="rotate(-0 28.926155 887.233204)">栖息地</text>
+   </g>
+   <g id="text_311">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="892.918396" transform="rotate(-0 28.926155 892.918396)">河道</text>
+   </g>
+  </g>
+  <g id="axes_32">
+   <g id="patch_33">
+    <path d="M 212.335398 842.585566 
+L 393.386692 842.585566 
+L 393.386692 829.465893 
+L 212.335398 829.465893 
+z
+" clip-path="url(#p629d179f07)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_312">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="838.036081" transform="rotate(-0 217.766936 838.036081)">T31  n=3</text>
+   </g>
+   <g id="text_313">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="387.955153" y="837.622996" transform="rotate(-0 387.955153 837.622996)">工程环保管理与生态评估</text>
+   </g>
+   <g id="text_314">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="853.122054" transform="rotate(-0 219.577449 853.122054)">物流</text>
+   </g>
+   <g id="text_315">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="858.807246" transform="rotate(-0 219.577449 858.807246)">铁路</text>
+   </g>
+   <g id="text_316">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="864.492437" transform="rotate(-0 219.577449 864.492437)">铁路 物流</text>
+   </g>
+   <g id="text_317">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="870.177629" transform="rotate(-0 219.577449 870.177629)">桁梁</text>
+   </g>
+   <g id="text_318">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="875.862821" transform="rotate(-0 219.577449 875.862821)">山区</text>
+   </g>
+   <g id="text_319">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="881.548012" transform="rotate(-0 219.577449 881.548012)">桥梁</text>
+   </g>
+   <g id="text_320">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="887.233204" transform="rotate(-0 219.577449 887.233204)">环境影响</text>
+   </g>
+   <g id="text_321">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="892.918396" transform="rotate(-0 219.577449 892.918396)">黄河流域</text>
+   </g>
+  </g>
+  <g id="axes_33">
+   <g id="patch_34">
+    <path d="M 402.986692 842.585566 
+L 584.037986 842.585566 
+L 584.037986 829.465893 
+L 402.986692 829.465893 
+z
+" clip-path="url(#p12c5ea96f6)" style="fill: #4c78a8; opacity: 0.92"/>
+   </g>
+   <g id="text_322">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="408.418231" y="838.036081" transform="rotate(-0 408.418231 838.036081)">T32  n=3</text>
+   </g>
+   <g id="text_323">
+    <text style="font-size: 5.8px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #ffffff" x="578.606447" y="837.622996" transform="rotate(-0 578.606447 837.622996)">采矿活动与地质破坏</text>
+   </g>
+   <g id="text_324">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="853.122054" transform="rotate(-0 410.228744 853.122054)">桥梁</text>
+   </g>
+   <g id="text_325">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="858.807246" transform="rotate(-0 410.228744 858.807246)">污染</text>
+   </g>
+   <g id="text_326">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="864.492437" transform="rotate(-0 410.228744 864.492437)">煤层</text>
+   </g>
+   <g id="text_327">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="870.177629" transform="rotate(-0 410.228744 870.177629)">环境效益</text>
+   </g>
+   <g id="text_328">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="875.862821" transform="rotate(-0 410.228744 875.862821)">绿色</text>
+   </g>
+   <g id="text_329">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="881.548012" transform="rotate(-0 410.228744 881.548012)">含水层</text>
+   </g>
+   <g id="text_330">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="887.233204" transform="rotate(-0 410.228744 887.233204)">低碳</text>
+   </g>
+   <g id="text_331">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="410.228744" y="892.918396" transform="rotate(-0 410.228744 892.918396)">绿色 低碳</text>
+   </g>
+  </g>
+  <g id="axes_34">
+   <g id="patch_35">
+    <path d="M 21.684104 923.472639 
+L 202.735398 923.472639 
+L 202.735398 910.352966 
+L 21.684104 910.352966 
+z
+" clip-path="url(#p83e4cc00b9)" style="fill: #d9dee3; opacity: 0.92"/>
+   </g>
+   <g id="text_332">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="27.115642" y="918.923154" transform="rotate(-0 27.115642 918.923154)">T33  n=1</text>
+   </g>
+   <g id="text_333">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="934.009126" transform="rotate(-0 28.926155 934.009126)">噪声</text>
+   </g>
+   <g id="text_334">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="939.694318" transform="rotate(-0 28.926155 939.694318)">鸟类</text>
+   </g>
+   <g id="text_335">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="945.37951" transform="rotate(-0 28.926155 945.37951)">列车</text>
+   </g>
+   <g id="text_336">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="951.064701" transform="rotate(-0 28.926155 951.064701)">频带</text>
+   </g>
+   <g id="text_337">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="956.749893" transform="rotate(-0 28.926155 956.749893)">频率</text>
+   </g>
+   <g id="text_338">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="962.435085" transform="rotate(-0 28.926155 962.435085)">天堂</text>
+   </g>
+   <g id="text_339">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="968.120276" transform="rotate(-0 28.926155 968.120276)">小鸟</text>
+   </g>
+   <g id="text_340">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="28.926155" y="973.805468" transform="rotate(-0 28.926155 973.805468)">频谱</text>
+   </g>
+  </g>
+  <g id="axes_35">
+   <g id="patch_36">
+    <path d="M 212.335398 923.472639 
+L 393.386692 923.472639 
+L 393.386692 910.352966 
+L 212.335398 910.352966 
+z
+" clip-path="url(#p6ae20c6915)" style="fill: #d9dee3; opacity: 0.92"/>
+   </g>
+   <g id="text_341">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ffffff" x="217.766936" y="918.923154" transform="rotate(-0 217.766936 918.923154)">T34  n=1</text>
+   </g>
+   <g id="text_342">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="934.009126" transform="rotate(-0 219.577449 934.009126)">公路</text>
+   </g>
+   <g id="text_343">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="939.694318" transform="rotate(-0 219.577449 939.694318)">社会</text>
+   </g>
+   <g id="text_344">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="945.37951" transform="rotate(-0 219.577449 945.37951)">年代</text>
+   </g>
+   <g id="text_345">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="951.064701" transform="rotate(-0 219.577449 951.064701)">美国</text>
+   </g>
+   <g id="text_346">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="956.749893" transform="rotate(-0 219.577449 956.749893)">环境影响</text>
+   </g>
+   <g id="text_347">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="962.435085" transform="rotate(-0 219.577449 962.435085)">制定</text>
+   </g>
+   <g id="text_348">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="968.120276" transform="rotate(-0 219.577449 968.120276)">经济</text>
+   </g>
+   <g id="text_349">
+    <text style="font-size: 6.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #222222" x="219.577449" y="973.805468" transform="rotate(-0 219.577449 973.805468)">高速公路</text>
+   </g>
+  </g>
+  <g id="axes_36"/>
+ </g>
+ <defs>
+  <clipPath id="p4bcac721c4">
+   <rect x="21.684104" y="20.59517" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p4d4e0bf378">
+   <rect x="212.335398" y="20.59517" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="paa56f09dde">
+   <rect x="402.986692" y="20.59517" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p3213d4e839">
+   <rect x="21.684104" y="101.482243" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p02d29c72e0">
+   <rect x="212.335398" y="101.482243" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pa462d39e1c">
+   <rect x="402.986692" y="101.482243" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p4ebd0385db">
+   <rect x="21.684104" y="182.369315" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pf672d42232">
+   <rect x="212.335398" y="182.369315" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pd18c2c7632">
+   <rect x="402.986692" y="182.369315" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pbee3c06a63">
+   <rect x="21.684104" y="263.256387" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p5f7941493e">
+   <rect x="212.335398" y="263.256387" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pdb72de38da">
+   <rect x="402.986692" y="263.256387" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p08a0ed04da">
+   <rect x="21.684104" y="344.14346" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p0a97f477b4">
+   <rect x="212.335398" y="344.14346" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pe52595b0e8">
+   <rect x="402.986692" y="344.14346" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pb6fd11ecd3">
+   <rect x="21.684104" y="425.030532" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pfbf05555a4">
+   <rect x="212.335398" y="425.030532" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pfd1af09466">
+   <rect x="402.986692" y="425.030532" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pb3155509b6">
+   <rect x="21.684104" y="505.917604" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p23475d66c5">
+   <rect x="212.335398" y="505.917604" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pf599247872">
+   <rect x="402.986692" y="505.917604" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pda9b0ce8c3">
+   <rect x="21.684104" y="586.804676" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pc2df79ebcf">
+   <rect x="212.335398" y="586.804676" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pa5808574c4">
+   <rect x="402.986692" y="586.804676" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p5014fa0d5c">
+   <rect x="21.684104" y="667.691749" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p7013554536">
+   <rect x="212.335398" y="667.691749" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p6e5174c658">
+   <rect x="402.986692" y="667.691749" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p49d5b9e749">
+   <rect x="21.684104" y="748.578821" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pdde5811395">
+   <rect x="212.335398" y="748.578821" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p5e560651b3">
+   <rect x="402.986692" y="748.578821" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="pa8fc8737a9">
+   <rect x="21.684104" y="829.465893" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p629d179f07">
+   <rect x="212.335398" y="829.465893" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p12c5ea96f6">
+   <rect x="402.986692" y="829.465893" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p83e4cc00b9">
+   <rect x="21.684104" y="910.352966" width="181.051294" height="72.887072"/>
+  </clipPath>
+  <clipPath id="p6ae20c6915">
+   <rect x="212.335398" y="910.352966" width="181.051294" height="72.887072"/>
+  </clipPath>
+ </defs>
+</svg>

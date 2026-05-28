@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartDorm.AI：面向广州大学宿舍设施管理的 AI 运维系统 Demo 项目展示。">
+  <title>SmartDorm.AI | AI 宿舍设施运维 Demo</title>
+  <link rel="stylesheet" href="src/css/pages/intro.css">
+</head>
+<body>
+  <header class="intro-header" aria-label="项目展示导航">
+    <a class="brand" href="#top" aria-label="返回顶部">
+      <span class="brand-sign">AI</span>
+      <span>SmartDorm.AI</span>
+    </a>
+    <nav class="intro-nav" aria-label="页面导航">
+      <a href="#background">背景</a>
+      <a href="#thinking">设计思路</a>
+      <a href="#features">功能</a>
+      <a href="#crowdsource">众包维修</a>
+      <a class="nav-demo" href="demo.html">进入 Demo</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-reveal" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Guangzhou University Dorm Facility Management</p>
+        <h1 id="hero-title">我设计的 AI 宿舍设施运维 Demo</h1>
+        <p class="hero-lead">
+          从广州大学宿舍设施管理中的维修响应慢、问题追踪弱、学生参与度低出发，
+          我用 Codex 辅助开发了一个可交互的 SmartDorm.AI 系统原型。
+          它把报修、识别、预测、派工和反馈串成一条清晰的运维链路。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="demo.html">
+            <span aria-hidden="true">▶</span>
+            进入系统 Demo
+          </a>
+        </div>
+        <div class="hero-tags" aria-label="项目标签">
+          <span>AI 识别</span>
+          <span>预测维护</span>
+          <span>智能调度</span>
+          <span>众包报修</span>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="系统总览截图">
+        <div class="panel-caption">
+          <span>Live Demo Preview</span>
+          <strong>系统总览 / 维修状态 / 风险预警</strong>
+        </div>
+        <img src="assets/intro/screenshots/dashboard.png" alt="SmartDorm.AI 系统总览页面截图">
+      </aside>
+    </section>
+
+    <section id="background" class="story-section section-reveal" aria-labelledby="background-title">
+      <div class="section-kicker">01 / Project Background</div>
+      <div class="story-layout">
+        <div>
+          <h2 id="background-title">宿舍问题很多，但核心往往卡在“运维不到位”</h2>
+          <p>
+            在项目调研中，我们发现宿舍设施老化、维修反馈不透明、报修效率不稳定等问题并不是孤立存在的。
+            真正影响体验的，是问题从发现到维修完成之间缺少更高效的数据连接和协同机制。
+          </p>
+        </div>
+        <div class="problem-layers" aria-label="宿舍运维问题层级">
+          <article>
+            <span>01</span>
+            <strong>学生发现问题</strong>
+            <p>最早发现故障的人，往往没有足够顺手的反馈入口。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>问题进入队列</strong>
+            <p>紧急程度、位置和照片质量没有被快速结构化。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>维修人员接单</strong>
+            <p>任务分散，路线和材料准备依赖经验判断。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>结果沉淀不足</strong>
+            <p>维修完成后，数据没有充分反哺下一次预测和调度。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="thinking" class="thinking-section section-reveal" aria-labelledby="thinking-title">
+      <div class="section-heading">
+        <p class="eyebrow">Design Thinking</p>
+        <h2 id="thinking-title">我的设计思路：让维修流程从左到右被看见</h2>
+        <p>我没有只做一个报修入口，而是把学生、AI、维修人员和管理者放进同一个闭环里。</p>
+      </div>
+
+      <div class="flow-track" aria-label="维修闭环轨道">
+        <article class="flow-step">
+          <span>01</span>
+          <h3>发现</h3>
+          <p>学生拍照、系统监测或管理者巡检，形成带位置和类型的初始线索。</p>
+        </article>
+        <article class="flow-step">
+          <span>02</span>
+          <h3>识别</h3>
+          <p>AI 判断问题类型、照片质量、严重程度，并给出可信度和初步建议。</p>
+        </article>
+        <article class="flow-step">
+          <span>03</span>
+          <h3>排序</h3>
+          <p>结合设施寿命、楼栋热力、历史工单，把真正紧急的问题排到前面。</p>
+        </article>
+        <article class="flow-step">
+          <span>04</span>
+          <h3>派工</h3>
+          <p>按任务位置、人员状态、材料库存规划维修路线，减少重复跑动。</p>
+        </article>
+        <article class="flow-step">
+          <span>05</span>
+          <h3>沉淀</h3>
+          <p>维修结果回流成数据，为下一次预测维护和资源配置提供依据。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="features" class="feature-section section-reveal" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="eyebrow">System Demo</p>
+        <h2 id="features-title">Demo 的四个页面：分别解决一段运维链路</h2>
+        <p>这里不只是展示界面，而是把每个页面为什么存在、服务谁、解决什么问题讲清楚。</p>
+      </div>
+
+      <div class="demo-gallery">
+        <article class="demo-card featured">
+          <a class="demo-shot" href="demo.html#dashboard" aria-label="进入系统总览 Demo 页面">
+            <img src="assets/intro/screenshots/dashboard.png" alt="系统总览页面截图">
+          </a>
+          <div class="demo-copy">
+            <span class="feature-label">01 / Dashboard</span>
+            <h3>系统总览：把运维状态放到同一张桌面</h3>
+            <p>我希望管理者一打开系统，就能看到今天的 AI 识别量、风险预警、维修工单和楼栋健康热力。这个页面负责建立“全局态势”。</p>
+            <a class="module-link" href="demo.html#dashboard">进入该模块</a>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <a class="demo-shot" href="demo.html#predictive" aria-label="进入预测维护 Demo 页面">
+            <img src="assets/intro/screenshots/predictive.png" alt="预测维护页面截图">
+          </a>
+          <div class="demo-copy">
+            <span class="feature-label">02 / Predictive Maintenance</span>
+            <h3>预测维护：从“坏了再修”前移到“提前发现”</h3>
+            <p>通过设施寿命、楼栋差异和历史问题，提前判断哪些区域更需要检查，让维修人员有计划地处理隐患。</p>
+            <a class="module-link" href="demo.html#predictive">进入该模块</a>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <a class="demo-shot" href="demo.html#dispatch" aria-label="进入智能调度 Demo 页面">
+            <img src="assets/intro/screenshots/dispatch.png" alt="智能调度页面截图">
+          </a>
+          <div class="demo-copy">
+            <span class="feature-label">03 / Dispatch</span>
+            <h3>智能调度：把工单、位置和材料一起考虑</h3>
+            <p>这个页面面向维修人员，帮助他们安排路径、合并顺路任务、提前准备材料，减少来回跑动。</p>
+            <a class="module-link" href="demo.html#dispatch">进入该模块</a>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <a class="demo-shot" href="demo.html#cv-diagnosis" aria-label="进入众包报修 Demo 页面">
+            <img src="assets/intro/screenshots/crowdsource.png" alt="众包报修页面截图">
+          </a>
+          <div class="demo-copy">
+            <span class="feature-label">04 / Crowdsourcing</span>
+            <h3>众包报修：让学生参与成为系统的一部分</h3>
+            <p>学生拍照上报，AI 先做审核和问题识别，再通过积分或水电费减免形成激励，把发现问题这件事变成协作。</p>
+            <a class="module-link" href="demo.html#cv-diagnosis">进入该模块</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="crowdsource" class="crowd-section section-reveal" aria-labelledby="crowd-title">
+      <div class="crowd-copy">
+        <p class="eyebrow">Crowdsourced Maintenance</p>
+        <h2 id="crowd-title">众包维修是我最想强调的参与机制</h2>
+        <p>
+          宿舍里的问题，学生往往最早知道。我的设计不是让学生承担维修工作，
+          而是让他们用最轻的方式提供线索：拍照、定位、上传，后续由 AI 和维修人员完成审核与处理。
+        </p>
+        <div class="reward-strip">
+          <span><strong>342</strong> 本月上报</span>
+          <span><strong>91.2%</strong> AI 审核通过</span>
+          <span><strong>2860</strong> 累计积分</span>
+        </div>
+        <a class="module-link crowd-link" href="demo.html#cv-diagnosis">查看众包报修 Demo</a>
+      </div>
+      <div class="phone-demo" aria-label="众包报修手机界面示意">
+        <div class="phone-frame">
+          <div class="phone-top"></div>
+          <div class="phone-screen">
+            <div class="phone-head">
+              <span>SmartDorm 报修</span>
+              <b>85 分</b>
+            </div>
+            <div class="phone-photo">
+              <img src="assets/intro/pipe-rust.jpg" alt="管道生锈报修示例">
+              <span class="scan-line"></span>
+              <span class="phone-tag">管道生锈</span>
+            </div>
+            <div class="phone-result">
+              <span>AI 审核通过</span>
+              <strong>置信度 92.3%</strong>
+              <p>建议派发至阳台管道维修队列，优先级：中度。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="codex-section section-reveal" aria-labelledby="codex-title">
+      <div class="codex-card">
+        <div>
+          <p class="eyebrow">Built With Codex</p>
+          <h2 id="codex-title">用 Codex 把设计想法快速做成可交互 Demo</h2>
+          <p>
+            这个 Demo 不是停留在概念图上。我把功能设想、界面结构和交互逻辑拆给 Codex，
+            再不断调整页面、模块和文案，让它成为一个可以点击、可以演示、可以讲清楚设计价值的系统原型。
+          </p>
+        </div>
+        <div class="build-stack" aria-label="开发流程">
+          <span>Idea</span>
+          <span>Prompt</span>
+          <span>Prototype</span>
+          <span>Demo</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section section-reveal" aria-labelledby="cta-title">
+      <p class="eyebrow">Final Demo</p>
+      <h2 id="cta-title">让宿舍维修更及时、更可见、更可协同</h2>
+      <p>进入完整系统 Demo，查看总览、预测维护、智能调度和众包报修的交互效果。</p>
+      <a class="btn primary large" href="demo.html">
+        <span aria-hidden="true">▶</span>
+        打开 SmartDorm.AI 系统 Demo
+      </a>
+    </section>
+  </main>
+
+  <script src="src/js/modules/intro.js"></script>
+</body>
+</html>

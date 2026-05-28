@@ -1,0 +1,149 @@
+/* === Keyframe Animations === */
+
+@keyframes pulse-line {
+      0%, 100% { opacity: .3; }
+      50% { opacity: .6; }
+
+
+@keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+
+
+@keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+
+
+@keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+
+
+
+/* === Transition & Animation Properties === */
+
+.github-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      background: var(--accent-3);
+      color: #fff7ec;
+      border-radius: 999px;
+      box-shadow: 0 16px 34px rgba(111, 59, 36, .18);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+
+.pipe-node {
+      grid-column: 2;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      display: grid;
+      place-items: center;
+      color: #fff7ec;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 8px 24px rgba(166, 92, 53, .25);
+      z-index: 2;
+      transition: transform .4s cubic-bezier(.23,1,.32,1), box-shadow .4s ease;
+    }
+
+
+.pipe-content h3 {
+      font-size: clamp(22px, 2.8vw, 32px);
+      margin: 0;
+      transition: color .3s ease;
+    }
+
+
+.pipe-tag {
+      padding: 5px 10px;
+      background: rgba(166, 92, 53, .08);
+      color: var(--accent-3);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background .3s ease, transform .3s ease;
+    }
+
+
+.arch-pipeline::before {
+      animation: pulse-line 3s ease-in-out infinite;
+    }
+
+
+.ability-tags span {
+      padding: 10px 16px;
+      background: rgba(166, 92, 53, .08);
+      border: 1px solid rgba(166, 92, 53, .15);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-3);
+      backdrop-filter: blur(8px);
+      transition: transform .3s ease, background .3s ease;
+    }
+
+
+.ability-github a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .3s ease, box-shadow .3s ease;
+      box-shadow: 0 4px 20px rgba(166, 92, 53, .25);
+    }
+
+
+.ability .conclusion-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+
+.reveal { opacity: 1; transform: none; transition: filter .45s ease, transform .45s ease; }
+
+
+.artifact {
+      transition: transform .6s cubic-bezier(.23,1,.32,1);
+    }
+
+
+.screen-card {
+      transition: transform .5s cubic-bezier(.23,1,.32,1);
+    }
+
+
+.floating-note {
+      animation: float 4s ease-in-out infinite;
+    }
+
+
+.reveal.visible {
+      animation: fadeSlideUp .6s ease forwards;
+    }
+
+
+.querySelectorAll('.reveal').forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index % 5, 4) * 70}
+

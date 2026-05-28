@@ -43,7 +43,7 @@ type DetailItem = {
 
 type ProjectItem = DetailItem & {
   accent: string;
-  visual: "network" | "fire" | "dorm" | "risk" | "eco" | "literature";
+  visual: "network" | "federated" | "fire" | "dorm" | "risk" | "eco" | "literature";
   featured?: boolean;
   icon: typeof Network;
   detailHref?: string;
@@ -107,11 +107,12 @@ const projects: ProjectItem[] = [
     description:
       "以多智能体协同和联邦学习为核心，探索工程造价数据在隐私保护约束下的协同建模与智能预测。",
     tags: ["毕业设计", "多智能体", "联邦学习", "工程造价"],
-    status: "详情页建设中",
+    status: "点击打开详情页",
     accent: "#7C3AED",
-    visual: "network",
+    visual: "federated",
     featured: true,
     icon: GraduationCap,
+    detailHref: "/federated-learning-portfolio/index.html",
   },
   {
     title: "可交互的文献分析图",
@@ -138,26 +139,28 @@ const projects: ProjectItem[] = [
     detailHref: "/intrinsic-fire-protection/index.html",
   },
   {
-    title: "宿舍设施管理优化方案 Demo",
+    title: "SmartDorm.AI-基于AI赋能的宿舍运维管理系统demo",
     category: "设施管理 · Campus Operations",
     description:
       "围绕宿舍设施报修、资源调度和运维优化设计的系统 Demo，强调校园场景下的流程效率。",
     tags: ["设施管理", "流程优化", "校园场景"],
-    status: "详情页建设中",
+    status: "点击打开详情页",
     accent: "#0EA5E9",
     visual: "dorm",
     icon: Home,
+    detailHref: "/smartdorm-ai-portfolio/index.html",
   },
   {
-    title: "工程运维施工事故安全风险软件",
+    title: "基于 RAG-LLM 的施工安全风险分析系统",
     category: "创新创业计划 · Safety Risk",
     description:
-      "校级创新创业计划项目，聚焦工程运维和施工事故风险识别、分级和辅助决策。",
-    tags: ["校创", "安全风险", "工程运维"],
-    status: "详情页建设中",
+      "校级创新创业计划项目，基于 RAG 检索增强与 DeepSeek 大模型的施工安全研判系统，覆盖 53,000+ 历史事故案例，支持事前风险预判与实时预警。",
+    tags: ["校创", "RAG-LLM", "安全风险"],
+    status: "点击打开详情页",
     accent: "#F97316",
     visual: "risk",
     icon: Building2,
+    detailHref: "/construction-safety-rag/index.html",
   },
   {
     title: "重大工程生态风险识别与预测算法",
@@ -165,11 +168,12 @@ const projects: ProjectItem[] = [
     description:
       "国家级创新训练计划项目，研究重大工程生态风险的特征识别、预测建模和可视化表达。",
     tags: ["国创", "生态风险", "预测算法"],
-    status: "详情页建设中",
+    status: "点击打开详情页",
     accent: "#10B981",
     visual: "eco",
     featured: true,
     icon: Leaf,
+    detailHref: "/eco-risk-portfolio/portfolio.html",
   },
 ];
 
@@ -673,6 +677,21 @@ function ProjectVisual({
   accent: string;
   featured?: boolean;
 }) {
+  if (visual === "federated") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
+        <Image
+          src="/images/projects/federated-learning-preview.png"
+          alt="基于多智能体协同的联邦学习造价研究框架图"
+          fill
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
+      </div>
+    );
+  }
+
   if (visual === "network") {
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white/45 ring-1 ring-white/70">
@@ -725,40 +744,30 @@ function ProjectVisual({
 
   if (visual === "dorm") {
     return (
-      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-sky-50 ring-1 ring-white/70">
-        <div className="absolute bottom-8 left-8 right-8 grid h-36 grid-cols-4 gap-2">
-          {Array.from({ length: 12 }).map((_, item) => (
-            <motion.div
-              key={item}
-              className="rounded-lg bg-white shadow-sm ring-1 ring-sky-100"
-              animate={{ opacity: [0.55, 1, 0.55] }}
-              transition={{ duration: 2.4, repeat: Infinity, delay: item * 0.06 }}
-            />
-          ))}
-        </div>
-        <Home className="absolute left-5 top-5 h-10 w-10 text-sky-500" />
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
+        <Image
+          src="/images/projects/smartdorm-preview.jpg"
+          alt="SmartDorm.AI 宿舍运维管理系统预览图"
+          fill
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
     );
   }
 
   if (visual === "risk") {
     return (
-      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-orange-50 ring-1 ring-white/70">
-        <div className="absolute inset-5 grid grid-cols-5 gap-1.5">
-          {Array.from({ length: 20 }).map((_, item) => (
-            <motion.div
-              key={item}
-              className="rounded-md"
-              style={{
-                backgroundColor:
-                  item % 5 === 0 ? "#EF4444" : item % 3 === 0 ? "#F97316" : "#FDBA74",
-              }}
-              animate={{ scale: [1, item % 4 === 0 ? 1.08 : 0.96, 1] }}
-              transition={{ duration: 2.2, repeat: Infinity, delay: item * 0.03 }}
-            />
-          ))}
-        </div>
-        <Building2 className="absolute right-5 top-5 h-10 w-10 text-orange-500" />
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
+        <Image
+          src="/images/projects/construction-safety-rag-preview.webp"
+          alt="基于 RAG-LLM 的施工安全风险分析系统预览"
+          fill
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
     );
   }
@@ -777,6 +786,22 @@ function ProjectVisual({
       </div>
     );
   }
+
+  if (visual === "eco") {
+    return (
+      <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
+        <Image
+          src="/images/projects/eco-risk-roadmap-preview.jpg"
+          alt="重大工程生态风险技术路线图预览"
+          fill
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-emerald-50 ring-1 ring-white/70">
       {[0, 1, 2, 3, 4].map((item) => (
@@ -810,33 +835,26 @@ function ProjectCard({
   className?: string;
 }) {
   const Icon = project.icon;
-  const openProject = () => {
-    if (project.detailHref) {
-      window.open(project.detailHref, "_blank", "noopener,noreferrer");
-      return;
-    }
 
-    onOpen(project);
+  const sharedClassName = cn(
+    "group relative flex flex-col overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-4 text-left shadow-[0_18px_55px_-30px_rgba(15,23,42,0.35)] backdrop-blur-xl outline-none",
+    project.featured ? "min-h-[390px]" : "min-h-[310px]",
+    compact && "min-h-[285px]",
+    className
+  );
+
+  const sharedMotionProps = {
+    variants: cardVariants,
+    whileHover: {
+      y: -6,
+      scale: 1.01,
+      boxShadow: `0 24px 70px -34px ${project.accent}AA`,
+    },
+    transition: { type: "spring" as const, stiffness: 360, damping: 30 },
   };
 
-  return (
-    <motion.button
-      type="button"
-      variants={cardVariants}
-      onClick={openProject}
-      className={cn(
-        "group relative flex flex-col overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-4 text-left shadow-[0_18px_55px_-30px_rgba(15,23,42,0.35)] backdrop-blur-xl outline-none",
-        project.featured ? "min-h-[390px]" : "min-h-[310px]",
-        compact && "min-h-[285px]",
-        className
-      )}
-      whileHover={{
-        y: -6,
-        scale: 1.01,
-        boxShadow: `0 24px 70px -34px ${project.accent}AA`,
-      }}
-      transition={{ type: "spring", stiffness: 360, damping: 30 }}
-    >
+  const cardContent = (
+    <>
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
@@ -896,6 +914,31 @@ function ProjectCard({
           />
         </div>
       </div>
+    </>
+  );
+
+  if (project.detailHref) {
+    return (
+      <motion.a
+        href={project.detailHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={sharedClassName}
+        {...sharedMotionProps}
+      >
+        {cardContent}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.button
+      type="button"
+      onClick={() => onOpen(project)}
+      className={sharedClassName}
+      {...sharedMotionProps}
+    >
+      {cardContent}
     </motion.button>
   );
 }
