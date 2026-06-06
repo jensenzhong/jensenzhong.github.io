@@ -6,61 +6,46 @@ function read(filePath) {
   return fs.readFileSync(new URL(`../${filePath}`, import.meta.url), "utf8");
 }
 
-test("management section uses a compact lanyard profile badge", () => {
-  const source = `${read("src/components/portfolio.tsx")}\n${read("src/components/lanyard-badge.tsx")}`;
+test("management section uses the interactive 3D lanyard profile badge", () => {
+  const source = `${read("src/components/portfolio.tsx")}\n${read("src/components/lanyard-3d/lanyard.tsx")}`;
 
-  for (const text of [
-    "lanyard-card",
-    "/images/profile/zhong-zhengshen-avatar.jpg",
-    "钟政燊",
-    "中共党员",
-    "GPA 3.88/4.00",
-    "排名 1/112",
-    "工程管理专业",
-    "元宇宙智能决策与人机器交互微专业",
-    "Python",
-    "SQL",
-    "HTML",
-    "Coze",
-    "N8N",
-    "Dify",
-    "Revit",
-    "AutoCAD",
-    "广联达",
-    "Cursor",
-    "即时设计",
-    "Lovart",
-  ]) {
-    assert.match(source, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  }
-
-  assert.match(source, /<LanyardBadge/);
-  assert.doesNotMatch(source, /工程结构（99）/);
-  assert.doesNotMatch(source, /数据库技术与Python程序设计（98）/);
+  assert.match(source, /@\/components\/lanyard-3d\/lanyard/);
+  assert.match(
+    source,
+    /<Lanyard position=\{\[0, 0, 24\]\} gravity=\{\[0, -40, 0\]\} fov=\{20\}/,
+  );
+  assert.match(source, /badgeCardTextureUrl = "\/assets\/badge-card\.png"/);
+  assert.match(source, /cardModelUrl = "\/assets\/lanyard\/card\.glb"/);
+  assert.match(source, /lanyardTextureUrl = "\/assets\/lanyard\/lanyard\.png"/);
+  assert.doesNotMatch(source, /@\/components\/lanyard-badge/);
+  assert.doesNotMatch(source, /<LanyardBadge/);
 });
 
-test("management lanyard uses a restrained gray-white card without a duplicated section title", () => {
-  const source = `${read("src/components/portfolio.tsx")}\n${read("src/components/lanyard-badge.tsx")}`;
+test("management lanyard keeps the orange theme and fixed hook-to-rope relationship", () => {
+  const source = read("src/components/lanyard-3d/lanyard.tsx");
 
-  assert.match(source, /bg-\[rgb\(225,225,225\)\]/);
-  assert.match(source, /lanyard-ring/);
-  assert.doesNotMatch(source, /Metallic sheen/i);
-  assert.doesNotMatch(source, /via-\[#cbd5e1\]/);
-  assert.doesNotMatch(source, />工程专业信息</);
+  assert.match(source, /const hookTopAnchor: Vector3Tuple = \[0, 2\.04, 0\]/);
+  assert.match(source, /useSphericalJoint\(j3 as BodyRef, card as BodyRef/);
+  assert.match(source, /hookTopAnchor/);
+  assert.match(source, /const themeOrange = "#ff9f43"/);
+  assert.match(source, /const themeOrangeDark = "#c96a10"/);
+  assert.match(source, /color=\{themeOrange\}/);
+  assert.match(source, /color=\{themeOrangeDark\}/);
 });
 
-test("management lanyard is draggable, has a dynamic rope, and removes the tool carousel", () => {
-  const source = read("src/components/lanyard-badge.tsx");
+test("management lanyard is draggable, has a dynamic rope, and is portrait optimized", () => {
+  const source = read("src/components/lanyard-3d/lanyard.tsx");
+  const styles = read("src/components/lanyard-3d/lanyard.module.css");
 
   assert.match(source, /"use client"/);
-  assert.match(source, /drag/);
-  assert.match(source, /motion\.path/);
-  assert.match(source, /h-28 w-28/);
-  assert.match(source, /bg-\[rgb\(225,225,225\)\]/);
-  assert.match(source, /endY = 86 \+ dy/);
-  assert.match(source, /top-\[84px\]/);
-  assert.match(source, /top-\[-18px\]/);
-  assert.match(source, /z-10 w-full/);
+  assert.match(source, /setNextKinematicTranslation/);
+  assert.match(source, /onPointerDown/);
+  assert.match(source, /useRopeJoint/);
+  assert.match(source, /MeshLineMaterial/);
+  assert.match(source, /lineWidth=\{isMobile \? 0\.56 : 1\}/);
+  assert.match(source, /cameraPosition = isMobile \? \[0, 0, 21\]/);
+  assert.match(source, /cameraFov = isMobile \? 19 : fov/);
+  assert.match(styles, /height: 520px/);
   assert.doesNotMatch(source, /tool-marquee/);
   assert.doesNotMatch(source, /Tool Stack/);
 });
@@ -85,7 +70,7 @@ test("management bento grid uses the four requested engineering module names", (
 test("profile avatar asset is published for the lanyard badge", () => {
   assert.equal(
     fs.existsSync(
-      new URL("../public/images/profile/zhong-zhengshen-avatar.jpg", import.meta.url),
+      new URL("../public/images/profile/zhong-zhengshen-avatar.webp", import.meta.url),
     ),
     true,
   );

@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: min(100vh, 920px);
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-height: 430px;
+    height: 430px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .wrapper {
+    min-height: 520px;
+    height: 520px;
+  }
+}

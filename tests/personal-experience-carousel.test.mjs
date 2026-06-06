@@ -31,10 +31,10 @@ test("experience section uses the four volunteer and practice stories", () => {
   }
 
   for (const imagePath of [
-    "/images/experiences/national-games-volunteer.jpg",
-    "/images/experiences/gulang-team.png",
-    "/images/experiences/xiaohong-practice.jpg",
-    "/images/experiences/lingnan-commando.jpg",
+    "/images/experiences/national-games-volunteer.webp",
+    "/images/experiences/gulang-team.webp",
+    "/images/experiences/xiaohong-practice.webp",
+    "/images/experiences/lingnan-commando.webp",
   ]) {
     assert.match(source, new RegExp(imagePath.replaceAll("/", "\\/")));
   }
@@ -62,10 +62,10 @@ test("experience section is presented as volunteer service with award-style head
 
 test("experience photos are stored inside the project public directory", () => {
   for (const imagePath of [
-    "public/images/experiences/national-games-volunteer.jpg",
-    "public/images/experiences/gulang-team.png",
-    "public/images/experiences/xiaohong-practice.jpg",
-    "public/images/experiences/lingnan-commando.jpg",
+    "public/images/experiences/national-games-volunteer.webp",
+    "public/images/experiences/gulang-team.webp",
+    "public/images/experiences/xiaohong-practice.webp",
+    "public/images/experiences/lingnan-commando.webp",
   ]) {
     assert.equal(fs.existsSync(new URL(`../${imagePath}`, import.meta.url)), true);
   }

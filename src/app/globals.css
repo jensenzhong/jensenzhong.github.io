@@ -4,6 +4,10 @@
 
 @layer base {
   :root {
+    --font-geist-sans: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    --font-geist-mono: "Cascadia Code", Consolas, "Courier New", monospace;
+    --font-ma-shan-zheng: "KaiTi", "STKaiti", cursive;
+    --font-display: "Arial Narrow", "DIN Condensed", Impact, "Arial Black", sans-serif;
     --background: 0 0% 98%;
     --foreground: 240 10% 3.9%;
 

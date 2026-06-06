@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
@@ -41,7 +41,7 @@ const BentoCard = ({
     src: string;
     alt: string;
   };
-  Icon: React.ElementType;
+  Icon: ComponentType<{ className?: string }>;
   description: string;
   href: string;
   cta: string;

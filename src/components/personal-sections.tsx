@@ -19,28 +19,28 @@ const experiences = [
     role: "大型赛会服务 / 秩序引导 / 热情接待",
     description:
       "我参与了 2025 年第十五届全国运动会开幕式志愿服务，在门洞外站岗，用最饱满的热情欢迎全国各地前来观演的观众，指引他们有序入场、观演愉快，并获得广州大学优秀志愿者称号。",
-    image: "/images/experiences/national-games-volunteer.jpg",
+    image: "/images/experiences/national-games-volunteer.webp",
   },
   {
     title: "古浪古韵风华队",
     role: "队长经历 / 乡村调研 / 农产品包装设计",
     description:
       "大一时我第一次担任队长，组织同学参与大型社会实践活动，帮助甘肃省古浪县农产品设计包装，调研当地电商部门、面条等工厂，团队获得学院优秀社会实践调研团队。",
-    image: "/images/experiences/gulang-team.png",
+    image: "/images/experiences/gulang-team.webp",
   },
   {
     title: "小红船实践队",
     role: "红色宣讲 / 小学课堂 / 微党课设计",
     description:
       "我和队员前往华阳小学，为小学生们开展四次微党课，内容包括中共一大、小兵张嘎、小英雄雨来、红领巾的由来，让红色种子播撒在他们的心中。",
-    image: "/images/experiences/xiaohong-practice.jpg",
+    image: "/images/experiences/xiaohong-practice.webp",
   },
   {
     title: "岭南兴潮突击队",
     role: "三下乡实践 / 乡镇调研 / 报告主笔",
     description:
       "2025 年暑假，我参与三下乡社会实践，助力清远阳山县杜步镇发展，深入调研当地风景区、生态农业等资源，提出“一轴两翼三激活”融合方案并被当地部门采用。我主导调研报告撰写，获得学校优秀调研报告奖，调研成果被当地新闻报道。",
-    image: "/images/experiences/lingnan-commando.jpg",
+    image: "/images/experiences/lingnan-commando.webp",
   },
 ];
 

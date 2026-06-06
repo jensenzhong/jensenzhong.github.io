@@ -14,7 +14,7 @@ test("BIM management card uses a hover background image and a real detail link",
 
   assert.notEqual(bimStart, -1);
   assert.match(bimBlock, /imageBackground:\s*\{/);
-  assert.match(bimBlock, /src:\s*"\/images\/management\/bim-hover\.png"/);
+  assert.match(bimBlock, /src:\s*"\/images\/management\/bim-hover\.webp"/);
   assert.doesNotMatch(bimBlock, /href:\s*"#"/);
 });
 
@@ -29,7 +29,7 @@ test("BentoCard renders optional image backgrounds behind floating content", () 
 test("BIM hover background asset is published", () => {
   assert.equal(
     fs.existsSync(
-      new URL("../public/images/management/bim-hover.png", import.meta.url),
+      new URL("../public/images/management/bim-hover.webp", import.meta.url),
     ),
     true,
   );

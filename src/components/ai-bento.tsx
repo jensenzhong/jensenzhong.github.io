@@ -234,9 +234,29 @@ function formatMetric(value: number, suffix: string) {
   return value.toString();
 }
 
+function useIsPortraitViewport() {
+  const [isPortraitViewport, setIsPortraitViewport] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px) and (orientation: portrait)");
+    const update = () => setIsPortraitViewport(mediaQuery.matches);
+
+    update();
+    mediaQuery.addEventListener("change", update);
+    window.addEventListener("resize", update);
+
+    return () => {
+      mediaQuery.removeEventListener("change", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  return isPortraitViewport;
+}
+
 function IPhoneMockup({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative mx-auto h-[360px] w-[190px] md:h-[430px] md:w-[226px]">
+    <div className="relative mx-auto h-[330px] w-[174px] max-md:portrait:h-[300px] max-md:portrait:w-[158px] min-[390px]:h-[360px] min-[390px]:w-[190px] md:h-[430px] md:w-[226px]">
       <div className="absolute inset-0 rounded-[38px] bg-gradient-to-b from-[#303030] to-[#171717] p-[3px] shadow-[0_24px_70px_-14px_rgba(0,0,0,0.35)]">
         <div className="relative h-full w-full overflow-hidden rounded-[35px] bg-white">
           <div className="absolute left-1/2 top-3 z-20 h-[22px] w-[76px] -translate-x-1/2 rounded-full bg-black" />
@@ -258,7 +278,7 @@ function PhonePreview() {
       alt="AI 智慧党建小程序首页"
       fill
       className="object-cover object-top"
-      sizes="226px"
+      sizes="(min-width: 768px) 226px, (min-width: 390px) 190px, 174px"
       priority
     />
   );
@@ -298,11 +318,11 @@ function MiniAppShowcaseCard({
     { rotate: 23, x: 220, y: 34, scale: 0.72, opacity: 1 },
   ];
   const compactExpandedFan = [
-    { rotate: -18, x: -92, y: 24, scale: 0.72, opacity: 1 },
-    { rotate: -8, x: -46, y: 8, scale: 0.78, opacity: 1 },
+    { rotate: -18, x: -78, y: 24, scale: 0.72, opacity: 1 },
+    { rotate: -8, x: -40, y: 8, scale: 0.78, opacity: 1 },
     { rotate: 0, x: 0, y: -4, scale: 0.86, opacity: 0 },
-    { rotate: 8, x: 46, y: 8, scale: 0.78, opacity: 1 },
-    { rotate: 18, x: 92, y: 24, scale: 0.72, opacity: 1 },
+    { rotate: 8, x: 40, y: 8, scale: 0.78, opacity: 1 },
+    { rotate: 18, x: 78, y: 24, scale: 0.72, opacity: 1 },
   ];
   const fanState = expanded
     ? isCompact
@@ -314,7 +334,7 @@ function MiniAppShowcaseCard({
     <motion.div
       variants={cardVariants}
       layout
-      className="group relative min-h-[560px] overflow-hidden rounded-3xl border border-white/80 bg-white/70 shadow-[0_18px_60px_-28px_rgba(76,29,149,0.55)] backdrop-blur-xl"
+      className="group relative min-h-[560px] overflow-hidden rounded-3xl border border-white/80 bg-white/70 shadow-[0_18px_60px_-28px_rgba(76,29,149,0.55)] backdrop-blur-xl max-md:portrait:min-h-[500px]"
     >
       <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-purple-200/35 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-orange-100/35 blur-3xl" />
@@ -322,19 +342,19 @@ function MiniAppShowcaseCard({
         <Sparkles className="h-6 w-6 text-[#6D28D9]" />
       </div>
 
-      <div className="relative z-10 grid h-full gap-6 p-6 md:p-8 lg:grid-cols-[0.9fr_1.25fr]">
+      <div className="relative z-10 grid h-full gap-6 p-6 max-md:portrait:gap-4 max-md:portrait:p-5 md:p-8 lg:grid-cols-[0.9fr_1.25fr]">
         <div className="relative z-10 flex flex-col justify-between gap-5">
-          <div className="pt-16 md:pt-12">
+          <div className="pt-16 max-md:portrait:pt-14 md:pt-12">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-500 to-orange-400 px-3 py-1 text-xs font-black text-white shadow-sm shadow-red-200">
               数字媒体创新作品大赛 · 国家级二等奖
             </div>
             <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[#6D28D9]">
               小红AI云引擎 · 智慧党建创新平台
             </p>
-            <h3 className="text-2xl font-black tracking-tight text-slate-900 md:text-[34px]">
+            <h3 className="text-2xl font-black tracking-tight text-slate-900 max-md:portrait:text-[22px] md:text-[34px]">
               智慧党建小程序
             </h3>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-500">
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-500 max-md:portrait:text-[13px]">
               利用 Coze 平台设计智能体工作流，独立开发支部党建小程序，已上线微信小程序平台，目前准备进行全代码化的重构。
             </p>
           </div>
@@ -364,7 +384,7 @@ function MiniAppShowcaseCard({
                 event.stopPropagation();
                 window.open(demoVideoUrl, "_blank", "noopener,noreferrer");
               }}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#7c3aed] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-purple-200/60"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#7c3aed] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-purple-200/60 min-[390px]:w-auto"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -376,7 +396,7 @@ function MiniAppShowcaseCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(event) => event.stopPropagation()}
-              className="inline-flex items-center gap-2 rounded-full bg-white/80 px-5 py-3 text-sm font-bold text-slate-700 shadow-sm ring-1 ring-slate-200/80"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white/80 px-5 py-3 text-sm font-bold text-slate-700 shadow-sm ring-1 ring-slate-200/80 min-[390px]:w-auto"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -389,7 +409,7 @@ function MiniAppShowcaseCard({
         <button
           type="button"
           onClick={onToggle}
-          className="relative z-20 flex min-h-[440px] items-center justify-center overflow-visible rounded-[28px] bg-gradient-to-b from-white/20 to-purple-50/20 outline-none"
+          className="relative z-20 flex min-h-[390px] items-center justify-center overflow-visible rounded-[28px] bg-gradient-to-b from-white/20 to-purple-50/20 outline-none max-md:portrait:min-h-[350px] min-[390px]:min-h-[440px]"
           aria-pressed={expanded}
           aria-label="展开或收拢小程序截图"
         >
@@ -403,7 +423,7 @@ function MiniAppShowcaseCard({
               <motion.div
                 key={shot.src}
                 className={cn(
-                  "absolute h-[360px] w-[190px] overflow-hidden rounded-[28px] shadow-xl ring-1 ring-black/5 md:h-[430px] md:w-[226px]",
+                  "absolute h-[330px] w-[174px] overflow-hidden rounded-[28px] shadow-xl ring-1 ring-black/5 max-md:portrait:h-[300px] max-md:portrait:w-[158px] min-[390px]:h-[360px] min-[390px]:w-[190px] md:h-[430px] md:w-[226px]",
                   isCenter ? "z-20" : "z-10"
                 )}
                 initial={false}
@@ -537,7 +557,7 @@ function SocialStatsCard() {
         <div className="mb-5 flex items-center gap-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-[#FF2442]/35 ring-offset-2 ring-offset-[#1c1418]">
             <Image
-              src="/images/social_photo.jpg"
+              src="/images/social_photo.webp"
               alt="小红书头像"
               fill
               className="object-cover"
@@ -1060,14 +1080,20 @@ function ProjectDetailModal({
 export function AIBentoGrid() {
   const [expanded, setExpanded] = useState(false);
   const [selectedDetail, setSelectedDetail] = useState<DetailItem | null>(null);
+  const isPortraitViewport = useIsPortraitViewport();
+  const gridMotionProps = isPortraitViewport
+    ? { initial: false, animate: "visible" as const }
+    : {
+        initial: "hidden" as const,
+        whileInView: "visible" as const,
+        viewport: { once: true, margin: "-80px" },
+      };
 
   return (
     <>
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
+        {...gridMotionProps}
         className="space-y-5"
       >
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr]">

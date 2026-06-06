@@ -101,7 +101,7 @@ export const CardItem = ({
   rotateZ = 0,
   ...rest
 }: {
-  as?: React.ElementType;
+  as?: "div";
   children: React.ReactNode;
   className?: string;
   translateX?: number | string;
@@ -110,8 +110,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  [key: string]: unknown;
-}) => {
+} & Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "className">) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 

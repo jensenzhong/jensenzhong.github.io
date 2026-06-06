@@ -4,7 +4,7 @@ import {
   FileSpreadsheet,
   Ruler,
 } from "lucide-react";
-import { LanyardBadge } from "@/components/lanyard-badge";
+import Lanyard from "@/components/lanyard-3d/lanyard";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const features = [
@@ -12,11 +12,11 @@ const features = [
     Icon: FileSpreadsheet,
     name: "房地产投资分析",
     description: "结合现金流、成本收益与市场判断，训练从数据到投资决策的分析框架。",
-    href: "/images/management/real-estate.png",
+    href: "/images/management/real-estate.webp",
     cta: "查看详情",
     className: "col-span-3 lg:col-span-1",
     imageBackground: {
-      src: "/images/management/real-estate.png",
+      src: "/images/management/real-estate.webp",
       alt: "房地产投资分析作品预览",
     },
     background: (
@@ -29,11 +29,11 @@ const features = [
     Icon: Cuboid,
     name: "BIM技术应用",
     description: "围绕Revit建模、BIM协同表达与工程信息整合，持续沉淀可复用的数字建造能力。",
-    href: "/images/management/bim-hover.png",
+    href: "/images/management/bim-hover.webp",
     cta: "查看详情",
     className: "col-span-3 lg:col-span-2",
     imageBackground: {
-      src: "/images/management/bim-hover.png",
+      src: "/images/management/bim-hover.webp",
       alt: "BIM技术应用作品预览",
     },
     background: (
@@ -46,11 +46,11 @@ const features = [
     Icon: Calculator,
     name: "工程造价",
     description: "熟悉土建与钢筋算量流程，关注清单计价、材料成本与施工方案之间的联动。",
-    href: "/images/management/cost.jpg",
+    href: "/images/management/cost.webp",
     cta: "查看详情",
     className: "col-span-3 lg:col-span-2",
     imageBackground: {
-      src: "/images/management/cost.jpg",
+      src: "/images/management/cost.webp",
       alt: "工程造价作品预览",
     },
     background: (
@@ -64,10 +64,10 @@ const features = [
     name: "工程测量",
     description: "以测量实习和工程现场认知为基础，理解空间数据、放线复核与施工控制的关系。",
     className: "col-span-3 lg:col-span-1",
-    href: "/images/management/survey.jpg",
+    href: "/images/management/survey.webp",
     cta: "查看详情",
     imageBackground: {
-      src: "/images/management/survey.jpg",
+      src: "/images/management/survey.webp",
       alt: "工程测量作品预览",
     },
     background: (
@@ -80,11 +80,11 @@ const features = [
 
 export function Portfolio() {
   return (
-    <section id="management" className="py-20">
+    <section id="management" className="py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col items-stretch gap-8 lg:flex-row">
-          <div className="lg:w-1/3">
-            <LanyardBadge />
+        <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:gap-10">
+          <div className="flex min-h-[520px] justify-center lg:min-h-[620px] lg:w-1/3 lg:justify-start">
+            <Lanyard position={[0, 0, 24]} gravity={[0, -40, 0]} fov={20} />
           </div>
 
           <div className="lg:w-2/3">
