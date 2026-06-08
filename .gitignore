@@ -12,10 +12,13 @@
 
 # testing
 /coverage
+/.playwright-cli/
+/.playwright-mcp/
 
 # next.js
 /.next/
 /out/
+/output/
 
 # production
 /build
@@ -63,6 +66,22 @@ dev.err.log
 # spec workflow
 .spec-workflow/
 .worktrees/
+
+# local demo workspaces
+/lanyard-react-demo/
+/lanyard-react-demo-archive-*/
+/welkin-badge-demo/
+/lanyard-react-demo/**/node_modules/
+/lanyard-react-demo/**/dist/
+/lanyard-react-demo-archive-*/**/node_modules/
+/lanyard-react-demo-archive-*/**/dist/
+/lanyard-react-demo/**/*.log
+/lanyard-react-demo-archive-*/*.log
+/lanyard-react-demo/**/*.png
+/lanyard-react-demo-archive-*/*.png
+/welkin-badge-demo/**/*.log
+/welkin-badge-demo/**/*.png
+/welkin-badge-demo/assets/
 
 # windows artifacts
 nul

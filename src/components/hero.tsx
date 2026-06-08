@@ -55,8 +55,9 @@ function TypewriterName() {
 
   return (
     <span className="inline-flex min-h-[0.9em] w-full min-w-0 items-center justify-center md:min-w-[390px]">
-      <span>{typedName || "\u00A0"}</span>
-      <span className="ml-1 h-[0.85em] w-[4px] animate-pulse bg-[#ff9f43]" />
+      <span className="text-[clamp(40px,12vw,60px)] max-md:portrait:text-[clamp(32px,10vw,44px)] md:text-[60px]">
+        {typedName || "\u00A0"}
+      </span>
     </span>
   );
 }
@@ -173,7 +174,7 @@ export function Hero() {
                     2. 移除了 drop-shadow 类：让字体看起来干净、纯粹。
                 */}
                 <CardItem translateZ="200" className="w-full">
-                  <h1 className={cn("mt-5 text-center font-extrabold text-[clamp(54px,17vw,82px)] leading-[0.85] tracking-tighter text-[#ff9f43] max-md:portrait:mt-3 max-md:portrait:text-[clamp(42px,14vw,60px)] min-[390px]:-ml-4 md:text-[82px]", displayFontClassName)}>
+                  <h1 className={cn("mt-5 text-center font-extrabold leading-[0.85] tracking-tighter text-[#ff9f43] max-md:portrait:mt-3 min-[390px]:-ml-4", displayFontClassName)}>
                     <TypewriterName />
                   </h1>
                 </CardItem>
@@ -181,7 +182,7 @@ export function Hero() {
 
               {/* 分割线 */}
               <CardItem translateZ="80" className="w-full pt-2 pb-5 flex justify-center max-md:portrait:pb-3 max-md:portrait:pt-1">
-                <div className="w-full h-1.5 bg-slate-900 rounded-full shadow-[0_5px_15px_rgba(0,0,0,0.3)] max-md:portrait:h-1" />
+                <div className="w-[min(100%,360px)] h-1.5 bg-slate-900 rounded-full shadow-[0_5px_15px_rgba(0,0,0,0.3)] max-md:portrait:h-1" />
               </CardItem>
 
               {/* 列表区域 */}

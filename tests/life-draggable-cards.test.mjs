@@ -17,7 +17,6 @@ test("life section uses draggable photo cards over the quote", () => {
   assert.match(source, /爱踢足球/);
   assert.match(source, /测量实习/);
   assert.match(source, /大一排球赛/);
-  assert.match(source, /逛逛江门/);
   assert.match(source, /哈尔滨路演/);
   assert.match(source, /十五运会/);
   assert.match(source, /玩玩脑机/);
@@ -31,11 +30,12 @@ test("life section uses draggable photo cards over the quote", () => {
   assert.match(source, /overflow-clip/);
   assert.match(source, /left-\[20%\] top-14/);
   assert.match(source, /left-\[42%\] top-8/);
-  assert.match(source, /right-\[18%\] top-36/);
   assert.match(source, /lg:w-72/);
   assert.match(source, /lg:h-80/);
   assert.match(source, /w-44/);
   assert.match(source, /h-52/);
+  assert.doesNotMatch(source, /逛逛江门/);
+  assert.doesNotMatch(source, /\/images\/life\/life-05\.(jpg|webp)/);
   assert.doesNotMatch(source, /兴趣爱好/);
   assert.doesNotMatch(source, /const hobbies =/);
 });
@@ -60,10 +60,21 @@ test("draggable card component supports toss-out physics", () => {
 
 test("life photos are copied and optimized in the public directory", () => {
   for (let index = 1; index <= 13; index += 1) {
+    if (index === 5) continue;
+
     const name = String(index).padStart(2, "0");
     assert.equal(
       fs.existsSync(new URL(`../public/images/life/life-${name}.webp`, import.meta.url)),
       true,
     );
   }
+
+  assert.equal(
+    fs.existsSync(new URL("../public/images/life/life-05.jpg", import.meta.url)),
+    false,
+  );
+  assert.equal(
+    fs.existsSync(new URL("../public/images/life/life-05.webp", import.meta.url)),
+    false,
+  );
 });

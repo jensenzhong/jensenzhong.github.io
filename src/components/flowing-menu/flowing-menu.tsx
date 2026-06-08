@@ -52,7 +52,9 @@ function MenuItem({
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween | null>(null);
+  const hoverTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const [repetitions, setRepetitions] = useState(4);
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
 
   useEffect(() => {
     const calculateRepetitions = () => {
@@ -75,6 +77,18 @@ function MenuItem({
   }, [text, image]);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateReducedMotion = () => {
+      setIsReducedMotion(mediaQuery.matches);
+    };
+
+    updateReducedMotion();
+    mediaQuery.addEventListener("change", updateReducedMotion);
+
+    return () => mediaQuery.removeEventListener("change", updateReducedMotion);
+  }, []);
+
+  useEffect(() => {
     const timer = window.setTimeout(() => {
       if (!marqueeInnerRef.current) return;
 
@@ -85,6 +99,11 @@ function MenuItem({
       if (contentWidth === 0) return;
 
       animationRef.current?.kill();
+      if (isReducedMotion) {
+        gsap.set(marqueeInnerRef.current, { x: 0 });
+        return;
+      }
+
       animationRef.current = gsap.to(marqueeInnerRef.current, {
         x: -contentWidth,
         duration: speed,
@@ -96,8 +115,22 @@ function MenuItem({
     return () => {
       window.clearTimeout(timer);
       animationRef.current?.kill();
+      hoverTimelineRef.current?.kill();
     };
-  }, [text, image, repetitions, speed]);
+  }, [text, image, repetitions, speed, isReducedMotion]);
+
+  const createHoverTimeline = () => {
+    hoverTimelineRef.current?.kill();
+    hoverTimelineRef.current = gsap.timeline({
+      defaults: {
+        duration: isReducedMotion ? 0 : 0.6,
+        ease: "expo.out",
+        overwrite: "auto",
+      },
+    });
+
+    return hoverTimelineRef.current;
+  };
 
   const showMarquee = (ev: React.MouseEvent<HTMLAnchorElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
@@ -107,8 +140,7 @@ function MenuItem({
     const fromMarquee = edge === "top" ? "-101%" : "101%";
     const fromInner = edge === "top" ? "101%" : "-101%";
 
-    gsap
-      .timeline({ defaults: { duration: 0.6, ease: "expo" } })
+    createHoverTimeline()
       .set(marqueeRef.current, { y: fromMarquee }, 0)
       .set(marqueeInnerRef.current, { y: fromInner }, 0)
       .to([marqueeRef.current, marqueeInnerRef.current], { y: "0%" }, 0);
@@ -120,8 +152,7 @@ function MenuItem({
     const rect = itemRef.current.getBoundingClientRect();
     const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
 
-    gsap
-      .timeline({ defaults: { duration: 0.6, ease: "expo" } })
+    createHoverTimeline()
       .to(marqueeRef.current, { y: edge === "top" ? "-101%" : "101%" }, 0)
       .to(marqueeInnerRef.current, { y: edge === "top" ? "101%" : "-101%" }, 0);
   };

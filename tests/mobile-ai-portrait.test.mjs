@@ -30,7 +30,17 @@ test("hero card has portrait-only shrink classes without changing desktop sizing
 
   assert.match(source, /max-md:portrait:scale-\[0\.82\]/);
   assert.match(source, /max-md:portrait:w-\[min\(360px,calc\(100vw-2\.5rem\)\)\]/);
-  assert.match(source, /max-md:portrait:text-\[clamp\(42px,14vw,60px\)\]/);
+  assert.match(source, /max-md:portrait:text-\[clamp\(32px,10vw,44px\)\]/);
+  assert.match(source, /md:w-\[450px\]/);
+});
+
+test("hero display name uses one smaller size and no cursor without changing card width", () => {
+  const source = read("src/components/hero.tsx");
+
+  assert.doesNotMatch(source, /isEnglishDisplayName/);
+  assert.doesNotMatch(source, /animate-pulse bg-\[#ff9f43\]/);
+  assert.match(source, /text-\[clamp\(40px,12vw,60px\)\] max-md:portrait:text-\[clamp\(32px,10vw,44px\)\] md:text-\[60px\]/);
+  assert.match(source, /className="w-\[min\(100%,360px\)\] h-1\.5 bg-slate-900/);
   assert.match(source, /md:w-\[450px\]/);
 });
 

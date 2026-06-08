@@ -189,21 +189,39 @@ export function Reading() {
   useEffect(() => {
     if (!stageRef.current) return;
 
+    let mm: ReturnType<typeof gsap.matchMedia> | null = null;
+
     const ctx = gsap.context(() => {
-      tweensRef.current = gsap.utils.toArray<HTMLElement>(".award-float-inner").map((card, index) =>
-        gsap.to(card, {
-          y: placements[index].y,
-          duration: placements[index].duration,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-          delay: index * 0.2,
-        })
+      mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduceMotion: "(prefers-reduced-motion: reduce)",
+        },
+        (context) => {
+          if (context.conditions?.reduceMotion) {
+            tweensRef.current = [];
+            gsap.set(".award-float-inner", { y: 0 });
+            return;
+          }
+
+          tweensRef.current = gsap.utils.toArray<HTMLElement>(".award-float-inner").map((card, index) =>
+            gsap.to(card, {
+              y: placements[index].y,
+              duration: placements[index].duration,
+              ease: "sine.inOut",
+              repeat: -1,
+              yoyo: true,
+              delay: index * 0.2,
+            })
+          );
+        }
       );
     }, stageRef);
 
     return () => {
       tweensRef.current = [];
+      mm?.revert();
       ctx.revert();
     };
   }, []);

@@ -66,11 +66,6 @@ const lifePhotos = [
     className: "absolute left-[22%] top-72 z-30 rotate-[8deg]",
   },
   {
-    title: "逛逛江门",
-    image: "/images/life/life-05.webp",
-    className: "absolute right-[18%] top-36 z-30 rotate-[-6deg]",
-  },
-  {
     title: "哈尔滨路演",
     image: "/images/life/life-06.webp",
     className: "absolute left-[46%] top-80 z-20 rotate-[3deg]",

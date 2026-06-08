@@ -18,6 +18,10 @@ test("flowing menu component is a reusable client component with gsap marquee co
   assert.match(source, /marqueeBgColor = "#fff"/);
   assert.match(source, /findClosestEdge/);
   assert.match(source, /repeat: -1/);
+  assert.match(source, /hoverTimelineRef/);
+  assert.match(source, /hoverTimelineRef\.current\?\.kill\(\)/);
+  assert.match(source, /prefers-reduced-motion: reduce/);
+  assert.match(source, /overwrite: "auto"/);
   assert.match(source, /aria-hidden="true"/);
   assert.match(source, /Array\.from\(\{ length: repetitions \}/);
 
