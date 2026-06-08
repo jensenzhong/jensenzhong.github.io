@@ -201,6 +201,4 @@ npm run lint
 
 ## 联系方式
 
-- Twitter: [@jensonzhong](https://twitter.com/jensonzhong)
 - GitHub: [@jensonzhong](https://github.com/jensonzhong)
-- Email: contact@jensonzhong.com
