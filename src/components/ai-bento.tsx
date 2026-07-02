@@ -82,8 +82,8 @@ const miniAppFeatures = [
 
 const socialMetrics = [
   { label: "笔记数", value: 8, suffix: "", icon: BookOpen },
-  { label: "获赞数", value: 592, suffix: "", icon: Heart },
-  { label: "观看量", value: 2163, suffix: "", icon: Eye },
+  { label: "获赞数", value: 716, suffix: "", icon: Heart },
+  { label: "观看量", value: 27365, suffix: "", icon: Eye },
 ];
 
 const openSourceSkills = [
@@ -533,11 +533,11 @@ function Sparkline({ isInView }: { isInView: boolean }) {
 
 function SocialStatsCard() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const noteCount = useCountUp(8, 1500, isInView);
-  const likeCount = useCountUp(592, 2100, isInView);
-  const viewCount = useCountUp(2163, 2100, isInView);
-  const counts = [noteCount, likeCount, viewCount];
+ const isInView = useInView(ref, { once: true, margin: "-50px" });
+ const noteCount = useCountUp(socialMetrics[0].value, 1500, isInView);
+ const likeCount = useCountUp(socialMetrics[1].value, 2100, isInView);
+ const viewCount = useCountUp(socialMetrics[2].value, 2100, isInView);
+ const counts = [noteCount, likeCount, viewCount];
 
   return (
     <motion.div

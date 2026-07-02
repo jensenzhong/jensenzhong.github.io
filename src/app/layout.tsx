@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "JensenZhong",
-    "Digital Nomad",
     "Web Developer",
     "Chromium Developer",
     "AI",
@@ -79,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className="antialiased bg-background text-foreground"
       >
