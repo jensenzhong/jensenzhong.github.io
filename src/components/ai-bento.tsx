@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
 import { cn } from "@/lib/utils";
+import { aiImageAssets } from "@/data/ai-image-assets";
 
 type DetailItem = {
   title: string;
@@ -50,11 +51,11 @@ type ProjectItem = DetailItem & {
 };
 
 const miniAppScreenshots = [
-  { src: "/images/miniapp/connection.png", label: "联系度分析" },
-  { src: "/images/miniapp/assessment-entry.png", label: "活力评估" },
-  { src: "/images/miniapp/home.png", label: "首页总览" },
-  { src: "/images/miniapp/teacher.png", label: "AI 小红老师" },
-  { src: "/images/miniapp/pioneer.png", label: "模范性分析" },
+  { src: aiImageAssets.miniappConnection.src, blur: aiImageAssets.miniappConnection.blurDataURL, label: "联系度分析" },
+  { src: aiImageAssets.miniappAssessmentEntry.src, blur: aiImageAssets.miniappAssessmentEntry.blurDataURL, label: "活力评估" },
+  { src: aiImageAssets.miniappHome.src, blur: aiImageAssets.miniappHome.blurDataURL, label: "首页总览" },
+  { src: aiImageAssets.miniappTeacher.src, blur: aiImageAssets.miniappTeacher.blurDataURL, label: "AI 小红老师" },
+  { src: aiImageAssets.miniappPioneer.src, blur: aiImageAssets.miniappPioneer.blurDataURL, label: "模范性分析" },
 ];
 
 const miniAppFeatures = [
@@ -274,11 +275,13 @@ function IPhoneMockup({ children }: { children: React.ReactNode }) {
 function PhonePreview() {
   return (
     <Image
-      src="/images/miniapp/home.png"
+      src={aiImageAssets.miniappHome.src}
       alt="AI 智慧党建小程序首页"
       fill
       className="object-cover object-top"
       sizes="(min-width: 768px) 226px, (min-width: 390px) 190px, 174px"
+      placeholder="blur"
+      blurDataURL={aiImageAssets.miniappHome.blurDataURL}
       priority
     />
   );
@@ -450,6 +453,8 @@ function MiniAppShowcaseCard({
                   fill
                   className="object-cover object-top"
                   sizes="226px"
+                  placeholder="blur"
+                  blurDataURL={shot.blur}
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-3 py-2 text-left">
                   <span className="text-[10px] font-semibold text-white/90">
@@ -701,11 +706,13 @@ function ProjectVisual({
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
         <Image
-          src="/images/projects/federated-learning-preview.png"
+          src={aiImageAssets.projectFederated.src}
           alt="基于多智能体协同的联邦学习造价研究框架图"
           fill
           className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={aiImageAssets.projectFederated.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
@@ -751,11 +758,13 @@ function ProjectVisual({
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
         <Image
-          src="/images/projects/fire-protection-preview.png"
+          src={aiImageAssets.projectFire.src}
           alt="建筑施工火灾智能预警方案详情页预览"
           fill
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={aiImageAssets.projectFire.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
@@ -766,11 +775,13 @@ function ProjectVisual({
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
         <Image
-          src="/images/projects/smartdorm-preview.jpg"
+          src={aiImageAssets.projectDorm.src}
           alt="SmartDorm.AI 宿舍运维管理系统预览图"
           fill
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={aiImageAssets.projectDorm.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
@@ -781,11 +792,13 @@ function ProjectVisual({
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
         <Image
-          src="/images/projects/construction-safety-rag-preview.webp"
+          src={aiImageAssets.projectRisk.src}
           alt="基于 RAG-LLM 的施工安全风险分析系统预览"
           fill
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={aiImageAssets.projectRisk.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
@@ -796,11 +809,13 @@ function ProjectVisual({
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
         <Image
-          src="/images/projects/literature-analysis-preview.png"
+          src={aiImageAssets.projectLiterature.src}
           alt="可交互的文献分析图预览"
           fill
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={aiImageAssets.projectLiterature.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/45 via-transparent to-transparent" />
       </div>
@@ -811,11 +826,13 @@ function ProjectVisual({
     return (
       <div className="relative h-full min-h-[150px] overflow-hidden rounded-2xl bg-white ring-1 ring-white/70">
         <Image
-          src="/images/projects/eco-risk-roadmap-preview.jpg"
+          src={aiImageAssets.projectEco.src}
           alt="重大工程生态风险技术路线图预览"
           fill
           className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={aiImageAssets.projectEco.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
       </div>
