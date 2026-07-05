@@ -17,6 +17,7 @@ test("site metadata uses the profile avatar for browser tab icons", () => {
 
 test("avatar favicon assets are published", () => {
   for (const filePath of [
+    "public/images/profile/cartoon-avatar.jpg",
     "public/favicon.ico",
     "public/icon-32.png",
     "public/icon-192.png",
