@@ -15,6 +15,16 @@ test("AI grid has a portrait fallback that renders content without waiting for v
   assert.match(source, /viewport:\s*\{\s*once:\s*true,\s*margin:\s*"-80px"\s*\}/);
 });
 
+test("AI entry animation keeps card shells visible before client viewport motion runs", () => {
+  const source = read("src/components/ai-bento.tsx");
+  const variantsStart = source.indexOf("const containerVariants");
+  const variantsEnd = source.indexOf("function useCountUp", variantsStart);
+  const variantsBlock = source.slice(variantsStart, variantsEnd);
+
+  assert.match(variantsBlock, /hidden:\s*\{\s*opacity:\s*1,\s*y:\s*12\s*\}/);
+  assert.doesNotMatch(variantsBlock, /hidden:\s*\{\s*opacity:\s*0/);
+});
+
 test("AI phone preview uses tighter portrait dimensions and fan offsets", () => {
   const source = read("src/components/ai-bento.tsx");
 

@@ -182,7 +182,7 @@ const demoVideoUrl =
   "https://www.bilibili.com/video/BV11XeFz2EXW/?share_source=copy_web&vd_source=a1d078e9508719259cc9e8c9a8c69072";
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0, y: 36 },
+  hidden: { opacity: 1, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
@@ -195,7 +195,7 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  hidden: { opacity: 1, y: 10, scale: 0.99 },
   visible: {
     opacity: 1,
     y: 0,
