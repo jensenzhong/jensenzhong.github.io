@@ -1,3 +1,17 @@
+/* Honors use the same simple, spacious list structure in both languages. */
+.page__content .awards-list {
+  padding-left: 1.4em;
+
+  > li {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+  }
+
+  > li > p {
+    margin: 0;
+  }
+}
+
 /* Personal assets within the reference site's academic layout. */
 .masthead__logo-link {
   display: flex;

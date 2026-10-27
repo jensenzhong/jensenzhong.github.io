@@ -76,24 +76,28 @@ In management science and engineering, I apply AI to data analysis, knowledge di
 
 ## Honors and Awards {#awards-zhengshen}
 
-- **Second Prize (National; Team Lead)**, National College Student Digital Media Technology Works and Creative Competition  
+- **National Scholarship (sole recipient in Engineering Management, School of Management)**, Guangzhou University  
+  Sept. 2026
+
+- **Second Prize (National; Top 8%; Team Lead)**, National College Student Digital Media Technology Works and Creative Competition  
   Oct. 2025
 
-- **Second Prize (National)**, National College Business Elite Challenge — Accounting and Business Management Case Competition  
+- **Second Prize (National; Top 8%)**, National College Business Elite Challenge — Accounting and Business Management Case Competition  
   Sept. 2024
 
-- **Third Prize (National)**, 15th National College Student Market Survey and Analysis Competition  
+- **Third Prize (National; Top 10%)**, 15th National College Student Market Survey and Analysis Competition  
   Aug. 2025
 
-- **First Prize (Guangdong Province; Team Lead)**, 16th National College Student Market Survey and Analysis Competition
+- **First Prize (Guangdong Province; Top 5%; Team Lead)**, 16th National College Student Market Survey and Analysis Competition
 
 - **Bronze Award (Guangdong Province; Team Lead)**, National College Student Career Planning Competition
 
-- **First-Class University Scholarship**, Guangzhou University
+- **First-Class University Scholarship (Top 5%)**, Guangzhou University
 
 - **Outstanding Student; Outstanding Youth League Member and Student Leader; School of Management Top Ten Student**, Guangzhou University
 
 - **Outstanding Volunteer**, Opening Ceremony of the 15th National Games
+{: .awards-list}
 
 ## Skills {#misc-zhengshen}
 
