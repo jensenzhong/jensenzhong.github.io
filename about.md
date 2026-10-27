@@ -18,11 +18,11 @@ redirect_from:
 # Zhengshen ZHONG（钟政<ruby>燊<rt>shēn</rt></ruby>）
 ---
 
-你好，很高兴在这里认识你！我已推免至**深圳大学管理学院管理科学与工程专业**。
+你好，很高兴在这里认识你！我已推免至深圳大学管理学院**管理科学与工程专业**。
 
 目前，我的研究兴趣聚焦管理科学中的**人工智能应用与智能决策**，关注联邦学习、多智能体协作，以及大语言模型的应用。
 
-欢迎相关方向的交流与合作。[查看中文简历]({{ '/assets/cv-zhengshen-zhong-zh.pdf' | relative_url }}) · [English CV]({{ '/assets/cv-zhengshen-zhong-en.pdf' | relative_url }}) · [访问 GitHub](https://github.com/jensenzhong)
+欢迎相关方向的交流与合作。[**中文简历**]({{ '/assets/cv-zhengshen-zhong-zh.pdf' | relative_url }}) · [**English CV**]({{ '/assets/cv-zhengshen-zhong-en.pdf' | relative_url }}) · [**GitHub**](https://github.com/jensenzhong)
 
 ## 研究兴趣与精选 AI 项目 {#projects-zhengshen}
 

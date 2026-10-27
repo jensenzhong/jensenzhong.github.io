@@ -17,17 +17,15 @@ redirect_from:
 # Zhengshen ZHONG (钟政<ruby>燊<rt>shēn</rt></ruby>)
 ---
 
-Nice to meet you here!
-I have been admitted through postgraduate recommendation to the **master's program in Management Science and Engineering at the School of Management, Shenzhen University**.
+Nice to meet you! I've been admitted by recommendation to the **Management Science and Engineering** master's program at Shenzhen University's School of Management.
 
-My current research interests focus on **artificial intelligence applications and intelligent decision-making** in management science, particularly federated learning, multi-agent collaboration, and applications of large language models.
+My interests center on **AI applications and intelligent decision-making** in management science: federated learning, multi-agent collaboration, and large language model applications.
 
-I welcome conversations and collaborations on artificial intelligence applications and intelligent decision-making.
-You can find my CV here: [**English CV**]({{ '/assets/cv-zhengshen-zhong-en.pdf' | relative_url }}) / [**中文简历**]({{ '/assets/cv-zhengshen-zhong-zh.pdf' | relative_url }}).
+I welcome related discussions and collaborations. [**Chinese CV**]({{ '/assets/cv-zhengshen-zhong-zh.pdf' | relative_url }}) · [**English CV**]({{ '/assets/cv-zhengshen-zhong-en.pdf' | relative_url }}) · [**GitHub**](https://github.com/jensenzhong)
 
-## Research Interests and Selected AI Projects {#projects-zhengshen}
+## Research Interests & Selected AI Projects {#projects-zhengshen}
 
-Within **Management Science and Engineering**, I explore how artificial intelligence can support data analysis, knowledge discovery, and management decisions.
+In management science and engineering, I apply AI to data analysis, knowledge discovery, and management decisions.
 
 - **Artificial intelligence applications:** federated learning, multi-agent collaboration, large language models, and knowledge discovery.
 - **Intelligent decision-making:** data-driven prediction, risk identification, and decision support.
