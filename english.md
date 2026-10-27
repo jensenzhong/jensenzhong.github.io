@@ -80,23 +80,28 @@ In management science and engineering, I apply AI to data analysis, knowledge di
   Sept. 2026
 
 - **Second Prize (National; Top 8%; Team Lead)**, National College Student Digital Media Technology Works and Creative Competition  
-  Oct. 2025
+  Oct. 2025 [\[Evidence\]]({{ '/assets/evidence/digital-media-2025.pdf' | relative_url }})
 
 - **Second Prize (National; Top 8%)**, National College Business Elite Challenge — Accounting and Business Management Case Competition  
-  Sept. 2024
+  Jun. 2024 [\[Evidence\]]({{ '/assets/evidence/business-elite-2024.pdf' | relative_url }})
 
 - **Third Prize (National; Top 10%)**, 15th National College Student Market Survey and Analysis Competition  
-  Aug. 2025
+  May 2025 [\[Evidence\]]({{ '/assets/evidence/market-survey-national-2025.pdf' | relative_url }})
 
-- **First Prize (Guangdong Province; Top 5%; Team Lead)**, 16th National College Student Market Survey and Analysis Competition
+- **First Prize (Guangdong Province; Top 5%; Team Lead)**, 16th National College Student Market Survey and Analysis Competition  
+  Apr. 2026 [\[Evidence\]]({{ '/assets/evidence/market-survey-guangdong-2026.pdf' | relative_url }})
 
-- **Bronze Award (Guangdong Province; Team Lead)**, National College Student Career Planning Competition
+- **Bronze Award (Guangdong Province; Team Lead)**, National College Student Career Planning Competition  
+  Mar. 2026 [\[Evidence\]]({{ '/assets/evidence/career-planning-2026.pdf' | relative_url }})
 
-- **First-Class University Scholarship (Top 5%)**, Guangzhou University
+- **First-Class University Scholarship (Top 5%)**, Guangzhou University  
+  Nov. 2025 [\[Evidence\]]({{ '/assets/evidence/university-scholarship-2025.pdf' | relative_url }})
 
-- **Outstanding Student; Outstanding Youth League Member and Student Leader; School of Management Top Ten Student**, Guangzhou University
+- **Outstanding Student; Outstanding Youth League Member and Student Leader; School of Management Top Ten Student**, Guangzhou University  
+  2024–2026 [\[Evidence\]]({{ '/assets/evidence/university-honors.pdf' | relative_url }})
 
-- **Outstanding Volunteer**, Opening Ceremony of the 15th National Games
+- **Outstanding Volunteer**, Opening Ceremony of the 15th National Games  
+  Dec. 2025 [\[Evidence\]]({{ '/assets/evidence/national-games-volunteer-2025.pdf' | relative_url }})
 {: .awards-list}
 
 ## Skills {#misc-zhengshen}

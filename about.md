@@ -76,23 +76,28 @@ redirect_from:
   2026 年 9 月
 
 - **国家级二等奖（前 8%） · 第一负责人**，全国大学生数字媒体科技作品及创意竞赛  
-  2025 年 10 月
+  2025 年 10 月 [\[证明材料\]]({{ '/assets/evidence/digital-media-2025.pdf' | relative_url }})
 
 - **国家级二等奖（前 8%）**，全国高校商业精英挑战赛会计与商业管理案例竞赛  
-  2024 年 9 月
+  2024 年 6 月 [\[证明材料\]]({{ '/assets/evidence/business-elite-2024.pdf' | relative_url }})
 
 - **国家级三等奖（前 10%）**，第十五届全国大学生市场调查与分析大赛  
-  2025 年 8 月
+  2025 年 5 月 [\[证明材料\]]({{ '/assets/evidence/market-survey-national-2025.pdf' | relative_url }})
 
-- **广东省一等奖（前 5%） · 第一负责人**，第十六届全国大学生市场调查与分析大赛
+- **广东省一等奖（前 5%） · 第一负责人**，第十六届全国大学生市场调查与分析大赛  
+  2026 年 4 月 [\[证明材料\]]({{ '/assets/evidence/market-survey-guangdong-2026.pdf' | relative_url }})
 
-- **广东省铜奖 · 第一负责人**，全国大学生职业规划大赛
+- **广东省铜奖 · 第一负责人**，全国大学生职业规划大赛  
+  2026 年 3 月 [\[证明材料\]]({{ '/assets/evidence/career-planning-2026.pdf' | relative_url }})
 
-- **校一等奖学金（前 5%）**，广州大学
+- **校一等奖学金（前 5%）**，广州大学  
+  2025 年 11 月 [\[证明材料\]]({{ '/assets/evidence/university-scholarship-2025.pdf' | relative_url }})
 
-- **校优秀学生、优秀共青团员、优秀共青团干部、管理学院十佳学生**，广州大学
+- **校优秀学生、优秀共青团员、优秀共青团干部、管理学院十佳学生**，广州大学  
+  2024 — 2026 年 [\[证明材料\]]({{ '/assets/evidence/university-honors.pdf' | relative_url }})
 
-- **优秀志愿者**，第十五届全国运动会开幕式
+- **优秀志愿者**，第十五届全国运动会开幕式  
+  2025 年 12 月 [\[证明材料\]]({{ '/assets/evidence/national-games-volunteer-2025.pdf' | relative_url }})
 {: .awards-list}
 
 ## 技能能力 {#misc-zhengshen}
