@@ -1,0 +1,286 @@
+# 欢迎使用 Jekyll！
+#
+# 这个配置文件用于存放会影响整个站点的设置。
+# 这些值通常只需要在初始化时配置一次，之后很少改动。
+# 由于技术原因，执行 `jekyll serve -l -H localhost` 时，
+# 这个文件的修改不会被自动重新加载。
+# 如果你改了这里，请手动重启服务进程。
+
+# 站点基础设置
+locale                   : "en"
+site_theme               : "default"
+title                    : "HOME"
+title_separator          : "-"
+name                     : &name "Zhengshen ZHONG"
+description              : &description "Zhengshen Zhong | Incoming master's student in Management Science and Engineering, Shenzhen University"
+url                      : https://jensenzhong.github.io # 站点主域名与协议，例如 "https://[你的 GitHub 用户名].github.io"
+baseurl                  : "" # 站点子路径，例如 "/blog"
+repository               : "jensenzhong/jensenzhong.github.io"
+
+navigation:
+  main:
+    - title: "Experience"
+      url: "/#experience-zhengshen"
+    - title: "Projects"
+      url: "/#projects-zhengshen"
+    - title: "Research"
+      url: "/#research-zhengshen"
+    - title: "Awards"
+      url: "/#awards-zhengshen"
+    - title: "Skills"
+      url: "/#misc-zhengshen"
+  zh:
+    - title: "经历"
+      url: "/zh/#experience-zhengshen"
+    - title: "项目"
+      url: "/zh/#projects-zhengshen"
+    - title: "论文"
+      url: "/zh/#research-zhengshen"
+    - title: "荣誉"
+      url: "/zh/#awards-zhengshen"
+    - title: "技能"
+      url: "/zh/#misc-zhengshen"
+
+# 站点作者信息：以下字段控制侧边栏作者区域显示的内容。
+# 如果某个字段留空，对应图标和链接就不会显示。
+# 如需进一步定制，可编辑 /_includes/author-profile.html
+author:
+  # 个人基础信息
+  avatar           : "zhengshen-zhong-portrait.jpg"
+  name             : "Zhengshen ZHONG"
+  pronouns         : # 示例："she/her"
+  bio              : "Incoming master's student in Management Science and Engineering"
+  bio_zh           : "深圳大学管理学院管理科学与工程硕士（2027 级待入学）"
+  location_zh      : "中国·深圳"
+  employer_zh      : "深圳大学"
+  location         : "Shenzhen, China"
+  employer         : "Shenzhen University"
+  uri              : # 网址
+  email            : "zszhong@e.gzhu.edu.com"
+
+  # 学术网站
+  arxiv            : # 网址，更新为你自己的主页链接
+  googlescholar    :
+  impactstory      : # 网址
+  orcid            : #"http://orcid.org/yourorcidurl"
+  semantic         : # 网址
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  researchgate     : # 网址
+  scopus           : # 网址
+
+  # 代码仓库与开发平台
+  bitbucket        : # 用户名，更新为你在该平台上的用户名
+  codepen          : # 用户名
+  dribbble         : # 用户名
+  github           : "jensenzhong"
+  kaggle           : # 用户名
+  stackoverflow    : # 用户编号，或“编号/用户名”形式（例如 "1" 或 "1/jeff-atwood"）
+
+  # 社交媒体
+  bluesky          : #"bsky.app" # 替换为你的 Bluesky 用户名
+  facebook         : # 用户名
+  flickr           : # 用户名
+  foursquare       : # 用户名
+  goodreads        : # 用户名
+  google_plus      : # 用户名
+  keybase          : # 用户名
+  instagram        :
+  lastfm           : # 用户名
+  linkedin         : # 用户名
+  mastodon         : # 网址
+  medium           : # 网址
+  pinterest        : # 用户名
+  soundcloud       : # 用户名
+  steam            : # 用户名
+  telegram         : # 网址
+  tumblr           : # 用户名
+  twitter          : # X / Twitter 用户名
+  vine             : # 用户名
+  weibo            : # 用户名
+  wikipedia        : # 用户名
+  xing             : # 用户名
+  youtube          : # 用户名
+  zhihu            : # 用户名
+  wechat           : true
+
+# 站点设置
+teaser                   :
+breadcrumbs              : false # true，false（默认）
+words_per_minute         : 160
+future                   : true
+read_more                : "disabled" # 启用后会在摘要后显示 “Read more” 链接
+comments:
+  provider               : # false（默认）或 "disqus"、"discourse"、"facebook"、"google-plus"、"staticman"、"custom"
+  disqus:
+    shortname            :
+  discourse:
+    server               : # 参考：https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963，例如：meta.discourse.org
+  facebook:
+    appid                :
+    num_posts            : # 5（默认）
+    colorscheme          : # "light"（默认）或 "dark"
+atom_feed:
+  hide                   : false     # 改为 true 可隐藏页脚中的 RSS 链接
+  path                   : # 留空时（默认）使用 feed.xml
+
+
+# SEO 相关
+google_site_verification :
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+
+# 社交分享
+twitter:
+  username               : &twitter
+facebook:
+  username               :
+  app_id                 :
+  publisher              :
+og_image                 :  # Open Graph / Twitter 默认站点图片
+# 用于指定社交资料链接
+# 参考：https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : # Person 或 Organization（默认是 Person）
+  name                   : # 如果用户或组织名称与站点名称不同，可在此填写
+  links: # 社交资料链接数组
+
+
+# 统计分析
+analytics:
+  provider               : false # false（默认）或 "google"、"google-universal"、"google-analytics-4"、"custom"
+  google:
+    tracking_id          :
+
+
+# 文件读取
+include:
+  - .htaccess
+exclude:
+  - AGENTS.md
+  - README.md
+  - .playwright-mcp
+  - .spec-workflow
+  - .vscode
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - config
+  - Dockerfile
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - local
+  - log
+  - node_modules
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# 转换设置
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+
+# Markdown 处理
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# Sass / SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # 参考：http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+
+# 输出设置
+permalink: /:categories/:title/
+# paginate: 5 # 每页显示的文章数量
+# paginate_path: /page:num/
+timezone: Etc/UTC # 参考：http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# 在 --safe 模式下模拟 GitHub Pages
+whitelist:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# 归档设置
+#  类型
+#  - 与 GitHub Pages 兼容、使用 Liquid 生成归档页：type: liquid（默认）
+#  - 使用 Jekyll Archives 插件生成归档页：type: jekyll-archives
+#  路径（示例）
+#  - 使用 Liquid 方式时，对应归档页路径必须实际存在，
+#    否则会出现坏链接（尤其是在启用面包屑时）
+#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
+#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
+#  - <base_path/my-awesome-category/index.html ~> path: /
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+# 参考：https://github.com/jekyll/jekyll-archives
+# jekyll-archives:
+#   enabled:
+#     - categories
+#     - tags
+#   layouts:
+#     category: archive-taxonomy
+#     tag: archive-taxonomy
+#   permalinks:
+#     category: /categories/:name/
+#     tag: /tags/:name/
+
+
+# HTML 压缩
+# - 参考：http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  ignore:
+    envs: development

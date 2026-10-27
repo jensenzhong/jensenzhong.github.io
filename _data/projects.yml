@@ -1,0 +1,263 @@
+- id: federated-learning
+  detail_url: /federated-learning-portfolio/index.html
+  zh:
+    title: 多智能体协同增强的联邦学习工程造价预测
+    meta: 2025 年 9 月 — 2026 年 8 月 · 第一作者
+    background: 工程造价数据分散在不同区域，隐私保护要求限制了集中共享，导致预测模型难以跨区域泛化。围绕这一问题，研究隐私保护下的多主体协同预测方法。
+    contributions:
+    - label: 数据处理与联邦建模（3 个客户端）
+      text: 基于佛罗里达州公路项目数据，完成缺失值、异常值与数据格式处理，并按区域划分客户端。搭建本地模型训练、参数上传、服务端聚合与全局模型下发流程，使各客户端保留原始数据并参与协同训练。
+    - label: 多智能体协作与动态聚合
+      text: 引入大语言模型构建状态感知、策略决策与训练控制智能体：汇总客户端的训练损失、预测误差等状态，分析各区域模型表现，再动态调整聚合权重与训练策略，将训练反馈接入下一轮联邦优化。
+    - label: 实验评估与预测验证
+      text: 以传统 FedAvg 为基线，围绕 MAPE 等误差指标评估跨区域造价预测效果；结合客户端表现与全局模型结果检验聚合策略，形成模型、训练日志与评估结果的完整实验流程。
+    outcome: 相较传统 FedAvg，**MAPE 降低 6.81%**，形成面向跨区域工程造价估算的多智能体协同联邦学习方法。
+  en:
+    title: Agent-Augmented Federated Learning for Cost Estimation
+    meta: Sept. 2025 – Aug. 2026 · First author
+    background: Cost data are distributed across regions, while privacy constraints limit centralized sharing and
+      model generalization. This project investigates collaborative prediction without exchanging raw data.
+    contributions:
+    - label: Data preparation and federated modeling (3 clients)
+      text: Processed Florida highway project data for missing values, outliers, and format consistency, then partitioned
+        clients by region. Connected local training, parameter uploads, server aggregation, and model distribution
+        while retaining raw data locally.
+    - label: Multi-agent coordination and dynamic aggregation
+      text: Used LLM-based agents for state monitoring, strategy decisions, and training control. Client losses
+        and prediction errors inform aggregation weights and training strategies, feeding each round’s results into
+        the next optimization step.
+    - label: Experimental evaluation
+      text: Compared cross-region cost predictions with FedAvg using MAPE and other error measures. Examined client
+        and global-model performance through a workflow that records trained models, training logs, and evaluation
+        outputs.
+    outcome: Achieved **6.81% lower MAPE than FedAvg**, supporting privacy-preserving cost estimation across regions.
+  image:
+    src: /images/projects/federated-workflow-overview.png
+    type: diagram
+    zh: 多智能体决策与联邦学习实验流程
+    en: Multi-agent decisions and federated learning workflow
+  showcase_url: /federated-learning-portfolio/presentation.html
+- id: ecological-risk
+  detail_url: /eco-risk-portfolio/portfolio.html
+  zh:
+    title: 基于深度表示学习的重大工程生态风险主题建模研究
+    meta: 2025 年 6 月 — 2026 年 5 月 · 核心成员 · 国家级创新项目 · 已被《广州大学学报》接收
+    background: 重大工程建设中的生态风险信息分散、识别标准不统一，分类管控缺少系统依据。项目采用深度表示学习，从文献中发现风险知识并构建辅助决策框架。
+    contributions:
+    - label: 深度语义表示与主题建模
+      text: 应用 BGE-M3 将生态风险文献转化为语义向量，经 UMAP 降维与 KMeans 聚类后，结合 BERTopic 提取主题关键词，把分散的非结构化文本整理为可解释的风险主题。
+    - label: 模型验证与人工复核
+      text: 通过 LDA 对比、HDBSCAN 敏感性分析与人工复核交叉检查主题划分，结合代表性文献核对风险语义，形成 8 类风险主题，减少只依赖自动聚类标签带来的解释偏差。
+    - label: 证据链构建与决策支持
+      text: 将风险主题、工程扰动、生态受体与治理策略关联，构建 24 条可追溯证据链，将主题发现进一步组织为风险识别、溯源与响应框架，为分类管控提供依据。
+    outcome: 识别 **8 类风险主题**，构建 **24 条证据链**；论文已被**《广州大学学报》接收**。
+  en:
+    title: Deep Representation Learning for Ecological Risk Topic Modeling
+    meta: Jun. 2025 – May 2026 · Core researcher · National innovation project · Accepted by Journal of Guangzhou
+      University
+    background: Ecological-risk information in major projects is fragmented, with inconsistent identification criteria
+      and limited evidence for classification. The project uses deep representations to discover risk knowledge
+      from literature.
+    contributions:
+    - label: Semantic representations and topic modeling
+      text: Encoded ecological-risk literature with BGE-M3, reduced dimensions with UMAP, clustered with KMeans,
+        and extracted topic keywords with BERTopic to turn fragmented text into interpretable risk themes.
+    - label: Model validation
+      text: Cross-checked topic assignments with LDA, HDBSCAN sensitivity analysis, and manual review of representative
+        documents, identifying eight risk themes with evidence-supported interpretations.
+    - label: Evidence tracing and decision support
+      text: Connected risk themes, engineering disturbances, ecological receptors, and governance strategies in
+        24 traceable evidence chains, organizing the findings into an identification, tracing, and response framework.
+    outcome: Identified **8 risk themes** and built **24 evidence chains**. The paper has been **accepted by Journal
+      of Guangzhou University**.
+  image:
+    src: /images/projects/ecological-risk-workflow.png
+    type: diagram
+    zh: 生态风险知识发现与辅助决策技术路线
+    en: Technical roadmap for ecological-risk knowledge discovery and decision support
+  showcase_url: /eco-risk-portfolio/portfolio.html
+- id: construction-safety
+  detail_url: /construction-safety-rag/index.html
+  zh:
+    title: 基于 RAG 与大语言模型的施工安全风险分析系统
+    meta: 2025 年 6 月 — 2026 年 3 月 · 平台开发 · 校级创新项目
+    background: 传统工程运维存在风险识别滞后、资源调度僵化和知识复用效率低等问题。作为校级创新项目的核心成员，负责智能运维平台开发，探索大模型与工程安全知识的结合。
+    contributions:
+    - label: 知识库与向量检索
+      text: 基于 53,550 条事故记录组织施工安全知识库，采用嵌入模型与 FAISS 构建向量索引，将施工任务与相关历史案例关联，支持风险分析时的案例召回与知识复用。
+    - label: RAG 与大模型推理
+      text: 设计混合检索与大模型推理流程，将召回案例作为分析依据，通过证据约束与输出校验，生成风险等级、隐患描述和防控建议，提升分析结果的可追溯性。
+    - label: 平台开发与业务集成
+      text: 负责智能运维平台开发，串联施工任务输入、环境风险监测、事前风险预判和结构化报告，支持历史案例查询，为成本、工期与安全协同优化提供分析入口。
+    outcome: 完成智能运维平台开发，项目已结项；**风险识别准确率提升 15%**，**资源调度成本效益比提升 20%**。
+  en:
+    title: Construction Safety Risk Analysis with RAG and LLMs
+    meta: Jun. 2025 – Mar. 2026 · Platform development · University innovation project
+    background: Conventional project operations face delayed risk identification, rigid resource allocation, and
+      limited knowledge reuse. As a core member of a university innovation project, I developed the intelligent
+      operations platform.
+    contributions:
+    - label: Knowledge bases and vector retrieval
+      text: Organized 53,550 accident records into a construction-safety knowledge base, using embedding models
+        and FAISS indexes to retrieve relevant historical cases for a given task.
+    - label: RAG and LLM reasoning
+      text: Combined hybrid retrieval with LLM reasoning, evidence constraints, and output validation to generate
+        traceable risk levels, hazard descriptions, and preventive recommendations.
+    - label: Platform development
+      text: Developed the operations platform, connecting task inputs, environmental monitoring, proactive assessment,
+        structured reports, and historical-case queries to support cost, schedule, and safety decisions.
+    outcome: Delivered the platform and completed the project. Results reported in the CV include **15% higher risk-identification
+      accuracy** and a **20% improvement in the cost-benefit ratio of resource allocation**.
+  source: https://github.com/jensenzhong/Construction-Safety-Risk-Analysis-System-Based-on-RAG-LLM
+  image:
+    src: /images/construction-safety-dashboard.jpg
+    original: /images/construction-safety-1.png
+    type: screenshot
+    zh: 环境风险监测与施工任务输入
+    en: Environmental risk monitoring and task inputs
+  showcase_url: /construction-safety-rag/index.html
+- id: fire-warning
+  detail_url: /intrinsic-fire-protection/index.html
+  zh:
+    title: 基于本质安全理念的建筑施工火灾智能预警方案
+    meta: 2026 年 4 月 — 6 月 · 智能建造 · 施工防火
+    background: 面向施工现场动火作业、可燃材料和人员流动交织的风险，将本质安全理念转化为风险前移的施工防火管控方案。
+    contributions:
+    - label: 安全管理流程设计
+      text: 围绕风险隔离、过程控制和感知预警设计三层防线，将动火审批、安全检查、作业许可与现场监控串成流程。
+    - label: AI 辅助原型开发
+      text: 使用 Claude Code 等工具搭建系统 Demo，组织页面交互与风险联动，呈现从现场识别到分级反馈的处理过程。
+    - label: 多媒体与方案表达
+      text: 结合技术路线图、施工场景素材和演示视频，展示视觉识别、多传感器感知与预警方案。
+    outcome: 完成包含**三层管控体系**的可交互 Demo，并配套技术路线图、演示视频与海报；使用模拟数据展示风险联动流程。
+  en:
+    title: Intelligent Construction Fire Warning Based on Inherent Safety
+    meta: Apr. – Jun. 2026 · Smart construction · Fire prevention
+    background: Hot work, combustible materials, and personnel movement create interacting construction-site risks.
+      This proposal translates inherent-safety principles into preventive fire-risk management.
+    contributions:
+    - label: Safety workflow design
+      text: Designed three layers—risk isolation, process control, and sensing and warning—connecting permits, safety
+        checks, and site monitoring.
+    - label: AI-assisted prototyping
+      text: Used tools including Claude Code to build an interactive system demo and organize risk-response flows.
+    - label: Technical and multimedia communication
+      text: Combined a technical roadmap, site visuals, and videos to communicate the vision, sensing, and warning
+        proposal.
+    outcome: Delivered an interactive **three-layer control demo**, a technical roadmap, videos, and a poster. Simulated
+      data illustrate the response workflows.
+  image:
+    src: /intrinsic-fire-protection/images/fire-warning-roadmap.png
+    type: diagram
+    zh: 施工火灾智能预警与三层管控技术路线
+    en: Technical roadmap for intelligent fire warning and three-layer control
+  showcase_url: /intrinsic-fire-protection/demo.html
+- id: smartdorm
+  detail_url: /smartdorm-ai-portfolio/index.html
+  zh:
+    title: SmartDorm.AI · AI 赋能的宿舍运维管理系统
+    meta: 2026 年 4 月 — 6 月 · 设施管理 · 校园运维
+    background: 针对校园宿舍维修响应慢、问题追踪弱和学生参与度低等问题，设计 AI 赋能的宿舍设施运维原型，连接报修、派单与设施维护。
+    contributions:
+    - label: 需求分析与产品设计
+      text: 从学生、管理者与维修人员的使用场景出发，组织系统总览、预测维护、智能调度与众包报修四个模块。
+    - label: 运维流程与调度设计
+      text: 将维修工单、人员位置与材料需求纳入调度流程，展示路径安排、任务合并及维护优先级判断。
+    - label: 前端交互与可视化
+      text: 开发可操作的系统 Demo，通过楼栋健康热力、风险提示和报修界面展示运维状态与业务流程。
+    outcome: 完成涵盖**四个功能模块**的可交互系统原型，展示从学生报修到管理调度的完整流程。
+  en:
+    title: SmartDorm.AI · AI-Assisted Dormitory Operations
+    meta: Apr. – Jun. 2026 · Facilities management · Campus operations
+    background: Slow maintenance responses, weak issue tracking, and low student participation motivate an AI-assisted
+      dormitory operations prototype linking reports, dispatch, and maintenance.
+    contributions:
+    - label: Requirements and product design
+      text: 'Organized four modules around students, managers, and maintenance staff: dashboard, predictive maintenance,
+        dispatch, and crowdsourced reporting.'
+    - label: Operations and dispatch workflows
+      text: Incorporated work orders, staff locations, and materials into workflows for route planning, task grouping,
+        and maintenance prioritization.
+    - label: Interactive front-end development
+      text: Built a navigable demo with building-health maps, risk indicators, and reporting interfaces.
+    outcome: Delivered an interactive prototype with **four functional modules**, demonstrating the workflow from
+      student reporting to management dispatch.
+  image:
+    src: /images/projects/smartdorm.webp
+    type: screenshot
+    zh: 宿舍运维系统总览
+    en: Dormitory operations dashboard
+  showcase_url: /smartdorm-ai-portfolio/demo.html
+- id: literature-analysis
+  detail_url: /literature-fire-portfolio/index.html
+  zh:
+    title: 智能建造与建筑消防文献交互分析
+    meta: 2026 年 4 月 — 6 月 · 智能建造课程作品
+    background: 围绕智能建造技术在建筑消防中的应用，将分散的文献关系、应用场景与技术演化整理为便于探索的交互式研究展示。
+    contributions:
+    - label: 文献梳理与知识组织
+      text: 围绕 CNKI 文献互引、应用场景聚类及技术演化，整理研究之间的关联与变化脉络。
+    - label: 交互图谱与数据可视化
+      text: 将文献关系转化为网络图与演化图，支持从图形界面探索研究主题和场景联系。
+    - label: 研究成果网页化
+      text: 整合图谱预览、独立交互页面与汇报材料，形成可浏览、可操作的成果展示。
+    outcome: 完成**4 组交互图谱**，覆盖文献互引、应用场景聚类、应用场景演化与国内技术演化。
+  en:
+    title: Interactive Literature Analysis for Smart Construction and Fire Safety
+    meta: Apr. – Jun. 2026 · Smart-construction coursework
+    background: The project organizes literature relationships, application scenarios, and technology evolution
+      in smart construction and building fire safety into an explorable research presentation.
+    contributions:
+    - label: Literature synthesis
+      text: Organized CNKI citation relationships, application clusters, and technology evolution to reveal connections
+        across studies.
+    - label: Interactive data visualization
+      text: Presented literature relationships as network and evolution diagrams for visual exploration.
+    - label: Web-based research communication
+      text: Integrated diagram previews, interactive pages, and presentation materials into a browsable project
+        site.
+    outcome: Delivered **four interactive visualizations** covering citation networks, application clusters, application
+      evolution, and domestic technology evolution.
+  image:
+    src: /images/projects/literature-analysis.webp
+    type: screenshot
+    zh: 文献互引、应用场景与技术演化图谱
+    en: Citation networks, application clusters, and technology evolution
+  showcase_url: /literature-fire-portfolio/index.html
+- id: xiaohong
+  detail_url: /xiaohong-ai/xiaohong-ai.html
+  zh:
+    title: 党建个性化学习与团队活力评估微信小程序
+    meta: 2025 年 10 月获奖 · 第一负责人
+    background: 面向高校党建学习内容推荐与团队活力评估需求，开发微信小程序，将数字画像、个性化学习与组织评估整合到日常使用场景。
+    contributions:
+    - label: 需求调研与产品原型
+      text: 作为第一负责人，统筹需求调研、功能规划与软件原型设计，组织学习推荐与活力评估的用户流程。
+    - label: 智能体工作流与提示词工程
+      text: 使用 Coze 搭建 5 条智能体工作流，设计 40+ 结构化提示词，支持个性化推荐、对话学习与评估流程自动化。
+    - label: 全链路开发与上线
+      text: 打通前后端和智能体工作流，将功能集成到微信小程序并完成上线。
+    outcome: 小程序已上线，获**全国大学生数字媒体科技作品及创意竞赛国家级二等奖**，担任**第一负责人**。
+  en:
+    title: Personalized Learning and Team Vitality Assessment Mini Program
+    meta: Awarded Oct. 2025 · Team lead
+    background: Built a WeChat Mini Program for personalized learning and team-vitality assessment, connecting user
+      profiles, recommendations, and organizational evaluation.
+    contributions:
+    - label: Requirements and prototyping
+      text: Led requirements research, feature planning, and software prototyping for learning recommendations and
+        vitality assessment.
+    - label: Agent workflows and prompt engineering
+      text: Built five Coze agent workflows and over 40 structured prompts for recommendations, conversational learning,
+        and automated assessments.
+    - label: End-to-end development
+      text: Connected the front end, back end, and agent workflows and deployed the WeChat Mini Program.
+    outcome: Launched the Mini Program and won a **National Second Prize in the College Student Digital Media Technology
+      Competition** as **team lead**.
+  demo: https://www.bilibili.com/video/BV11XeFz2EXW/
+  image:
+    src: /images/projects/xiaohong-overview.jpg
+    type: screenshot
+    zh: 个性化学习、智能对话与团队活力评估界面
+    en: Personalized learning, AI conversations, and team-vitality assessment
+  showcase_url: /xiaohong-ai/xiaohong-ai.html

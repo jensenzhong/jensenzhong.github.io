@@ -1,0 +1,20 @@
+---
+layout: single
+title: "多智能体协同增强的联邦学习工程造价预测"
+lang: zh-CN
+author_profile: true
+---
+<p><a href="/#project-federated-learning">← 返回精选项目</a></p>
+<p>2025 年 9 月 — 2026 年 8 月 · 第一作者</p>
+<h2>研究问题</h2>
+<p>公路工程造价数据分散在不同区域，原始数据的隐私约束限制了集中建模。本项目基于佛罗里达州公路项目数据构建三个客户端的横向联邦学习场景，研究如何在不共享原始数据的前提下，利用多智能体协作支持跨区域造价预测。</p>
+<h2>方法与工作流</h2>
+<p>将数据处理、本地训练、客户端性能报告与聚合决策串联起来。各客户端独立训练模型并报告训练状态，多智能体根据这些状态动态调整聚合权重，再将聚合后的模型送回客户端进入下一轮训练。</p>
+<ol><li><strong>本地训练：</strong>客户端保留区域数据，完成模型训练与性能评估。</li><li><strong>状态汇总：</strong>将损失、预测误差等指标整理为可供智能体分析的报告。</li><li><strong>协同决策：</strong>根据客户端状态调整聚合权重，完成全局模型更新。</li></ol>
+<figure><img src="images/01-methodology-framework.png" alt="数据处理、联邦训练与多智能体协同框架"><figcaption>研究方法与整体流程</figcaption></figure>
+<figure><img src="images/03-mas-fl-arch.png" alt="多智能体协同与联邦通信架构"><figcaption>多智能体决策与联邦学习通信流程</figcaption></figure>
+<h2>研究结果</h2>
+<p>相较 FedAvg，<strong>MAPE 降低 6.81%</strong>。</p>
+<h2>项目展示</h2>
+<p><a href="presentation.html">浏览早期交互演示 →</a></p>
+<p>演示保留了研究背景、聚合机制、通信流程及早期实验图表。其中实验数值属于历史版本；当前结果以本页及简历中的 6.81% 为准。</p>

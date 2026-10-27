@@ -1,0 +1,77 @@
+/* Personal assets within the reference site's academic layout. */
+.masthead__logo-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.masthead__logo-link .masthead__logo {
+  width: 9rem;
+  flex: 0 0 auto;
+}
+
+.page__content h1 ruby {
+  ruby-position: over;
+  white-space: nowrap;
+}
+
+.page__content h1 rt {
+  font-size: 0.5em;
+  font-family: $sans-serif;
+}
+
+.project-media--screenshot img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 400px) {
+  .masthead__logo-link .masthead__logo { width: 8rem; }
+}
+
+.project-media-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-media--diagram img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
+}
+
+.project-media--portrait img {
+  height: 22rem;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* One complete overview image, followed by the resume-style project details. */
+.project-media--hero img {
+  width: 100%;
+  height: auto;
+  max-height: 34rem;
+  object-fit: contain;
+  background: #fff;
+}
+
+.page__content .project-card__title {
+  font-size: 1.2rem;
+}
+
+.project-details__content {
+  line-height: 1.85;
+
+  .project-contributions {
+    padding-left: 1.4em;
+    margin: 1.1rem 0;
+  }
+
+  .project-contributions li + li {
+    margin-top: 1rem;
+  }
+
+  .project-card__metrics p {
+    margin: 0;
+  }
+}

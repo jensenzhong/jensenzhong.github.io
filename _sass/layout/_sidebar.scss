@@ -1,0 +1,259 @@
+/* Author profile, contacts, and the WeChat dialog. */
+.sidebar {
+  min-width: 0;
+  margin: 0;
+
+  @include breakpoint($large) {
+    position: sticky;
+    top: calc(var(--masthead-height) + 1.5rem);
+    max-height: calc(100vh - var(--masthead-height) - 3rem);
+    max-height: calc(100dvh - var(--masthead-height) - 3rem);
+    padding-right: 0.3rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  h2, h3 {
+    font-family: $sans-serif;
+  }
+
+  p, li {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}
+
+.author-profile {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0.55rem 1rem;
+  align-items: start;
+
+  @include breakpoint($large) {
+    display: block;
+  }
+}
+
+.author__avatar {
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    object-position: center 30%;
+    border: 1px solid var(--global-border-color);
+    border-radius: 50%;
+
+    @include breakpoint($large) {
+      width: 156px;
+      height: 156px;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.author__content {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.author__name {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar .author__name {
+  font-family: $sans-serif;
+  font-size: $type-size-5;
+}
+
+.author__bio,
+.author__pronouns {
+  margin: 0;
+  color: var(--global-text-color-light);
+}
+
+.author__urls-wrapper {
+  grid-column: 2;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+
+  @include breakpoint($large) {
+    width: 100%;
+    margin-top: 1.1rem;
+  }
+}
+
+.author__contact-toggle {
+  min-height: 44px;
+  padding: 0.5rem 0.85rem;
+  color: var(--global-text-color);
+  font-size: 0.8rem;
+  background: var(--global-surface-color);
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--global-surface-muted-color);
+    border-color: var(--global-dark-border-color);
+  }
+}
+
+.author__urls {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0.35rem 0;
+    color: var(--global-text-color);
+    line-height: 1.5;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-link-color-hover);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+  }
+
+  .icon-pad-right {
+    flex-shrink: 0;
+    width: 1.25em;
+    margin-right: 0.65em;
+    padding-right: 0;
+    color: inherit;
+    text-align: center;
+  }
+}
+
+.author__desktop {
+  display: none;
+
+  @include breakpoint($large) {
+    display: flex;
+    align-items: center;
+    min-height: 34px;
+  }
+}
+
+@include breakpoint(max-width ($large - 1px)) {
+  .author__urls-wrapper[data-enhanced="true"] .author__urls {
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    z-index: 25;
+    width: 13rem;
+    max-width: calc(100vw - 6.5rem);
+    padding: 0.5rem 0.8rem;
+    background: var(--global-surface-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: $border-radius;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+
+    a { min-height: 44px; }
+  }
+}
+
+.author__github-activity {
+  display: none;
+
+  @include breakpoint($large) {
+    display: block;
+    margin-top: 1.25rem;
+  }
+}
+
+.sidebar .github-activity--compact {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+
+  .github-activity__title {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .github-activity__chart {
+    margin: 0.55rem 0 0;
+    padding: 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0.3rem;
+      background: #fff;
+      border-radius: $border-radius;
+    }
+  }
+
+  .github-activity__updated {
+    margin: 0.4rem 0 0;
+    color: var(--global-text-color-light);
+    font-size: 0.67rem;
+    line-height: 1.5;
+  }
+}
+
+.wechat-modal {
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 1.25rem;
+  overflow: auto;
+  color: var(--global-text-color);
+  background: var(--global-surface-color);
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+
+  &[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wechat-modal__image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 5rem);
+    max-height: calc(100dvh - 5rem);
+    object-fit: contain;
+    background: #fff;
+    border-radius: $border-radius;
+  }
+}
+
+.wechat-modal__close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+}

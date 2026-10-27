@@ -1,0 +1,59 @@
+/* ==========================================================================
+   DEFAULT THEME
+   ========================================================================== */
+
+/* Color codes used for the theme */
+$gray                       : #64748b;
+$dark-gray                  : mix(#000, $gray, 40%);
+$darker-gray                : mix(#000, $gray, 60%);
+$light-gray                 : #617080;
+$lighter-gray               : mix(#fff, $gray, 90%);
+
+/* Color codes used for the site */
+$danger-color               : #ee5f5b;
+$info-color                 : #2f7f93;
+$notice-color               : #7a8288;
+$success-color              : #62c462;
+$warning-color              : #f89406;
+
+/* Other basic settings for the template */
+$border-radius              : 0;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Default light theme for the site */
+:root {
+    color-scheme: light;
+    --masthead-height                   : #{$masthead-height};
+    --global-base-color                 : #{$gray};
+    --global-bg-color                   : #fafbfc;
+    --global-surface-color              : #fff;
+    --global-surface-muted-color        : #f0f4f8;
+    --global-footer-bg-color            : #f0f4f8;
+    --global-border-color               : #d8e0e8;
+    --global-dark-border-color          : #94a3b8;
+    --global-code-background-color      : #f0f4f8;
+    --global-code-text-color            : #334155;
+    --global-fig-caption-color          : #{$light-gray};
+    --global-link-color                 : #126e8c;
+    --global-link-color-hover           : #0d5068;
+    --global-link-color-visited         : #665096;
+    --global-focus-color                : #126e8c;
+    --global-masthead-link-color        : #364152;
+    --global-masthead-link-color-hover  : #126e8c;
+    --global-text-color                 : #27313e;
+    --global-text-color-light           : #{$light-gray};
+    --global-thead-color                : #f0f4f8;
+    --syntax-comment                   : #617080;
+    --syntax-keyword                   : #526b19;
+    --syntax-constant                  : #9a4714;
+    --syntax-error                     : #b42333;
+    --syntax-function                  : #1a6c9f;
+    --syntax-string                    : #16756e;
+    --syntax-builtin                   : #795500;
+}

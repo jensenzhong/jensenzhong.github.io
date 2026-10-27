@@ -1,0 +1,15 @@
+{% assign preview_zh = false %}
+{% if page.lang == 'zh-CN' %}{% assign preview_zh = true %}{% endif %}
+<dialog id="media-preview" class="media-preview" aria-labelledby="media-preview-title" data-preview-label="{% if preview_zh %}预览图片{% else %}Preview image{% endif %}">
+  <div class="media-preview__header">
+    <h2 id="media-preview-title">{% if preview_zh %}图片预览{% else %}Image preview{% endif %}</h2>
+    <div class="media-preview__actions">
+      <button class="media-preview__zoom" type="button" aria-pressed="false" data-fit-label="{% if preview_zh %}适应窗口{% else %}Fit to window{% endif %}" data-zoom-label="{% if preview_zh %}原始尺寸{% else %}Original size{% endif %}">{% if preview_zh %}原始尺寸{% else %}Original size{% endif %}</button>
+      <a class="media-preview__original" target="_blank" rel="noopener">{% if preview_zh %}打开原图{% else %}Open original{% endif %}</a>
+      <button class="dialog-close" type="button" data-dialog-close aria-label="{% if preview_zh %}关闭图片预览{% else %}Close image preview{% endif %}" autofocus>×</button>
+    </div>
+  </div>
+  <div class="media-preview__viewport" tabindex="0" role="region" aria-label="{% if preview_zh %}图片预览，可在原始尺寸下滚动{% else %}Image preview; scroll at original size{% endif %}">
+    <img class="media-preview__image" alt="">
+  </div>
+</dialog>

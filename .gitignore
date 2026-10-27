@@ -1,87 +1,19 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Ignore the contents of the _site directory and other cache directories
+_site/
+.sass-cache/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Ignore the directory for local files during development
+local/
 
-# testing
-/coverage
-/.playwright-cli/
-/.playwright-mcp/
+# Ignore the Gemfile that is generated
+Gemfile.lock
 
-# next.js
-/.next/
-/out/
-/output/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# IDE
-.vscode/
-.idea/
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-.vercel
-.env*.local
-
-# logs
-*.log
-dev.out.log
-dev.err.log
-
-# screenshots
-*.png
-!public/**/*.png
-
-# large video files (use external hosting)
-*.mp4
-!public/intrinsic-fire-protection/*.mp4
-
-# spec workflow
+# Ingore files created by npm
+node_modules
+package-lock.json
+# Local editor, assistant, and browser artifacts
+.playwright-mcp/
 .spec-workflow/
-.worktrees/
-
-# local demo workspaces
-/lanyard-react-demo/
-/lanyard-react-demo-archive-*/
-/welkin-badge-demo/
-/lanyard-react-demo/**/node_modules/
-/lanyard-react-demo/**/dist/
-/lanyard-react-demo-archive-*/**/node_modules/
-/lanyard-react-demo-archive-*/**/dist/
-/lanyard-react-demo/**/*.log
-/lanyard-react-demo-archive-*/*.log
-/lanyard-react-demo/**/*.png
-/lanyard-react-demo-archive-*/*.png
-/welkin-badge-demo/**/*.log
-/welkin-badge-demo/**/*.png
-/welkin-badge-demo/assets/
-
-# windows artifacts
-nul
+.vscode/
+.codex
+.bundle/

@@ -1,0 +1,9 @@
+<section class="github-activity github-activity--compact" aria-labelledby="github-activity-title">
+  <header class="github-activity__header">
+    <h2 class="github-activity__title" id="github-activity-title"><a href="https://github.com/{{ site.author.github }}">{% if page.lang == 'zh-CN' %}GitHub 动态{% else %}GitHub Activity{% endif %}</a></h2>
+  </header>
+  <div class="github-activity__chart">
+    <a href="https://github.com/{{ site.author.github }}"><img src="{{ '/images/github-contributions.svg' | relative_url }}" alt="jensenzhong GitHub contributions, March–October 2026" width="447" height="104"></a>
+  </div>
+  <p class="github-activity__updated">{% if page.lang == 'zh-CN' %}更新于{% else %}Updated{% endif %} <time datetime="2026-10-26">2026-10-26</time></p>
+</section>

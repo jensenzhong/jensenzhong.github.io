@@ -1,0 +1,43 @@
+{% assign language = 'en' %}
+{% if page.lang == 'zh-CN' %}{% assign language = 'zh' %}{% endif %}
+<div class="project-list">
+  {% for project in site.data.projects %}
+    {% assign text = project[language] %}
+    {% assign picture = project.image %}
+    <article class="project-card" id="project-{{ project.id }}">
+      <header class="project-card__header">
+        <h3 class="project-card__title">{{ text.title }}</h3>
+        <p class="project-card__meta">{{ text.meta }}</p>
+      </header>
+      <figure class="project-media project-media--hero">
+        <a href="{{ picture.original | default: picture.src | relative_url }}" target="_blank" rel="noopener">
+          <img src="{{ picture.src | relative_url }}" alt="{{ picture[language] | escape }}" loading="lazy" decoding="async">
+        </a>
+        <figcaption>{{ picture[language] }}</figcaption>
+      </figure>
+      <p class="project-card__source"><a href="{{ project.showcase_url | default: project.detail_url | relative_url }}">{% if language == 'zh' %}查看完整项目主页{% else %}View full project showcase (Chinese){% endif %}</a></p>
+      <details class="project-details">
+        <summary>{% if language == 'zh' %}展开项目详情{% else %}Explore project details{% endif %}</summary>
+        <div class="project-details__content">
+          <p><strong>{% if language == 'zh' %}项目背景：{% else %}Background: {% endif %}</strong>{{ text.background }}</p>
+          <ul class="project-contributions">
+            {% for contribution in text.contributions %}
+              <li><strong>{{ contribution.label }}{% if language == 'zh' %}：{% else %}: {% endif %}</strong>{{ contribution.text }}</li>
+            {% endfor %}
+          </ul>
+          <div class="project-card__metrics">
+            {% capture result %}**{% if language == 'zh' %}核心成果：{% else %}Outcomes: {% endif %}**{{ text.outcome }}{% endcapture %}
+            {{ result | markdownify }}
+          </div>
+          {% if project.source or project.demo %}
+            <p class="project-card__resources">
+              {% if project.source %}<a href="{{ project.source }}">{% if language == 'zh' %}查看项目代码{% else %}Project source code{% endif %}</a>{% endif %}
+              {% if project.source and project.demo %} · {% endif %}
+              {% if project.demo %}<a href="{{ project.demo }}">{% if language == 'zh' %}查看演示视频{% else %}Watch the demo{% endif %}</a>{% endif %}
+            </p>
+          {% endif %}
+        </div>
+      </details>
+    </article>
+  {% endfor %}
+</div>
