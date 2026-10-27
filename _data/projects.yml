@@ -116,6 +116,43 @@
     zh: 环境风险监测与施工任务输入
     en: Environmental risk monitoring and task inputs
   showcase_url: /construction-safety-rag/index.html
+- id: xiaohong
+  detail_url: /xiaohong-ai/xiaohong-ai.html
+  zh:
+    title: 党建个性化学习与团队活力评估微信小程序
+    meta: 2025 年 10 月获奖 · 第一负责人
+    background: 面向高校党建学习内容推荐与团队活力评估需求，开发微信小程序，将数字画像、个性化学习与组织评估整合到日常使用场景。
+    contributions:
+    - label: 需求调研与产品原型
+      text: 作为第一负责人，统筹需求调研、功能规划与软件原型设计，组织学习推荐与活力评估的用户流程。
+    - label: 智能体工作流与提示词工程
+      text: 使用 Coze 搭建 5 条智能体工作流，设计 40+ 结构化提示词，支持个性化推荐、对话学习与评估流程自动化。
+    - label: 全链路开发与上线
+      text: 打通前后端和智能体工作流，将功能集成到微信小程序并完成上线。
+    outcome: 小程序已上线，获**全国大学生数字媒体科技作品及创意竞赛国家级二等奖**，担任**第一负责人**。
+  en:
+    title: Personalized Learning and Team Vitality Assessment Mini Program
+    meta: Awarded Oct. 2025 · Team lead
+    background: Built a WeChat Mini Program for personalized learning and team-vitality assessment, connecting user
+      profiles, recommendations, and organizational evaluation.
+    contributions:
+    - label: Requirements and prototyping
+      text: Led requirements research, feature planning, and software prototyping for learning recommendations and
+        vitality assessment.
+    - label: Agent workflows and prompt engineering
+      text: Built five Coze agent workflows and over 40 structured prompts for recommendations, conversational learning,
+        and automated assessments.
+    - label: End-to-end development
+      text: Connected the front end, back end, and agent workflows and deployed the WeChat Mini Program.
+    outcome: Launched the Mini Program and won a **National Second Prize in the College Student Digital Media Technology
+      Competition** as **team lead**.
+  demo: https://www.bilibili.com/video/BV11XeFz2EXW/
+  image:
+    src: /images/projects/xiaohong-overview.jpg
+    type: screenshot
+    zh: 个性化学习、智能对话与团队活力评估界面
+    en: Personalized learning, AI conversations, and team-vitality assessment
+  showcase_url: /xiaohong-ai/xiaohong-ai.html
 - id: fire-warning
   detail_url: /intrinsic-fire-protection/index.html
   zh:
@@ -224,40 +261,3 @@
     zh: 文献互引、应用场景与技术演化图谱
     en: Citation networks, application clusters, and technology evolution
   showcase_url: /literature-fire-portfolio/index.html
-- id: xiaohong
-  detail_url: /xiaohong-ai/xiaohong-ai.html
-  zh:
-    title: 党建个性化学习与团队活力评估微信小程序
-    meta: 2025 年 10 月获奖 · 第一负责人
-    background: 面向高校党建学习内容推荐与团队活力评估需求，开发微信小程序，将数字画像、个性化学习与组织评估整合到日常使用场景。
-    contributions:
-    - label: 需求调研与产品原型
-      text: 作为第一负责人，统筹需求调研、功能规划与软件原型设计，组织学习推荐与活力评估的用户流程。
-    - label: 智能体工作流与提示词工程
-      text: 使用 Coze 搭建 5 条智能体工作流，设计 40+ 结构化提示词，支持个性化推荐、对话学习与评估流程自动化。
-    - label: 全链路开发与上线
-      text: 打通前后端和智能体工作流，将功能集成到微信小程序并完成上线。
-    outcome: 小程序已上线，获**全国大学生数字媒体科技作品及创意竞赛国家级二等奖**，担任**第一负责人**。
-  en:
-    title: Personalized Learning and Team Vitality Assessment Mini Program
-    meta: Awarded Oct. 2025 · Team lead
-    background: Built a WeChat Mini Program for personalized learning and team-vitality assessment, connecting user
-      profiles, recommendations, and organizational evaluation.
-    contributions:
-    - label: Requirements and prototyping
-      text: Led requirements research, feature planning, and software prototyping for learning recommendations and
-        vitality assessment.
-    - label: Agent workflows and prompt engineering
-      text: Built five Coze agent workflows and over 40 structured prompts for recommendations, conversational learning,
-        and automated assessments.
-    - label: End-to-end development
-      text: Connected the front end, back end, and agent workflows and deployed the WeChat Mini Program.
-    outcome: Launched the Mini Program and won a **National Second Prize in the College Student Digital Media Technology
-      Competition** as **team lead**.
-  demo: https://www.bilibili.com/video/BV11XeFz2EXW/
-  image:
-    src: /images/projects/xiaohong-overview.jpg
-    type: screenshot
-    zh: 个性化学习、智能对话与团队活力评估界面
-    en: Personalized learning, AI conversations, and team-vitality assessment
-  showcase_url: /xiaohong-ai/xiaohong-ai.html
