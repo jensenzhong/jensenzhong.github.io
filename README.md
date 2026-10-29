@@ -34,3 +34,9 @@ The workflow publishes `_site`; local tools, screenshots, caches, and editor fil
 
 The site uses the AcademicPages / Minimal Mistakes Jekyll theme.
 The bundled theme license is retained in `LICENSE`; third-party libraries retain their notices.
+
+## GitHub activity updates
+
+The Pages workflow refreshes the contribution chart on every deployment and daily at 00:23 UTC (08:23 China Standard Time). `scripts/update-github-activity.py` reads the public GitHub calendar and generates the last 32 weeks plus a real refresh timestamp. No personal access token or automated repository commits are needed. Failed fetches or invalid calendars stop deployment, keeping the last published site intact.
+
+Run `python scripts/update-github-activity.py` before a local build to refresh the preview. To trigger a refresh manually, run the Pages workflow from Actions. GitHub can delay scheduled runs and disables scheduled workflows in public repositories after 60 days without repository activity; re-enable the workflow in Actions if that happens.
