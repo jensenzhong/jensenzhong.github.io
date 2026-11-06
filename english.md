@@ -41,6 +41,7 @@ In management science and engineering, I apply AI to data analysis, knowledge di
   Admitted through postgraduate recommendation.
 
 - **[Guangzhou University](https://english.gzhu.edu.cn/)**, Guangzhou, China  
+  Sept. 2023 - Jul. 2027  
   **Undergraduate Studies in Engineering Management**  
   School of Management  
   **GPA: 3.90/4.00; Rank: 1/101 (first five semesters)**  
@@ -48,11 +49,12 @@ In management science and engineering, I apply AI to data analysis, knowledge di
   Selected coursework: Operations Research, Management, Python Programming, Database Fundamentals, Probability and Mathematical Statistics, and BIM Technology.
 
 - **[The University of Hong Kong](https://www.hku.hk/)**, Hong Kong, China  
+  Jul. 2026 - Aug. 2026  
   **Visiting Program in AI and Robotics**  
   Studied computer vision, SLAM-based autonomous navigation, and large models for humanoid robots; visited SenseTime and other technology companies.
 
 - **[Huayan Robotics](https://www.huayan-robotics.com/)**, Shenzhen, China  
-  Nov. 2, 2026 - Present  
+  Nov. 2026 - Present  
   **Supply Chain Management Intern**  
   Support supply chain transformation and process improvement. Designed and deployed an internal talent-discovery survey using **WorkBuddy** to support employee capability assessment and talent identification. Develop **AI training courses for executives**, covering practical tools and workflows in business contexts to help leaders use AI effectively.
 
