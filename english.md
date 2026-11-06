@@ -51,6 +51,11 @@ In management science and engineering, I apply AI to data analysis, knowledge di
   **Visiting Program in AI and Robotics**  
   Studied computer vision, SLAM-based autonomous navigation, and large models for humanoid robots; visited SenseTime and other technology companies.
 
+- **Huayan Robotics**, Shenzhen, China  
+  Nov. 2, 2026 - Present  
+  **Supply Chain Management Intern**  
+  Support supply chain transformation and process improvement. Designed and deployed an internal talent-discovery survey using **WorkBuddy** to support employee capability assessment and talent identification. Develop **AI training courses for executives**, covering practical tools and workflows in business contexts to help leaders use AI effectively.
+
 - **Tongwang Technology Co., Ltd.**, China  
   Jul. 2026 - Sept. 2026  
   **Product Assistant Intern**  
